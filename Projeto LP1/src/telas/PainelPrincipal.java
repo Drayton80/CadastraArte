@@ -1,5 +1,4 @@
 package telas;
-//Teste
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,8 +32,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        eventoPesquisa = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,9 +58,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPane1)
         );
 
-        jMenu1.setText("Cadastrar");
+        jMenu1.setText("File");
+        jMenu1.setToolTipText("");
 
-        jMenuItem1.setText("Cadastrar obra de arte");
+        jMenuItem1.setText("Cadastrar Obra de Arte");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -70,24 +69,15 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("Pesquisar Obra de Arte");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Pesquisar");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
-
-        eventoPesquisa.setText("Pesquisar obra de arte");
-        eventoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoPesquisaActionPerformed(evt);
-            }
-        });
-        jMenu2.add(eventoPesquisa);
-
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -105,27 +95,28 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void eventoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoPesquisaActionPerformed
-        
-        
-        PainelDePesquisa PainelP = new PainelDePesquisa();
-        jDesktopPane1.add(PainelP);
-        PainelP.setVisible(true);
-    }//GEN-LAST:event_eventoPesquisaActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        /** Botão de Cadastrar Obras de Arte
+         * Abre uma janela que serve para registrar uma obra de arte no acervo
+         * pertencente ao museu.
+         */
         
         PainelDeCadastro1 PainelC = new PainelDeCadastro1();
         jDesktopPane1.add(PainelC);
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        /** Botão de Pesquisar Obras de Arte
+         * Abre uma janela que serve para buscar uma obra de arte no acervo
+         * daquelas que já foram cadastradas.
+         */
+        
+        PainelDePesquisa PainelP = new PainelDePesquisa();
+        jDesktopPane1.add(PainelP);
+        PainelP.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,12 +154,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem eventoPesquisa;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
