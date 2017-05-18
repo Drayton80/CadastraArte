@@ -115,6 +115,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
         PainelDePesquisa PainelP = new PainelDePesquisa();
         jDesktopPane1.add(PainelP);
         PainelP.setVisible(true);
+        //Alguma coisa
+        int j = 1;
+        
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
