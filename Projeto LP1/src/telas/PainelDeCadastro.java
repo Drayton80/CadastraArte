@@ -1,4 +1,7 @@
 package telas;
+
+import javax.swing.JFileChooser;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -181,9 +184,9 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
                         .addGap(45, 45, 45)
                         .addComponent(jLabel8))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -262,9 +265,11 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        SeletorDeArquivos SelectImg = new SeletorDeArquivos();
-        jPanel2.add(SelectImg); // não é bem isso, tem que ver como é// esse jPanel2 ta MUITO errado
-        SelectImg.setVisible(true);    
+        
+        JFileChooser jfc = new JFileChooser();
+        int selecimg = jfc.showOpenDialog(null);
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
