@@ -27,102 +27,102 @@ public class PainelPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jPanelPrincipal = new javax.swing.JPanel();
+        jTelaPirncipal = new javax.swing.JDesktopPane();
+        jMenuBarra = new javax.swing.JMenuBar();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemCadastrar = new javax.swing.JMenuItem();
+        jMenuItemPesquisar = new javax.swing.JMenuItem();
+        jMenuItemEditar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jTelaPirncipalLayout = new javax.swing.GroupLayout(jTelaPirncipal);
+        jTelaPirncipal.setLayout(jTelaPirncipalLayout);
+        jTelaPirncipalLayout.setHorizontalGroup(
+            jTelaPirncipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 733, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jTelaPirncipalLayout.setVerticalGroup(
+            jTelaPirncipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 547, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
+        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
+        jPanelPrincipalLayout.setHorizontalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTelaPirncipal)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+        jPanelPrincipalLayout.setVerticalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTelaPirncipal)
         );
 
-        jMenu1.setText("Opções");
-        jMenu1.setToolTipText("");
+        jMenuOpcoes.setText("Opções");
+        jMenuOpcoes.setToolTipText("");
 
-        jMenuItem1.setText("Cadastrar Novas Obras");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCadastrar.setText("Cadastrar Novas Obras");
+        jMenuItemCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemCadastrarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuOpcoes.add(jMenuItemCadastrar);
 
-        jMenuItem2.setText("Pesquisar Registros");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPesquisar.setText("Pesquisar Registros");
+        jMenuItemPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemPesquisarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenuOpcoes.add(jMenuItemPesquisar);
 
-        jMenuItem3.setText("Modificar Dados");
-        jMenu1.add(jMenuItem3);
+        jMenuItemEditar.setText("Modificar Dados");
+        jMenuOpcoes.add(jMenuItemEditar);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBarra.add(jMenuOpcoes);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBarra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
         /** Botão de Cadastrar Obras de Arte
          * Abre uma janela que serve para registrar uma obra de arte no acervo
          * pertencente ao museu.
          */
         
         PainelDeCadastro PainelC = new PainelDeCadastro();
-        jDesktopPane1.add(PainelC);
+        jTelaPirncipal.add(PainelC);
         PainelC.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItemPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPesquisarActionPerformed
         /** Botão de Pesquisar Obras de Arte
          * Abre uma janela que serve para buscar uma obra de arte no acervo
          * daquelas que já foram cadastradas.
          */
         
         PainelDePesquisa PainelP = new PainelDePesquisa();
-        jDesktopPane1.add(PainelP);
+        jTelaPirncipal.add(PainelP);
         PainelP.setVisible(true);
         
         
         
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,12 +160,12 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuBar jMenuBarra;
+    private javax.swing.JMenuItem jMenuItemCadastrar;
+    private javax.swing.JMenuItem jMenuItemEditar;
+    private javax.swing.JMenuItem jMenuItemPesquisar;
+    private javax.swing.JMenu jMenuOpcoes;
+    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JDesktopPane jTelaPirncipal;
     // End of variables declaration//GEN-END:variables
 }
