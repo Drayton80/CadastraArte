@@ -4,8 +4,10 @@ package estruturas;
  * Descrição:
  *  Classe de instância dos objetos Obras de Artes
  */
+import java.util.*;
+import java.io.*;
 
-public class Arte extends Artista {
+public class Arte extends Artista implements Serializable {
    //Atributos:
     private String titulo;
     private int ano;

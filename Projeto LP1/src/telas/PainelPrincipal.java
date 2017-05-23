@@ -8,13 +8,26 @@ package telas;
 /**
  *
  * @author aluno
- */
+
+*/
+import estruturas.Arte;
+import estruturas.Persistencia;
+import java.util.*;
+import java.io.*;
+
+
 public class PainelPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form PainelPrincipal
      */
     public PainelPrincipal() {
+        p.setupLer("Arte.ser");
+        if(p.getContinua() == true){
+        p.readRecords();
+        p.cleanupLer();
+        cad = p.getCad();          
+        }
         initComponents();
     }
 
@@ -34,8 +47,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemCadastrar = new javax.swing.JMenuItem();
         jMenuItemPesquisar = new javax.swing.JMenuItem();
         jMenuItemEditar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         javax.swing.GroupLayout jTelaPirncipalLayout = new javax.swing.GroupLayout(jTelaPirncipal);
         jTelaPirncipal.setLayout(jTelaPirncipalLayout);
@@ -81,6 +100,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemEditar.setText("Modificar Dados");
         jMenuOpcoes.add(jMenuItemEditar);
 
+        jMenuItem1.setText("Sair");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItem1);
+
         jMenuBarra.add(jMenuOpcoes);
 
         setJMenuBar(jMenuBarra);
@@ -124,6 +151,22 @@ public class PainelPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       p.setupGravar("Arte.ser");
+        p.addRecords(cad);
+        p.cleanupGravar();
+        System.exit(0);
+        
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        p.setupGravar("Arte.ser");
+        p.addRecords(cad);
+        p.cleanupGravar();
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -161,6 +204,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBarra;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCadastrar;
     private javax.swing.JMenuItem jMenuItemEditar;
     private javax.swing.JMenuItem jMenuItemPesquisar;
@@ -168,4 +212,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JDesktopPane jTelaPirncipal;
     // End of variables declaration//GEN-END:variables
+
+private static LinkedList<Arte> cad = new LinkedList<Arte>();
+private static Persistencia p = new Persistencia();
+
+
 }

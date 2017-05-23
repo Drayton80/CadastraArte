@@ -4,8 +4,10 @@ package estruturas;
  *Descrição:
  * 
  */
+import java.util.*;
+import java.io.*;
 
- public class Artista {
+ public class Artista implements Serializable {
    //Atributos
     protected String nome;
     protected int registro;
