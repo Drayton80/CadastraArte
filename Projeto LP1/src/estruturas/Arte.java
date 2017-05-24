@@ -16,10 +16,11 @@ public class Arte extends Artista implements Serializable {
     private String procedencia;
     private String origem;
     private int tombo;
+    
     private static int tomboAUX = 1;
     
    //Construtor:
-    public Arte(String titulo, String nome, int registro, int ano, String categoria, int periodo, String procedencia, String origem){
+    public Arte(String titulo, String nome, String registro, int ano, String categoria, int periodo, String procedencia, String origem){
         super(nome, registro);
         this.titulo = titulo;
         this.ano = ano;
@@ -28,9 +29,11 @@ public class Arte extends Artista implements Serializable {
         this.procedencia = procedencia;
         this.origem = origem;
         this.tombo = tomboAUX;
+        
         tomboAUX ++;
     }
-    
+
+  
    //Métodos:
     //Leitura e Escrita:
     public String getTitulo() {

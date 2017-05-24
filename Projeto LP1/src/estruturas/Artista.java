@@ -10,10 +10,10 @@ import java.io.*;
  public class Artista implements Serializable {
    //Atributos
     protected String nome;
-    protected int registro;
+    protected String registro;
     
    //Construtor:
-    public Artista(String nome, int registro){
+    public Artista(String nome, String registro){
         this.nome = nome;
         this.registro = registro;
     }
@@ -26,10 +26,10 @@ import java.io.*;
         this.nome = nome;
     }
     
-    public int getRegistro(){
+    public String getRegistro(){
         return registro;
     }
-    public void setRegistro(int registro){
+    public void setRegistro(String registro){
         this.registro = registro;
     }
     

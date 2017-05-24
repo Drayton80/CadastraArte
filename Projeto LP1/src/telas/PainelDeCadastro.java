@@ -3,6 +3,11 @@ package telas;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import estruturas.Arte;
+import estruturas.Persistencia;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +27,35 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     public PainelDeCadastro() {
         initComponents();
     }
-
+    
+    
+    private Arte Retorna_Arte(){    
+        try {
+            return new Arte(String.valueOf(txtTituloObra.getText()), String.valueOf(txtNomeArtista.getText()),
+                    String.valueOf(txtResArtista.getText()), Integer.parseInt(formatTxtAno.getText()),
+                    String.valueOf(cbCategoria.getSelectedItem()), Integer.parseInt(txtTempoAnoProducao.getText()), 
+                    String.valueOf(cbProcedencia.getSelectedItem()), String.valueOf(txtOrigemProcedencia.getText()));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(rootPane, "Valores Ivalidos", "Aviso", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    
+    
+        }
+    
+    private void fecha_Janela() {
+        this.dispose();
+    }
+    
+    private boolean existeNaLista(int tomb) {
+        for (Arte a : p.getCad()) {
+            if (a.getTombo() == tomb) {
+                return true;
+           }
+        }
+        return false;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +66,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPanelCadastro = new javax.swing.JPanel();
         lblTituloPainel = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -60,6 +94,8 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         jBSelectImagem = new javax.swing.JButton();
         jBSalvarCadastro = new javax.swing.JButton();
         jBCancelarCadastro = new javax.swing.JButton();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setClosable(true);
         setIconifiable(true);
@@ -98,12 +134,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         txtResArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResArtistaActionPerformed(evt);
-            }
-        });
-
-        txtNomeArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeArtistaActionPerformed(evt);
             }
         });
 
@@ -240,8 +270,18 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         );
 
         jBSalvarCadastro.setText("Salvar");
+        jBSalvarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalvarCadastroActionPerformed(evt);
+            }
+        });
 
         jBCancelarCadastro.setText("Cancelar");
+        jBCancelarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,9 +340,26 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jBSelectImagemActionPerformed
 
-    private void txtNomeArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeArtistaActionPerformed
+    private void jBCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarCadastroActionPerformed
+        fecha_Janela();
+    }//GEN-LAST:event_jBCancelarCadastroActionPerformed
+
+    private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
+       if (null != Retorna_Arte()) {
+            Arte a = Retorna_Arte();
+            if (!existeNaLista(a.getTombo())) {
+                p.setupGravar("Arte.ser");
+                p.addRecords(cad); // add um produto a lista
+                p.cleanupGravar(); // att o arquivo txt
+                fecha_Janela();
+                JOptionPane.showMessageDialog(rootPane, "Produto cadastrado");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Código de produto ja cadastrado", "Aviso", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Produto não Cadastrado!", "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -315,6 +372,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBSelectImagem;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanelCadastro;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel lblAnoProducao;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblImagem;
@@ -335,4 +393,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtTempoAnoProducao;
     private javax.swing.JTextField txtTituloObra;
     // End of variables declaration//GEN-END:variables
+    private static LinkedList<Arte> cad = new LinkedList<Arte>();
+    private static Persistencia p = new Persistencia();
 }

@@ -41,7 +41,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelPrincipal = new javax.swing.JPanel();
-        jTelaPirncipal = new javax.swing.JDesktopPane();
+        jTelaPrincipal = new javax.swing.JDesktopPane();
         jMenuBarra = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItemCadastrar = new javax.swing.JMenuItem();
@@ -56,14 +56,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jTelaPirncipalLayout = new javax.swing.GroupLayout(jTelaPirncipal);
-        jTelaPirncipal.setLayout(jTelaPirncipalLayout);
-        jTelaPirncipalLayout.setHorizontalGroup(
-            jTelaPirncipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jTelaPrincipalLayout = new javax.swing.GroupLayout(jTelaPrincipal);
+        jTelaPrincipal.setLayout(jTelaPrincipalLayout);
+        jTelaPrincipalLayout.setHorizontalGroup(
+            jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 733, Short.MAX_VALUE)
         );
-        jTelaPirncipalLayout.setVerticalGroup(
-            jTelaPirncipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jTelaPrincipalLayout.setVerticalGroup(
+            jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 547, Short.MAX_VALUE)
         );
 
@@ -71,11 +71,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTelaPirncipal)
+            .addComponent(jTelaPrincipal)
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTelaPirncipal)
+            .addComponent(jTelaPrincipal)
         );
 
         jMenuOpcoes.setText("Opções");
@@ -133,7 +133,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
          */
         
         PainelDeCadastro PainelC = new PainelDeCadastro();
-        jTelaPirncipal.add(PainelC);
+        jTelaPrincipal.add(PainelC);
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
@@ -144,7 +144,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
          */
         
         PainelDePesquisa PainelP = new PainelDePesquisa();
-        jTelaPirncipal.add(PainelP);
+        jTelaPrincipal.add(PainelP);
         PainelP.setVisible(true);
         
         
@@ -210,7 +210,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemPesquisar;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JDesktopPane jTelaPirncipal;
+    protected static javax.swing.JDesktopPane jTelaPrincipal;
     // End of variables declaration//GEN-END:variables
 
 private static LinkedList<Arte> cad = new LinkedList<Arte>();

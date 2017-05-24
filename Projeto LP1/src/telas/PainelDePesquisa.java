@@ -10,6 +10,9 @@ package telas;
  *
  * @author aluno
  */
+import estruturas.*;        
+import static telas.PainelPrincipal.jTelaPrincipal;
+        
 public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
     /**
@@ -19,6 +22,15 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public Object[] preencheTabela(Arte a) {
+        try {
+            Object[] dados = {a.getTitulo(), a.getAno(), a.getNome(),
+                a.getCategoria(), a.getTombo()};
+            return dados;
+        } catch (ArrayIndexOutOfBoundsException n) {
+            return null;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
