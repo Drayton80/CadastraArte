@@ -21,6 +21,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     public PainelDePesquisa() {
         initComponents();
     }
+    
+    private void fecha_Janela() {
+        this.dispose();
+    }
 
     public Object[] preencheTabela(Arte a) {
         try {
@@ -90,8 +94,18 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         lblTituloPainel.setText("Pesquisar Resistro");
 
         jBFecharPesquisa.setText("Cadastrar Novo");
+        jBFecharPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFecharPesquisaActionPerformed(evt);
+            }
+        });
 
         jBNewCadastro.setText("Fechar");
+        jBNewCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNewCadastroActionPerformed(evt);
+            }
+        });
 
         jBPesquisaRes.setText("Pesquisa");
 
@@ -165,6 +179,17 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBNewCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNewCadastroActionPerformed
+        fecha_Janela();
+    }//GEN-LAST:event_jBNewCadastroActionPerformed
+
+    private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
+        PainelDeCadastro pcad = new PainelDeCadastro();
+        jTelaPrincipal.add(pcad);
+        pcad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBFecharPesquisaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

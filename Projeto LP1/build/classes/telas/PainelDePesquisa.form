@@ -221,11 +221,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Novo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBFecharPesquisaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBNewCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fechar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBNewCadastroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBPesquisaRes">
           <Properties>
