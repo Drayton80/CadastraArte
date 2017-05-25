@@ -22,6 +22,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
      * Creates new form PainelPrincipal
      */
     public PainelPrincipal() {
+       
         
         initComponents();
     }
@@ -147,18 +148,13 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       p.setupGravar();
-        p.addRecords(cad);
-        p.cleanupGravar();
-        System.exit(0);
+      
         
     }//GEN-LAST:event_formWindowClosing
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        p.setupGravar();
-        p.addRecords(cad);
-        p.cleanupGravar();
+       
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
