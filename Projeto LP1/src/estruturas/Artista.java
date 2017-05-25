@@ -4,7 +4,6 @@ package estruturas;
  *Descrição:
  * 
  */
-import java.util.*;
 import java.io.*;
 
  public class Artista implements Serializable {

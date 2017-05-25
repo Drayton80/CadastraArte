@@ -10,8 +10,16 @@ package telas;
  *
  * @author aluno
  */
-import estruturas.*;        
+
+
+
+import estruturas.Arte;
+import estruturas.Persistencia;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import static telas.PainelPrincipal.jTelaPrincipal;
+
         
 public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
@@ -20,6 +28,16 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
      */
     public PainelDePesquisa() {
         initComponents();
+        p.setupLer();
+        p.readRecords();
+        p.cleanupLer();
+        for (Arte art : p.getCad()) {
+            System.out.println(art.getTitulo());
+            
+        }
+        Atualiza_Arte();
+        
+        
     }
     
     private void fecha_Janela() {
@@ -91,7 +109,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         lblNomePPesquisa.setText("Nome:");
 
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblTituloPainel.setText("Pesquisar Resistro");
+        lblTituloPainel.setText("Pesquisar Registro");
 
         jBFecharPesquisa.setText("Cadastrar Novo");
         jBFecharPesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +126,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         });
 
         jBPesquisaRes.setText("Pesquisa");
+        jBPesquisaRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBPesquisaResActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelSePesquisaLayout = new javax.swing.GroupLayout(jPanelSePesquisa);
         jPanelSePesquisa.setLayout(jPanelSePesquisaLayout);
@@ -191,6 +214,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
 
+    private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
+       
+        jTable1.setVisible(true);
+    }//GEN-LAST:event_jBPesquisaResActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoriaPesquisa;
@@ -207,4 +235,24 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
     // End of variables declaration//GEN-END:variables
+    
+    private static Persistencia p = new Persistencia();
+
+    private void Atualiza_Arte() {
+        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        for (Arte a : p.getCad()) {
+            model.addRow(obj(a));
+        }
+    }
+    
+    
+    private Object[] obj(Arte a){
+        try {
+            Object[] arte = {a.getTitulo(), a.getAno(), a.getNome(), a.getCategoria(), a.getTombo()} ;
+            return arte;
+        } catch (Exception e) {
+        }
+        return null;
+    }
 }

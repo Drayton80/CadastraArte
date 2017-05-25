@@ -22,12 +22,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
      * Creates new form PainelPrincipal
      */
     public PainelPrincipal() {
-        p.setupLer("Arte.ser");
-        if(p.getContinua() == true){
-        p.readRecords();
-        p.cleanupLer();
-        cad = p.getCad();          
-        }
+        
         initComponents();
     }
 
@@ -60,11 +55,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.setLayout(jTelaPrincipalLayout);
         jTelaPrincipalLayout.setHorizontalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 733, Short.MAX_VALUE)
+            .addGap(0, 926, Short.MAX_VALUE)
         );
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
@@ -152,7 +147,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       p.setupGravar("Arte.ser");
+       p.setupGravar();
         p.addRecords(cad);
         p.cleanupGravar();
         System.exit(0);
@@ -161,7 +156,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        p.setupGravar("Arte.ser");
+        p.setupGravar();
         p.addRecords(cad);
         p.cleanupGravar();
         System.exit(0);

@@ -5,7 +5,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import estruturas.Arte;
 import estruturas.Persistencia;
-import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 
@@ -39,9 +38,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Valores Ivalidos", "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         }
-    
-    
-        }
+    }
     
     private void fecha_Janela() {
         this.dispose();
@@ -345,12 +342,18 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBCancelarCadastroActionPerformed
 
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
-       if (null != Retorna_Arte()) {
+       
+        
+        
+        
+        if (null != Retorna_Arte()) {
             Arte a = Retorna_Arte();
+            System.out.println(a.toString());
             if (!existeNaLista(a.getTombo())) {
-                p.setupGravar("Arte.ser");
-                p.addRecords(cad); // add um produto a lista
-                p.cleanupGravar(); // att o arquivo txt
+                p.getCad().add(a);
+                p.setupGravar();
+                p.addRecords(p.getCad()); // add um produto a lista
+                p.cleanupGravar(); // fecha o arquivo                
                 fecha_Janela();
                 JOptionPane.showMessageDialog(rootPane, "Produto cadastrado");
             } else {
@@ -393,6 +396,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtTempoAnoProducao;
     private javax.swing.JTextField txtTituloObra;
     // End of variables declaration//GEN-END:variables
-    private static LinkedList<Arte> cad = new LinkedList<Arte>();
+  
     private static Persistencia p = new Persistencia();
 }
