@@ -7,17 +7,16 @@ import estruturas.Arte;
 import estruturas.Persistencia;
 import javax.swing.JOptionPane;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** Painel de Cadastro de Obras de Artes
+ *    descrição:
+ *      Esse painel possuí tudo acerca do cadastro de uma obra de arte
+ *      efetuado no acervo do museu.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
  */
 
-/**
- *
- * @author aluno
- */
 public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
     /**
@@ -30,7 +29,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     /** Método que Retorna um Objeto do tipo Arte
      *    Descrição:
      *      O método pega todos os dados registrados pelo usuário nos campos
-     *      dispostostos para tal.
+     *      dispostos para tal.
      */
     private Arte Retorna_Arte(){    
         try {
@@ -336,7 +335,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTempoAnoProducaoActionPerformed
     
-    /** Botão que Abre o Seletor de Imagens
+    /** Botão de Selecionar Imagem
      *    Descrição:
      *     Abre a janela de pesquisa para a busca da imagem que será salva
      *     junto aos demais dados da obra de arte.
@@ -365,14 +364,18 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jBSelectImagemActionPerformed
 
+    /** Botão de Cancelar
+     *    Descrição:
+     *     Ao apertar o botão o procedimento será cancelado.
+     */
     private void jBCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarCadastroActionPerformed
         fecha_Janela();
     }//GEN-LAST:event_jBCancelarCadastroActionPerformed
     
-    /** Botão que Cadastra Obra de Arte
-    *    Descrição:
-    *     Ao apertar o botão o objeto será salvo no arquivo.
-    */
+    /** Botão de Salvar
+     *    Descrição:
+     *     Ao apertar o botão o objeto será salvo no arquivo.
+     */
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
         if (null != Retorna_Arte()) {
             Arte a = Retorna_Arte();
@@ -381,11 +384,14 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                 p.getCad().add(a);
                 p.setupGravar();
                 p.addRecords(p.getCad()); // Adciona um produto a lista.
-                p.cleanupGravar();        // Fecha o arquivo                
+                p.cleanupGravar();        // Fecha o arquivo           
+                
                 fecha_Janela();
+                
                 JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso");
+                
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Código de produto ja cadastrado", "Aviso", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Produto não Cadastrado!", "Aviso", JOptionPane.ERROR_MESSAGE);

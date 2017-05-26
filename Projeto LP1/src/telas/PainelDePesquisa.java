@@ -1,18 +1,5 @@
 package telas;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author aluno
- */
-
-
-
 import estruturas.Arte;
 import estruturas.Persistencia;
 import java.util.LinkedList;
@@ -20,6 +7,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
+/** Painel de Pesquisa de Obras de Artes
+ *    descrição:
+ *      Esse painel possuí tudo acerca da pesquisa de uma obra de arte
+ *      no acervo cadastrado.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
         
 public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
@@ -31,15 +27,19 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         p.setupLer();
         p.readRecords();
         p.cleanupLer();
+        
         for (Arte art : p.getCad()) {
-            System.out.println(art.getTitulo());
-            
+            System.out.println(art.getTitulo());   
         }
-        Atualiza_Arte();
         
-        
+        Atualiza_Arte();   
     }
     
+    /** Método que Fecha a Janela Aberta
+     *    Descrição:
+     *      O método simplesmente fecha por completo a janela aberta no momento
+     *      em que ele é chamado.
+     */
     private void fecha_Janela() {
         this.dispose();
     }
@@ -47,12 +47,31 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     public Object[] preencheTabela(Arte a) {
         try {
             Object[] dados = {a.getTitulo(), a.getAno(), a.getNome(),
-                a.getCategoria(), a.getTombo()};
+                              a.getCategoria(), a.getTombo()       };
             return dados;
         } catch (ArrayIndexOutOfBoundsException n) {
             return null;
         }
     }
+    
+    private void Atualiza_Arte() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        for (Arte a : p.getCad()) {
+            model.addRow(obj(a));
+        }
+    }
+    
+    
+    private Object[] obj(Arte a){
+        try {
+            Object[] arte = {a.getTitulo(), a.getAno(), a.getNome(), a.getCategoria(), a.getTombo()} ;
+            return arte;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -215,7 +234,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
 
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
-       
         jTable1.setVisible(true);
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
@@ -237,22 +255,4 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     
     private static Persistencia p = new Persistencia();
-
-    private void Atualiza_Arte() {
-        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-        model.setNumRows(0);
-        for (Arte a : p.getCad()) {
-            model.addRow(obj(a));
-        }
-    }
-    
-    
-    private Object[] obj(Arte a){
-        try {
-            Object[] arte = {a.getTitulo(), a.getAno(), a.getNome(), a.getCategoria(), a.getTombo()} ;
-            return arte;
-        } catch (Exception e) {
-        }
-        return null;
-    }
 }
