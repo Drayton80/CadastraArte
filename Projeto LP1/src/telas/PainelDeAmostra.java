@@ -41,16 +41,16 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        botaoFechar = new javax.swing.JToggleButton();
+        botaoEditar = new javax.swing.JToggleButton();
+        lblMostraTitulo = new javax.swing.JLabel();
+        lblMostraAno = new javax.swing.JLabel();
+        lblMostraTempProducao = new javax.swing.JLabel();
+        lblMostraCategoria = new javax.swing.JLabel();
+        lblMostraNomeArtista = new javax.swing.JLabel();
+        lblRegiArtista = new javax.swing.JLabel();
+        lblTipoProce = new javax.swing.JLabel();
+        lblOrigemProce = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -76,14 +76,14 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Tempo de Produção(anos):");
 
-        jToggleButton2.setText("Fechar");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        botaoFechar.setText("Fechar");
+        botaoFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                botaoFecharActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setText("Editar");
+        botaoEditar.setText("Editar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,41 +99,41 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel12))
+                                        .addComponent(lblMostraCategoria))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel13))
+                                        .addComponent(lblMostraNomeArtista))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel9))
+                                        .addComponent(lblMostraTitulo))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel10))
+                                        .addComponent(lblMostraAno))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel11))
+                                        .addComponent(lblMostraTempProducao))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel14))
+                                        .addComponent(lblRegiArtista))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel15))
+                                        .addComponent(lblTipoProce))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel16)))
+                                        .addComponent(lblOrigemProce)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jToggleButton1)
+                                .addComponent(botaoEditar)
                                 .addGap(18, 18, 18)))
-                        .addComponent(jToggleButton2))
+                        .addComponent(botaoFechar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(LabelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -147,39 +147,39 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel9))
+                    .addComponent(lblMostraTitulo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel10))
+                    .addComponent(lblMostraAno))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel11))
+                    .addComponent(lblMostraTempProducao))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel12))
+                    .addComponent(lblMostraCategoria))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel13))
+                    .addComponent(lblMostraNomeArtista))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel14))
+                    .addComponent(lblRegiArtista))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel15))
+                    .addComponent(lblTipoProce))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel16))
+                    .addComponent(lblOrigemProce))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton1))
+                    .addComponent(botaoFechar)
+                    .addComponent(botaoEditar))
                 .addContainerGap())
         );
 
@@ -197,21 +197,16 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         fecha_Janela();        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_botaoFecharActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelImagem;
+    private javax.swing.JToggleButton botaoEditar;
+    private javax.swing.JToggleButton botaoFechar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -219,9 +214,14 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JLabel lblMostraAno;
+    private javax.swing.JLabel lblMostraCategoria;
+    private javax.swing.JLabel lblMostraNomeArtista;
+    private javax.swing.JLabel lblMostraTempProducao;
+    private javax.swing.JLabel lblMostraTitulo;
+    private javax.swing.JLabel lblOrigemProce;
+    private javax.swing.JLabel lblRegiArtista;
+    private javax.swing.JLabel lblTipoProce;
     // End of variables declaration//GEN-END:variables
 }
