@@ -43,7 +43,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                 throw new CampoVazio();
             }
             
-            if(txtPeriodo.equals("") || (checkbInderteminado.isSelected() != true)){
+            if(txtPeriodo.equals("") || checkbInderteminado.isSelected()){
                 txtPeriodo = "Indeterminado";
             }
             
@@ -54,29 +54,26 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                             txtOrigemProcedencia.getText() );
             
         } catch (NumberFormatException n) {
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a" + "\n" +
-                                                    "obra de arte, pois um dos   " + "\n" +
-                                                    "valores cadastrados não é   " + "\n" +
-                                                    "válido.                     "        ,
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
+                                                    "valores cadastrados não é válido.                     "        ,
                                                     "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         } catch (CampoVazio n){
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a" + "\n" +
-                                                    "obra de arte, pois um dos   " + "\n" +
-                                                    "Campos Obrigatórios não foi " + "\n" +
-                                                    "preenchido.",  "Aviso", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
+                                                    "Campos Obrigatórios não foi preenchido ou selecionado."        ,
+                                                    "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
     
     /** Método que Testa os Campos de Texto
      *    Descrição:
-     *      O método avalia todos os campos obrigatórios de texto para checar 
-     *      se há algum aonde o usuário não digitou qualquer coisa e retorna
-     *      um valor do tipo boolean: 
-     *        - true  (caso tenha algum campo obrigatório sem algo digitado)
+     *      O método avalia todos os campos obrigatórios para checar 
+     *      se há algum aonde o usuário não digitou ou selecionou qualquer
+     *      coisa e retorna um valor do tipo boolean: 
+     *        - true  (caso tenha algum campo obrigatório sem algo)
      *           ou
-     *        - false (caso todos estejam preenchidos)
+     *        - false (caso todos estejam preenchidos ou selecionados)
      *    Observação:
      *      Os campos obrigatórios foram marcados com asteriscos ( * ) na 
      *      interface.
@@ -87,10 +84,12 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         String txtNome = txtNomeArtista.getText();
         String txtRegistro = txtResArtista.getText();
         String txtOrigem = txtOrigemProcedencia.getText();
+        String txtCategoria = (String) cbCategoria.getSelectedItem();
+        String txtProcedencia = (String) cbProcedencia.getSelectedItem();
         
-        if(txtTitulo.equals("")   || txtAno.equals("") || txtNome.equals("") ||
-           txtRegistro.equals("") || txtOrigem.equals("")) {
-            
+        if(txtTitulo.equals("")   || txtAno.equals("")    || txtNome.equals("")               ||
+           txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione") ||
+                                                             txtProcedencia.equals("Selecione")){    
             return true;
         }else{
             return false;
@@ -146,12 +145,35 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
      *      O método cria um formato que limita o que será escrito em um
      *      campo de texto para que restrinja-o a apenas 4 caracteres
      *      onde será apenas possível digitar números.
+     *    Créditos:
+     *      O código original foi disponibilizado pela professora Daniela Coelho
+     *      no programa da aula prática da lista de exercícios número 4.
      */
     public static DefaultFormatterFactory setFormatoAno() {  
         MaskFormatter comFoco = null;  
         
         try{   
             comFoco = new MaskFormatter("####");  
+        }catch (Exception pe) { }
+        
+        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
+        return factory;  
+    }
+    
+    /** Método que Edita o Formato do Registro
+     *    Descrição:
+     *      O método cria um formato que limita o que será escrito em um
+     *      campo de texto para que restrinja-o a apenas 8 caracteres
+     *      onde será apenas possível digitar números.
+     *    Créditos:
+     *      O código original foi disponibilizado pela professora Daniela Coelho
+     *      no programa da aula prática da lista de exercícios número 4.
+     */
+    public static DefaultFormatterFactory setFormatoRegistro() {  
+        MaskFormatter comFoco = null;  
+        
+        try{   
+            comFoco = new MaskFormatter("########");  
         }catch (Exception pe) { }
         
         DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
@@ -183,7 +205,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         lblTipoProcedencia = new javax.swing.JLabel();
         lblOrigemProcedencia = new javax.swing.JLabel();
         txtTituloObra = new javax.swing.JTextField();
-        txtResArtista = new javax.swing.JTextField();
         txtNomeArtista = new javax.swing.JTextField();
         txtOrigemProcedencia = new javax.swing.JTextField();
         txtTempoPeriodoProducao = new javax.swing.JTextField();
@@ -196,6 +217,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         jBCancelarCadastro = new javax.swing.JButton();
         jBSalvarCadastro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtResArtista = new javax.swing.JFormattedTextField();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -211,7 +233,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
         lblTempoProducao.setText("Período de Produção:");
 
-        lblCategoria.setText("Categoria:");
+        lblCategoria.setText("Categoria:*");
 
         lblImagem.setText("Imagem:");
 
@@ -225,15 +247,9 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         lblTituloPainel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel3.setText("Imformações da Procedência");
 
-        lblTipoProcedencia.setText("Tipo de Procedência:");
+        lblTipoProcedencia.setText("Tipo de Procedência:*");
 
         lblOrigemProcedencia.setText("Origem da Procedência:*");
-
-        txtResArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtResArtistaActionPerformed(evt);
-            }
-        });
 
         txtTempoPeriodoProducao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,16 +292,30 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel1.setText("* são campos de texto que devem ser preenchidos obrigatoriamente.");
+        jLabel1.setText("* são campos que devem ser preenchidos ou selecionados obrigatoriamente.");
+
+        txtResArtista.setFormatterFactory(setFormatoRegistro());
 
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
         jPanelCadastroLayout.setHorizontalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBCancelarCadastro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTituloPainel)
+                    .addComponent(lblTituloPainel2)
+                    .addComponent(lblTituloPainel3)
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(lblOrigemProcedencia)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -307,33 +337,22 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                                     .addComponent(txtSelectImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                                     .addComponent(txtTempoPeriodoProducao)))
                             .addComponent(formatTxtAno)))
-                    .addComponent(lblTituloPainel2)
-                    .addComponent(lblTituloPainel3)
-                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                        .addComponent(lblOrigemProcedencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtOrigemProcedencia))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addComponent(lblTipoProcedencia))
-                            .addComponent(lblResArtista, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNomeArtista, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblResArtista, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblNomeArtista, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(lblTipoProcedencia, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cbProcedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE)
-                                .addComponent(txtResArtista, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtResArtista, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbProcedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBCancelarCadastro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,9 +401,9 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrigemProcedencia)
                     .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBCancelarCadastro)
                     .addComponent(jBSalvarCadastro))
@@ -409,10 +428,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtResArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResArtistaActionPerformed
 
     private void txtTempoPeriodoProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTempoPeriodoProducaoActionPerformed
         // TODO add your handling code here:
@@ -508,14 +523,12 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTituloPainel3;
     private javax.swing.JTextField txtNomeArtista;
     private javax.swing.JTextField txtOrigemProcedencia;
-    private javax.swing.JTextField txtResArtista;
+    private javax.swing.JFormattedTextField txtResArtista;
     private javax.swing.JTextField txtSelectImagem;
     private javax.swing.JTextField txtTempoPeriodoProducao;
     private javax.swing.JTextField txtTituloObra;
     // End of variables declaration//GEN-END:variables
     //Outros Atributos:
-    
     private static Persistencia p = new Persistencia();
-    
     //Fim dos Atribudos;
 }
