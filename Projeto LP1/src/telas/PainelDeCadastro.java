@@ -32,29 +32,38 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     /** Método que Retorna um Objeto do tipo Arte
      *    Descrição:
      *      O método pega todos os dados registrados pelo usuário nos campos
-     *      dispostos para tal.
+     *      dispostos para tal e retorna um objeto do tipo Arte aonde esses
+     *      dados estarão guardados.
      */
     private Arte retorna_arte(){    
+        String txtPeriodo = txtTempoPeriodoProducao.getText();
+        
         try {
             if(teste_dos_campos()){
                 throw new CampoVazio();
             }
             
-            return new Arte(String.valueOf(txtTituloObra.getText())        , String.valueOf(txtNomeArtista.getText())       ,
-                            String.valueOf(txtResArtista.getText())        , Integer.parseInt(formatTxtAno.getText())       ,
-                            String.valueOf(cbCategoria.getSelectedItem())  , String.valueOf(txtTempoPeriodoProducao.getText()), 
-                            String.valueOf(cbProcedencia.getSelectedItem()), String.valueOf(txtOrigemProcedencia.getText()));
+            if(txtPeriodo.equals("") || (checkbInderteminado.isSelected() != true)){
+                txtPeriodo = "Indeterminado";
+            }
+            
+            return new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
+                            txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
+                            String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo,
+                            String.valueOf(cbProcedencia.getSelectedItem()),
+                            txtOrigemProcedencia.getText() );
             
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a" + "\n" +
-                                                    "obra de arte, pois um dos "   + "\n" +
-                                                    "valores cadastrados não é"    + "\n" +
-                                                    "válido.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                                                    "obra de arte, pois um dos   " + "\n" +
+                                                    "valores cadastrados não é   " + "\n" +
+                                                    "válido.                     "        ,
+                                                    "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         } catch (CampoVazio n){
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a" + "\n" +
-                                                    "obra de arte, pois um dos "   + "\n" +
-                                                    "Campos Obrigatórios não foi"  + "\n" +
+                                                    "obra de arte, pois um dos   " + "\n" +
+                                                    "Campos Obrigatórios não foi " + "\n" +
                                                     "preenchido.",  "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         }
@@ -90,9 +99,10 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     
      /** Método que Limpa todos os Campos
      *    Descrição:
-     *      O método retorna todos os campos de texto, campos formatados, listas
-     *      e caixas de seleção da janela para o estado inicial aonde todas
-     *      estavam em sem qualquer detalhe selecionado e/ou marcado.
+     *      O método retorna todos os campos de texto (TextField), 
+     *      campos formatados (FormattedTextField), caixas de combinação (ComboBox)
+     *      e caixas de seleção (CheckBox) da janela para o estado inicial aonde
+     *      todas estavam em sem qualquer detalhe selecionado e/ou marcado.
      */
     private void limpa_campos(){
         txtNomeArtista.setText("");
