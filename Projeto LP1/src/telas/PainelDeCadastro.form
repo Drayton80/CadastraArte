@@ -37,16 +37,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelCadastro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanelCadastro" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelCadastro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,84 +56,91 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                  <Component id="lblTempoProducao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jBSalvarCadastro" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblTempAnoProducao" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblAnoProducao" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblImagem" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAnoProducao" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtTituloObra" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="formatTxtAno" min="-2" pref="123" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="txtTempoAnoProducao" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cbCategoria" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jBSelectImagem" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
+                                  <Component id="txtTituloObra" min="-2" pref="339" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblTituloPainel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jBSalvarCadastro" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTituloPainel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTituloPainel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblOrigemProcedencia" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtOrigemProcedencia" min="-2" pref="336" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Component id="lblTipoProcedencia" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtSelectImagem" max="32767" attributes="0"/>
-                                              <Component id="checkbInderteminado" pref="200" max="32767" attributes="0"/>
+                                          <Component id="lblResArtista" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomeArtista" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtNomeArtista" min="-2" pref="336" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="txtResArtista" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="cbProcedencia" alignment="0" pref="141" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="lblTituloPainel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTituloPainel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTituloPainel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" pref="364" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="lblOrigemProcedencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtOrigemProcedencia" min="-2" pref="336" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="lblTipoProcedencia" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="formatTxtAno" alignment="1" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblImagem" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTempoProducao" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lblResArtista" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNomeArtista" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtResArtista" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbProcedencia" alignment="0" pref="141" max="32767" attributes="0"/>
+                                      <Component id="txtTempoPeriodoProducao" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbCategoria" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jBSelectImagem" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtNomeArtista" min="-2" pref="336" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtSelectImagem" max="32767" attributes="0"/>
+                              <Component id="checkbInderteminado" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -153,13 +159,11 @@
                       <Component id="formatTxtAno" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblAnoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Component id="lblTempoProducao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtTempoAnoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTempoPeriodoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="checkbInderteminado" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTempAnoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTempoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -196,7 +200,9 @@
                       <Component id="lblOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jBCancelarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBSalvarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -217,22 +223,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTitulo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ttulo da obra:"/>
+            <Property name="text" type="java.lang.String" value="T&#xed;tulo da Obra:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAnoProducao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ano de produ&#xe7;&#xe3;o:"/>
+            <Property name="text" type="java.lang.String" value="Ano de produ&#xe7;&#xe3;o:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTempoProducao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tempo de produ&#xe7;&#xe3;o:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTempAnoProducao">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ano:"/>
+            <Property name="text" type="java.lang.String" value="Per&#xed;odo de Produ&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCategoria">
@@ -255,12 +256,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblNomeArtista">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome do artista:"/>
+            <Property name="text" type="java.lang.String" value="Nome do Artista:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblResArtista">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Resistro do artista:"/>
+            <Property name="text" type="java.lang.String" value="Registro do Artista:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloPainel3">
@@ -278,7 +279,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblOrigemProcedencia">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Origem da Proced&#xea;ncia:"/>
+            <Property name="text" type="java.lang.String" value="Origem da Proced&#xea;ncia:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTituloObra">
@@ -292,17 +293,17 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrigemProcedencia">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTempoAnoProducao">
+        <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTempoAnoProducaoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTempoPeriodoProducaoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSelectImagem">
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="formatTxtAno">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="####" subtype="-1" type="5"/>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="setFormatoAno()" type="code"/>
             </Property>
           </Properties>
         </Component>
@@ -385,6 +386,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSalvarCadastroActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="* s&#xe3;o campos de texto que devem ser preenchidos obrigatoriamente."/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
