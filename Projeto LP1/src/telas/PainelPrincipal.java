@@ -122,23 +122,22 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /** Botão de Cadastrar Obras de Arte
+     *   Abre uma janela que serve para registrar uma obra de arte no acervo
+     *   pertencente ao museu.
+     */
     private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
-        /** Botão de Cadastrar Obras de Arte
-         * Abre uma janela que serve para registrar uma obra de arte no acervo
-         * pertencente ao museu.
-         */
-        
         PainelDeCadastro PainelC = new PainelDeCadastro();
         jTelaPrincipal.add(PainelC);
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
+    /** Botão de Pesquisar Obras de Arte
+     *   Abre uma janela que serve para buscar uma obra de arte no acervo
+     *   daquelas que já foram cadastradas.
+     */
     private void jMenuItemPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPesquisarActionPerformed
-        /** Botão de Pesquisar Obras de Arte
-         * Abre uma janela que serve para buscar uma obra de arte no acervo
-         * daquelas que já foram cadastradas.
-         */
-        
         PainelDePesquisa PainelP = new PainelDePesquisa();
         jTelaPrincipal.add(PainelP);
         PainelP.setVisible(true);

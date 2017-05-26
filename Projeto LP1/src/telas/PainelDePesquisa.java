@@ -80,7 +80,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Pesquisa de obra de arte");
+        setTitle("Pesquisa de Obra de Arte");
 
         cbCategoriaPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Álbum", "Aquarela", "Colagem", "Desenho", "Escultura", "Foto", "Gravura", "Impressão", "Instalação", "Livro", "Múltiplo", "Objeto", "ObraDesinc", "Perform", "Pintura", "Relevo", "Tapeçaria", "Vídeo" }));
 
@@ -125,7 +125,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             }
         });
 
-        jBPesquisaRes.setText("Pesquisa");
+        jBPesquisaRes.setText("Pesquisar");
         jBPesquisaRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBPesquisaResActionPerformed(evt);
@@ -162,7 +162,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                         .addGap(502, 502, 502)
                         .addComponent(lblTituloPainel)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanelSePesquisaLayout.setVerticalGroup(
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
