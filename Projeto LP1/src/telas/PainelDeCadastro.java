@@ -57,7 +57,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
      * 
      *    Observação:
      *      Dois artistas diferentes podem conter o mesmo nome, mas não o mesmo
-     *      registro.
+     *      registro, ou seja, o registro é o que diferencia cada artista.
      */
     private boolean registro_repetido(){
         if( ("registro1" == "registro2") && ("nome1" != "nome2") ){
