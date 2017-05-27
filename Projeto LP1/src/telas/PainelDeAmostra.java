@@ -38,18 +38,17 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     
     private void MostraArte(int tombo){
         for (Arte a : cad) {
-            
-                if (a.getTombo() == tombo) {
-                    lblMostraTitulo.setText(a.getTitulo());
-                    lblMostraAno.setText(String.valueOf(a.getAno()));
-                    lblMostraTempProducao.setText(a.getPeriodoProducao());
-                    lblMostraCategoria.setText(a.getCategoria());
-                    lblMostraNomeArtista.setText(a.getNome());
-                    lblMostraRegiArtista.setText(String.valueOf(a.getRegistro()));
-                    lblMostraTipoProce.setText(a.getProcedencia());
-                    lblMostraOrigemProce.setText(a.getOrigem());
-                    lblMostraTombo.setText(String.valueOf(a.getTombo()));
-                   }
+            if (a.getTombo() == tombo) {
+                lblMostraTitulo.setText(a.getTitulo());
+                lblMostraAno.setText(String.valueOf(a.getAno()));
+                lblMostraTempProducao.setText(a.getPeriodoProducao());
+                lblMostraCategoria.setText(a.getCategoria());
+                lblMostraNomeArtista.setText(a.getNome());
+                lblMostraRegiArtista.setText(String.valueOf(a.getRegistro()));
+                lblMostraTipoProce.setText(a.getProcedencia());
+                lblMostraOrigemProce.setText(a.getOrigem());
+                lblMostraTombo.setText(String.valueOf(a.getTombo()));
+            }
             
         }
     }

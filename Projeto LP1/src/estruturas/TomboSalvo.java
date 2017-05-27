@@ -6,7 +6,6 @@ public class TomboSalvo {
     //Atributos
     private static Persistencia p = new Persistencia();
     private LinkedList<Arte> cad = new LinkedList<>();
-    private Arte a;
     private int tombo;
     private int tomboAux = 1;
     
@@ -21,13 +20,14 @@ public class TomboSalvo {
         p.readRecords();
         p.cleanupLer();
         cad = p.getCad();
+        
         for(Arte a : cad){
-            a.getTombo();
             tombo = a.getTombo();
             if(tombo > tomboAux){
                 tomboAux = tombo;
             }
         }
+        
         return tomboAux;
     }
 }

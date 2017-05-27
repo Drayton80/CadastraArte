@@ -18,7 +18,7 @@ public class Arte extends Artista implements Serializable {
     private String origem;
     private int tombo;
     private static int tomboAUX = 1;
-    private TomboSalvo tomboSalvo = new TomboSalvo();
+    
     
    //Construtor:
     public Arte(String titulo, String nome, String registro, int ano, 
@@ -31,6 +31,8 @@ public class Arte extends Artista implements Serializable {
         this.PeriodoProducao = PeriProducao;
         this.procedencia = procedencia;
         this.origem = origem;
+        
+        TomboSalvo tomboSalvo = new TomboSalvo();
         
         if(tomboSalvo.getTombo() > tomboAUX){
             tomboAUX = tomboSalvo.getTombo();
