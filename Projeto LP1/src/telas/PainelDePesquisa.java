@@ -92,7 +92,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         lblNomePPesquisa = new javax.swing.JLabel();
         lblTituloPainel = new javax.swing.JLabel();
         jBFecharPesquisa = new javax.swing.JButton();
-        jBNewCadastro = new javax.swing.JButton();
         jBPesquisaRes = new javax.swing.JButton();
 
         setClosable(true);
@@ -128,24 +127,17 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
         lblCategoriaPPesquisa.setText("Categoria:");
 
-        lblArtistaPPequisa.setText("Artista:");
+        lblArtistaPPequisa.setText("Nome do Artista:");
 
-        lblNomePPesquisa.setText("Nome:");
+        lblNomePPesquisa.setText("Título da Obra:");
 
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Pesquisar Registro");
 
-        jBFecharPesquisa.setText("Cadastrar Novo");
+        jBFecharPesquisa.setText("Cadastrar Nova");
         jBFecharPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBFecharPesquisaActionPerformed(evt);
-            }
-        });
-
-        jBNewCadastro.setText("Fechar");
-        jBNewCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNewCadastroActionPerformed(evt);
             }
         });
 
@@ -164,51 +156,48 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(30, 30, 30)
                         .addComponent(lblNomePPesquisa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(9, 9, 9)
+                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
                         .addComponent(lblArtistaPPequisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(lblCategoriaPPesquisa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(jBPesquisaRes))
-                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(524, 524, 524)
                         .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jBFecharPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBNewCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                                .addComponent(jBPesquisaRes, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBFecharPesquisa))
+                            .addComponent(txtPesquisaArtista))
+                        .addGap(49, 49, 49)
+                        .addComponent(lblCategoriaPPesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(502, 502, 502)
+                        .addGap(529, 529, 529)
                         .addComponent(lblTituloPainel)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelSePesquisaLayout.setVerticalGroup(
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSePesquisaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblTituloPainel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomePPesquisa)
-                    .addComponent(lblArtistaPPequisa)
                     .addComponent(lblCategoriaPPesquisa)
                     .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBPesquisaRes))
+                    .addComponent(lblArtistaPPequisa)
+                    .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBFecharPesquisa)
-                .addGap(27, 27, 27)
-                .addComponent(jBNewCadastro)
-                .addGap(122, 122, 122))
+                .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBPesquisaRes)
+                    .addComponent(jBFecharPesquisa))
+                .addGap(15, 15, 15)
+                .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,16 +209,12 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelSePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelSePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBNewCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNewCadastroActionPerformed
-        fecha_Janela();
-    }//GEN-LAST:event_jBNewCadastroActionPerformed
 
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PainelDeCadastro pcad = new PainelDeCadastro();
@@ -253,7 +238,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoriaPesquisa;
     private javax.swing.JButton jBFecharPesquisa;
-    private javax.swing.JButton jBNewCadastro;
     private javax.swing.JButton jBPesquisaRes;
     private javax.swing.JPanel jPanelSePesquisa;
     private javax.swing.JScrollPane jSMostraPesquisa;
