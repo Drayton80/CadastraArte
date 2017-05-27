@@ -20,7 +20,7 @@ public class Arte extends Artista implements Serializable {
     //Atributos Auxiliares:
     //private int indiceCategoria = 0;
     //private int indiceProcedencia = 0;
-    //private boolean valorIndeterminado;
+    //private boolean valorIndeterminado;       //Que que tá conteceno?
     private static int tomboAUX = 1;
     
    //Construtor:
