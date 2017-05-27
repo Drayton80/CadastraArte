@@ -1,13 +1,13 @@
 package estruturas;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author CI
+/** Estruturas
+ *    descrição:
+ *      Essa classe vai prover métodos que auxilie em todas as partes
+ *      que tratara
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
  */
 import estruturas.Arte;
 import java.io.EOFException;
@@ -21,7 +21,7 @@ import java.util.LinkedList;
 
 public class Persistencia implements Serializable{
 
-    private FileInputStream fileStream;
+    //Atributos:
     private ObjectInputStream input;
     private ObjectOutputStream output;
     private boolean continua = true;
@@ -32,7 +32,13 @@ public class Persistencia implements Serializable{
     
     
     
-   
+
+    /** Método que retorna a coleção
+     *    Descrição:
+     *     O Metodo retorna aquilo que está salvo na coleção 
+     *     naquele momento
+     */
+    
     public LinkedList<Arte> getCad() {
         return cad;
     }
@@ -40,9 +46,14 @@ public class Persistencia implements Serializable{
     public boolean getContinua() {
         return continua;
     }
-
+    
+    /** Método que habilita modo de leitura
+     *    Descrição:
+     *     O Metodo abre o arquivo e habilita a stream para que nos retorne os
+     *     dados gravados no arquivo
+     */
+    
     public void setupLer() {
-        //Abre arquivo para leitura
         try {
 
             input = new ObjectInputStream(new FileInputStream("Arte.ser"));
@@ -55,10 +66,14 @@ public class Persistencia implements Serializable{
 
     }
 
-    public void readRecords() {
-//Carrega todo o conteúdo do arquivo na Coleção cad
-
+    /** Método que salva o arquivo na coleção
+     *    Descrição:
+     *     O Metodo pega aquilo que está sendo lido no arquivo e transcreve
+     *     na nossa coleção cad
+     */
     
+    public void readRecords() {
+
 
        try{
            cad = (LinkedList<Arte>) input.readObject();
@@ -70,8 +85,13 @@ public class Persistencia implements Serializable{
         }
     }
 
+    /** Método que fecha o arquivo
+     *    Descrição:
+     *     O Metodo permite fecharmos o arquivo após o usarmos 
+     *     em modo de leitura
+     */
+    
     public void cleanupLer() {
-        //Fechar o arquivo, após ter sido descarregado na coleção
 
         try {
             input.close();
@@ -80,9 +100,14 @@ public class Persistencia implements Serializable{
             System.exit(1);
         }
     }
+    
+    /** Método habilita o modo de escrita
+     *    Descrição:
+     *     O Metodo permite que possamos abrir o nosso arquivo e habilitar a 
+     *     stream para que nos possamos escrever no arquivo
+     */
 
     public void setupGravar() {
-        //Abre arquivo para gravar
 
         try {
             output = new ObjectOutputStream(new FileOutputStream("Arte.ser", false));
@@ -92,8 +117,14 @@ public class Persistencia implements Serializable{
         }
     }
 
+    /** Método que salva a coleção no arquivo
+     *    Descrição:
+     *    O método escreve no arquivo, que deve estar em modo de leitura,
+     *    a nossa coleção de objetos de arte
+     *    
+     */
+    
     public void addRecords(LinkedList<Arte> cad) {
-        //Carrega toda a coleção no arquivo
 
         try {
                 output.writeObject(cad);
@@ -103,8 +134,14 @@ public class Persistencia implements Serializable{
         }
     }
 
+    /** Método que fecha o arquivo
+     *    Descrição:
+     *     O Metodo permite que possamos fechar o nosso arquivo de modo 
+     *     que isso só deve ocorrer quando todos os objetos tiverem sido 
+     *     gravados
+     */
+    
     public void cleanupGravar() {
-//Fechar o arquivo, após todos os objetos terem sido gravados
 
         try {
             output.flush();
@@ -116,12 +153,18 @@ public class Persistencia implements Serializable{
 
     }
 
+    /** Metodo que retorna um objeto de arte
+     *      Descrição:
+     *       O método permite que nós retornemos para o programa um objeto de
+     *       arte da coleção cad na posição x
+     */
+    
+    public Arte getArte(int x) {
+        return cad.get(x);
+    }
+         
     public void initComponents() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-     public Arte getArte(int x) {
-        return cad.get(x);
     }
 
 
