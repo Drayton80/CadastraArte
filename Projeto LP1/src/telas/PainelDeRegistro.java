@@ -1,7 +1,5 @@
 package telas;
 
-
-
 import estruturas.Persistencia;
 import java.io.File;
 import javax.swing.JFileChooser;
@@ -23,18 +21,41 @@ import java.util.LinkedList;
  *              Drayton Corrêa, Ewerton Santos
  */
 
-public class PainelDeCadastro extends javax.swing.JInternalFrame {
+public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
-    //CONSTRUTOR:
-    /** Descrição:
-     *    Abre o arquivo em modo de leitura. 
+    //CONSTRUTORES:
+    /** Construtor para o Painel de Cadastro
+     *    Descrição:
+     *      Abre o arquivo para Cadastrar uma nova obra de arte no acervo do 
+     *      museu. 
      */
-    public PainelDeCadastro() {
+    public PainelDeRegistro() {
         p.setupLer();
         if (p.getContinua() == true ){
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
+        }
+        initComponents();
+    }
+    
+    /** Construtor para o Painel de Edição
+     *    Descrição:
+     *      Abre o arquivo para Editar uma obra de arte do acervo do museu.
+     * 
+     *    Observação:
+     *      Foi feito através de um construtor sobrecarregado para que o
+     *      programa ficasse mais eficiente ao reduzir a um painel o que
+     *      seriam feito em dois (Painel de Cadastro e Painel de Edição
+     *      tornaram-se o Painel de Registro.
+     */
+    public PainelDeRegistro(int tombo) {
+        p.setupLer();
+        if(p.getContinua() == true){
+            p.readRecords();
+            p.cleanupLer();
+            cad = p.getCad();
+            
         }
         initComponents();
     }
@@ -258,7 +279,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         jRadioButton1.setText("jRadioButton1");
 
         setClosable(true);
-        setTitle("Cadastrar Obra de Arte ");
 
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Imformações da Obra");

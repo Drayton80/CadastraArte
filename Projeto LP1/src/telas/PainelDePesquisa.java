@@ -216,7 +216,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
-        PainelDeCadastro pcad = new PainelDeCadastro();
+        PainelDeRegistro pcad = new PainelDeRegistro();
         jTelaPrincipal.add(pcad);
         pcad.setVisible(true);
         this.dispose();

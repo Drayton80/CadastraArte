@@ -96,6 +96,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuOpcoes.add(jMenuItemPesquisar);
 
         jMenuItemEditar.setText("Modificar Dados");
+        jMenuItemEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEditarActionPerformed(evt);
+            }
+        });
         jMenuOpcoes.add(jMenuItemEditar);
 
         jMenuItem1.setText("Sair");
@@ -130,7 +135,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
      *   pertencente ao museu.
      */
     private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
-        PainelDeCadastro PainelC = new PainelDeCadastro();
+        PainelDeRegistro PainelC = new PainelDeRegistro();
+        PainelC.setTitle("Cadastrar Obra de Arte");
         jTelaPrincipal.add(PainelC);
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
@@ -143,9 +149,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
         PainelDePesquisa PainelP = new PainelDePesquisa();
         jTelaPrincipal.add(PainelP);
         PainelP.setVisible(true);
-        
-        
-        
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -154,10 +157,15 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-       
-        System.exit(0);
+         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
+        PainelDeRegistro PainelE = new PainelDeRegistro();
+        PainelE.setTitle("Editar Obra de Arte");
+        jTelaPrincipal.add(PainelE);
+        PainelE.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
     /**
      * @param args the command line arguments

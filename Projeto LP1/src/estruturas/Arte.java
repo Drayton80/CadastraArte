@@ -5,6 +5,8 @@ package estruturas;
  *  Classe de instância dos objetos Obras de Artes
  */
 import java.io.*;
+import java.util.LinkedList;
+
 
 public class Arte extends Artista implements Serializable {
    //Atributos:
@@ -15,11 +17,13 @@ public class Arte extends Artista implements Serializable {
     private String procedencia;
     private String origem;
     private int tombo;
-    
     private static int tomboAUX = 1;
+    private TomboSalvo tomboSalvo = new TomboSalvo();
     
    //Construtor:
-    public Arte(String titulo, String nome, String registro, int ano, String categoria, String PeriProducao, String procedencia, String origem){
+    public Arte(String titulo, String nome, String registro, int ano, 
+                String categoria, String PeriProducao, String procedencia, 
+                String origem){
         super(nome, registro);
         this.titulo = titulo;
         this.ano = ano;
@@ -27,6 +31,11 @@ public class Arte extends Artista implements Serializable {
         this.PeriodoProducao = PeriProducao;
         this.procedencia = procedencia;
         this.origem = origem;
+        
+        if(tomboSalvo.getTombo() > tomboAUX){
+            tomboAUX = tomboSalvo.getTombo();
+        }
+        
         this.tombo = tomboAUX;
         
         tomboAUX ++;
