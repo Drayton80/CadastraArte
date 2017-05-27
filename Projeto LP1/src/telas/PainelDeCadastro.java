@@ -60,7 +60,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
      *      registro.
      */
     private boolean registro_repetido(){
-        if( ("registro1" == "registro2") && ("nome1" != "nome2") ){
+        if( ("registro" == "registro2") && ("nome" != "nome2") ){
             return true;
         }else{
             return false;
