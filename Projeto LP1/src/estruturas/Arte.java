@@ -11,7 +11,7 @@ public class Arte extends Artista implements Serializable {
     private String titulo;
     private int ano;
     private String categoria;
-    private String periodo;
+    private String PeriodoProducao;
     private String procedencia;
     private String origem;
     private int tombo;
@@ -19,12 +19,12 @@ public class Arte extends Artista implements Serializable {
     private static int tomboAUX = 1;
     
    //Construtor:
-    public Arte(String titulo, String nome, String registro, int ano, String categoria, String periodo, String procedencia, String origem){
+    public Arte(String titulo, String nome, String registro, int ano, String categoria, String PeriProducao, String procedencia, String origem){
         super(nome, registro);
         this.titulo = titulo;
         this.ano = ano;
         this.categoria = categoria;
-        this.periodo = periodo;
+        this.PeriodoProducao = PeriProducao;
         this.procedencia = procedencia;
         this.origem = origem;
         this.tombo = tomboAUX;
@@ -56,11 +56,11 @@ public class Arte extends Artista implements Serializable {
         this.categoria = categoria;
     }
 
-    public String getPeriProducao() {
-        return periodo;
+    public String getPeriodoProducao() {
+        return PeriodoProducao;
     }
-    public void setPeriProducao(String periProducao) {
-        this.periodo = periProducao;
+    public void setPeriodoProducao(String periProducao) {
+        this.PeriodoProducao = periProducao;
     }
 
     public String getProcedencia() {
@@ -85,7 +85,7 @@ public class Arte extends Artista implements Serializable {
     //Relatório dos Dados:
     public String toString(){
         return "Título da Obra:" + titulo + '\n' + super.toString() + '\n' + "Ano de Produção:" + ano + '\n' + "Categoria:" + categoria + '\n' +
-               "Período de Produção:" + periodo + '\n' + "Procedência" + procedencia + '\n' + "Origem da Procedência:" + origem + '\n' + "Número de Tombo:" + tombo;
+               "Período de Produção:" + PeriodoProducao + '\n' + "Procedência" + procedencia + '\n' + "Origem da Procedência:" + origem + '\n' + "Número de Tombo:" + tombo;
     }
 }
 

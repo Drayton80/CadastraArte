@@ -1,10 +1,10 @@
 package telas;
 
+import estruturas.Persistencia;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import estruturas.Arte;
-import estruturas.Persistencia;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;

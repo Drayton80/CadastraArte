@@ -9,6 +9,7 @@ package estruturas;
  *
  * @author CI
  */
+import estruturas.Arte;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -27,6 +28,11 @@ public class Persistencia implements Serializable{
     private boolean moreRecords = true;
     private LinkedList<Arte> cad = new LinkedList<Arte>();
 
+   
+    
+    
+    
+   
     public LinkedList<Arte> getCad() {
         return cad;
     }
@@ -113,5 +119,10 @@ public class Persistencia implements Serializable{
     public void initComponents() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+     public Arte getArte(int x) {
+        return cad.get(x);
+    }
+
 
 }

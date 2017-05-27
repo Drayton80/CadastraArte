@@ -9,18 +9,48 @@ package telas;
  *
  * @author arman
  */
+import estruturas.Persistencia;
+import estruturas.Arte;
+import javax.swing.ImageIcon;
+import static telas.PainelPrincipal.jTelaPrincipal;
+
 public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PainelDeAmostra
      */
-    public PainelDeAmostra() {
+    public PainelDeAmostra(int tombo) {
+        this.tombo = tombo;
         initComponents();
+        MostraArte(tombo);
     }
     
     private void fecha_Janela() {
         this.dispose();
     }
+    
+    private void MostraArte(int tombo){
+        for (Arte a : p.getCad()) {
+            
+                if (a.getTombo() == tombo) {
+                    lblMostraTitulo.setText(a.getTitulo());
+                    lblMostraAno.setText(String.valueOf(a.getAno()));
+                    lblMostraTempProducao.setText(a.getPeriodoProducao());
+                    lblMostraCategoria.setText(a.getCategoria());
+                    lblMostraNomeArtista.setText(a.getNome());
+                    lblMostraRegiArtista.setText(String.valueOf(a.getRegistro()));
+                    lblMostraTipoProce.setText(a.getProcedencia());
+                    lblMostraOrigemProce.setText(a.getOrigem());
+                    lblMostraTombo.setText(String.valueOf(a.getTombo()));
+                   }
+            
+        }
+    }
+
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +71,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         botaoFechar = new javax.swing.JToggleButton();
         botaoEditar = new javax.swing.JToggleButton();
         lblMostraTitulo = new javax.swing.JLabel();
@@ -48,9 +79,10 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         lblMostraTempProducao = new javax.swing.JLabel();
         lblMostraCategoria = new javax.swing.JLabel();
         lblMostraNomeArtista = new javax.swing.JLabel();
-        lblRegiArtista = new javax.swing.JLabel();
-        lblTipoProce = new javax.swing.JLabel();
-        lblOrigemProce = new javax.swing.JLabel();
+        lblMostraRegiArtista = new javax.swing.JLabel();
+        lblMostraTipoProce = new javax.swing.JLabel();
+        lblMostraOrigemProce = new javax.swing.JLabel();
+        lblMostraTombo = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -85,56 +117,60 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         botaoEditar.setText("Editar");
 
+        lblMostraTombo.setText("Numero de Tombo:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblMostraCategoria))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblMostraNomeArtista))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblMostraTitulo))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblMostraAno))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblMostraTempProducao))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblRegiArtista))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTipoProce))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblOrigemProce)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(botaoEditar)
-                                .addGap(18, 18, 18)))
-                        .addComponent(botaoFechar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraCategoria))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraNomeArtista))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblMostraTitulo))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblMostraAno))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraTempProducao))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraRegiArtista))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblMostraTipoProce))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraOrigemProce))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblMostraTombo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel10))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoEditar)
+                            .addGap(18, 18, 18)
+                            .addComponent(botaoFechar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(LabelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(148, Short.MAX_VALUE))
@@ -167,16 +203,20 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblRegiArtista))
+                    .addComponent(lblMostraRegiArtista))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(lblTipoProce))
+                    .addComponent(lblMostraTipoProce))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(lblOrigemProce))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                    .addComponent(lblMostraOrigemProce))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMostraTombo)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoFechar)
                     .addComponent(botaoEditar))
@@ -207,6 +247,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private javax.swing.JToggleButton botaoEditar;
     private javax.swing.JToggleButton botaoFechar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -218,10 +259,14 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblMostraAno;
     private javax.swing.JLabel lblMostraCategoria;
     private javax.swing.JLabel lblMostraNomeArtista;
+    private javax.swing.JLabel lblMostraOrigemProce;
+    private javax.swing.JLabel lblMostraRegiArtista;
     private javax.swing.JLabel lblMostraTempProducao;
+    private javax.swing.JLabel lblMostraTipoProce;
     private javax.swing.JLabel lblMostraTitulo;
-    private javax.swing.JLabel lblOrigemProce;
-    private javax.swing.JLabel lblRegiArtista;
-    private javax.swing.JLabel lblTipoProce;
+    private javax.swing.JLabel lblMostraTombo;
     // End of variables declaration//GEN-END:variables
+
+private static Persistencia p = new Persistencia();
+private int tombo;
 }
