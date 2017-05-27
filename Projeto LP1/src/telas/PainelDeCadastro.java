@@ -22,6 +22,7 @@ import exceções.*;
 
 public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
+    //MÉTODO DO PAINEL:
     /**
      * Creates new form PainelDeCadastro
      */
@@ -29,6 +30,86 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         initComponents();
     }
     
+    
+    //MÉTODOS QUE VARREM A COLEÇÃO:
+    /** Método que Checa se há Números de Tombos Repetidos
+     *    Descrição:
+     *      O método verifica se o número de tombo de uma obra de arte que
+     *      vai ser cadastrada é igual ao de outra. Se o número for igual
+     *      ela retorna um valor true do tipo boolean.
+     */
+    private boolean existeNaLista(int tomb) {
+        for (Arte a : p.getCad()) {
+            if (a.getTombo() == tomb) {
+                return true;
+           }
+        }
+        return false;
+    }
+    
+    /** Método que Checa se há Registros Repetidos
+     *    Descrição:
+     *      O método percorre toda a coleção em busca de se há algum registro
+     *      igual ao que será registrado, se sim ele verificará se esse registro
+     *      pertence a um artista com o nome diferente daquele que será 
+     *      cadastrado. Se ambas as condições forem verdades o método
+     *      retornará um valor true do tipo boolean.
+     * 
+     *    Observação:
+     *      Dois artistas diferentes podem conter o mesmo nome, mas não o mesmo
+     *      registro.
+     */
+    private boolean registro_repetido(){
+        if( ("registro1" == "registro2") && ("nome1" != "nome2") ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    
+    //MÉTODOS DE EDIÇÃO DE FORMATO:
+    /** Método que Edita o Formato do Ano
+     *    Descrição:
+     *      O método cria um formato que limita o que será escrito em um
+     *      campo de texto para que restrinja-o a apenas 4 caracteres
+     *      onde será apenas possível digitar números.
+     *    Créditos:
+     *      O código original foi disponibilizado pela professora Daniela Coelho
+     *      no programa da aula prática da lista de exercícios número 4.
+     */
+    public static DefaultFormatterFactory setFormatoAno() {  
+        MaskFormatter comFoco = null;  
+        
+        try{   
+            comFoco = new MaskFormatter("####");  
+        }catch (Exception pe) { }
+        
+        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
+        return factory;  
+    }
+    
+    /** Método que Edita o Formato do Registro
+     *    Descrição:
+     *      O método cria um formato que limita o que será escrito em um
+     *      campo de texto para que restrinja-o a apenas 8 caracteres
+     *      onde será apenas possível digitar números.
+     *    Créditos:
+     *      O código original foi disponibilizado pela professora Daniela Coelho
+     *      no programa da aula prática da lista de exercícios número 4.
+     */
+    public static DefaultFormatterFactory setFormatoRegistro() {  
+        MaskFormatter comFoco = null;  
+        
+        try{   
+            comFoco = new MaskFormatter("########");  
+        }catch (Exception pe) { }
+        
+        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
+        return factory;  
+    }
+    
+    //OUTROS MÉTODOS:
     /** Método que Retorna um Objeto do tipo Arte
      *    Descrição:
      *      O método pega todos os dados registrados pelo usuário nos campos
@@ -49,7 +130,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
             
             return new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
                             txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
-                            String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo,
+                            String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo, //Ainda falta textar para ver se não há outro registro artistico igual
                             String.valueOf(cbProcedencia.getSelectedItem()),
                             txtOrigemProcedencia.getText() );
             
@@ -125,60 +206,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
         this.dispose();
     }
     
-    /** Método que Checa se Há Números de Tombos Repetidos
-     *    Descrição:
-     *      O método verifica se o número de tombo de uma obra de arte que
-     *      vai ser cadastrada é igual ao de outra. Se o número for igual
-     *      ela retorna um valor true do tipo boolean.
-     */
-    private boolean existeNaLista(int tomb) {
-        for (Arte a : p.getCad()) {
-            if (a.getTombo() == tomb) {
-                return true;
-           }
-        }
-        return false;
-    }
-    
-    /** Método que Edita o Formato do Ano
-     *    Descrição:
-     *      O método cria um formato que limita o que será escrito em um
-     *      campo de texto para que restrinja-o a apenas 4 caracteres
-     *      onde será apenas possível digitar números.
-     *    Créditos:
-     *      O código original foi disponibilizado pela professora Daniela Coelho
-     *      no programa da aula prática da lista de exercícios número 4.
-     */
-    public static DefaultFormatterFactory setFormatoAno() {  
-        MaskFormatter comFoco = null;  
-        
-        try{   
-            comFoco = new MaskFormatter("####");  
-        }catch (Exception pe) { }
-        
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
-    }
-    
-    /** Método que Edita o Formato do Registro
-     *    Descrição:
-     *      O método cria um formato que limita o que será escrito em um
-     *      campo de texto para que restrinja-o a apenas 8 caracteres
-     *      onde será apenas possível digitar números.
-     *    Créditos:
-     *      O código original foi disponibilizado pela professora Daniela Coelho
-     *      no programa da aula prática da lista de exercícios número 4.
-     */
-    public static DefaultFormatterFactory setFormatoRegistro() {  
-        MaskFormatter comFoco = null;  
-        
-        try{   
-            comFoco = new MaskFormatter("########");  
-        }catch (Exception pe) { }
-        
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
