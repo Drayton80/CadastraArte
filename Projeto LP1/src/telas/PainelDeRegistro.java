@@ -178,20 +178,17 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 txtPeriodo = "Indeterminado";
             }
             
-            //Arte obra = new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
-            //                     txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
-            //                     String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo, //Ainda falta textar para ver se não há outro registro artistico igual
-            //                     String.valueOf(cbProcedencia.getSelectedItem()),
-            //                     txtOrigemProcedencia.getText(),
-            //                     cbCategoria.getSelectedIndex(),
-            //                     cbProcedencia.getSelectedIndex(), checkbIndeterminado.isSelected());
+            Arte obra = new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
+                                txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
+                                 String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo, //Ainda falta textar para ver se não há outro registro artistico igual
+                                 String.valueOf(cbProcedencia.getSelectedItem()),
+                                 txtOrigemProcedencia.getText());
             
             //obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
             //obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
             //obra.setValorIndeterminado(checkbIndeterminado.isSelected());
             
-            //return obra;
-            return null;
+            return obra;
             
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
