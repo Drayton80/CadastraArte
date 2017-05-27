@@ -154,36 +154,35 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblNomePPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
+                .addComponent(txtPesquisaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(lblArtistaPPequisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(lblNomePPesquisa)
-                        .addGap(9, 9, 9)
-                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(lblArtistaPPequisa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                                .addComponent(jBPesquisaRes, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBFecharPesquisa))
-                            .addComponent(txtPesquisaArtista))
-                        .addGap(49, 49, 49)
-                        .addComponent(lblCategoriaPPesquisa)
+                        .addComponent(jBPesquisaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(529, 529, 529)
-                        .addComponent(lblTituloPainel)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addComponent(jBFecharPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtPesquisaArtista))
+                .addGap(49, 49, 49)
+                .addComponent(lblCategoriaPPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(cbCategoriaPesquisa, 0, 310, Short.MAX_VALUE)
+                .addGap(59, 59, 59))
+            .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                .addGap(520, 520, 520)
+                .addComponent(lblTituloPainel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSePesquisaLayout.setVerticalGroup(
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSePesquisaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTituloPainel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomePPesquisa)
                     .addComponent(lblCategoriaPPesquisa)
@@ -195,7 +194,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBPesquisaRes)
                     .addComponent(jBFecharPesquisa))
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(188, 188, 188))
         );
@@ -223,15 +222,26 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
 
+    /** Método que Mostra a Tabela
+     *    Descrição:
+     *      O método abre uma tabela que apresenta os dados de cada obra
+     *      registrada no acervo do museu. Isso ocorre logo após o usuário
+     *      apertar o botão no menu relativo ao painel de pesquisa.
+     */
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
         jTable1.setVisible(true);
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
+    /** Evento do Clique do Mouse na Linha de Tabela
+     *    Descrição:
+     *      Após um clique em uma das linhas da tabela, é aberto em uma janela
+     *      todas as informações sobre a obra de arte.
+     */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         PainelDeAmostra frame = new PainelDeAmostra(p.getArte(jTable1.rowAtPoint(evt.getPoint())).getTombo());
         jTelaPrincipal.add(frame);
+        frame.setVisible(false);
         frame.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jTable1MouseClicked
 
 

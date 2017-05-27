@@ -25,9 +25,9 @@ import java.util.LinkedList;
 
 public class PainelDeCadastro extends javax.swing.JInternalFrame {
 
-    //MÉTODO DO PAINEL:
-    /**
-     * Creates new form PainelDeCadastro
+    //CONSTRUTOR:
+    /** Descrição:
+     *    Abre o arquivo em modo de leitura. 
      */
     public PainelDeCadastro() {
         p.setupLer();
