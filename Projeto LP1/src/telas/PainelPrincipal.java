@@ -16,17 +16,33 @@ import estruturas.Persistencia;
 import estruturas.Arte;
 import java.util.*;
 import java.io.*;
+import javax.swing.JOptionPane;
 
 
 public class PainelPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PainelPrincipal
+    
+    //CONSTRUTOR:
+    /** Construtor do Painel Principal:
+     *    Descrição:
+     *      Painel padrão da interface.
      */
     public PainelPrincipal() {
-       
-        
         initComponents();
+    }
+    
+    //MÉTODOS:
+    /** Método de Testar se Existe na Lista
+     *    Descrição:
+     *      O método percorre a coleção e checa se existe o tombo enviado
+     *      no parâmetro.     * 
+     */
+    private boolean existeNaLista(int tomb) {
+        for (Arte a : cad) {
+            if (a.getTombo() == tomb) {
+               return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -131,8 +147,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
     
     /** Botão de Cadastrar Obras de Arte
-     *   Abre uma janela que serve para registrar uma obra de arte no acervo
-     *   pertencente ao museu.
+     *    Descrição:
+     *      Abre uma janela que serve para registrar uma obra de arte no acervo
+     *      pertencente ao museu.
      */
     private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
         PainelDeRegistro PainelC = new PainelDeRegistro();
@@ -142,8 +159,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
     /** Botão de Pesquisar Obras de Arte
-     *   Abre uma janela que serve para buscar uma obra de arte no acervo
-     *   daquelas que já foram cadastradas.
+     *    Descrição:
+     *      Abre uma janela que serve para buscar uma obra de arte no acervo
+     *      daquelas que já foram cadastradas.
      */
     private void jMenuItemPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPesquisarActionPerformed
         PainelDePesquisa PainelP = new PainelDePesquisa();
@@ -160,11 +178,34 @@ public class PainelPrincipal extends javax.swing.JFrame {
          System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    /** Botão de Editar Obras de Arte
+     *    Descrição:
+     *      Abre uma janela (JOptionPane) que pede o número de tombo e,
+     *      com aquilo que for digitado nela, percorre a coleção para saber
+     *      se esse tombo existe para logo em seguida abrir a janela de
+     *      edição de obras.
+     */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
-        PainelDeRegistro PainelE = new PainelDeRegistro();
-        PainelE.setTitle("Editar Obra de Arte");
-        jTelaPrincipal.add(PainelE);
-        PainelE.setVisible(true);
+        while(true){
+            try{
+                int tombo;
+
+                tombo = Integer.parseInt(JOptionPane.showInputDialog("Entre com o tombo a ser editado:"));
+
+                if (existeNaLista(tombo)) {
+                    PainelDeRegistro PainelE = new PainelDeRegistro(tombo);
+                    PainelE.setTitle("Editar Obra de Arte");
+                    jTelaPrincipal.add(PainelE);
+                    PainelE.setVisible(true);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }
+            } catch(NumberFormatException n){
+                JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
     /**

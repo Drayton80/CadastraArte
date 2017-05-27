@@ -87,7 +87,7 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="cbCategoria" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jBSelectImagem" alignment="0" pref="131" max="32767" attributes="0"/>
-                                      <Component id="checkbInderteminado" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="checkbIndeterminado" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -141,7 +141,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="checkbInderteminado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkbIndeterminado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTempoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTempoPeriodoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -330,12 +330,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkbInderteminado">
+        <Component class="javax.swing.JCheckBox" name="checkbIndeterminado">
           <Properties>
             <Property name="text" type="java.lang.String" value="Indeterminado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbInderteminadoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbIndeterminadoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBSelectImagem">

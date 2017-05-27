@@ -9,16 +9,19 @@ import java.util.LinkedList;
 
 
 public class Arte extends Artista implements Serializable {
-   //Atributos:
+   //Atributos Essenciais:
     private String titulo;
     private int ano;
     private String categoria;
     private String PeriodoProducao;
     private String procedencia;
     private String origem;
-    private int tombo;
+    private int tombo = 0;
+    //Atributos Auxiliares:
+    //private int indiceCategoria = 0;
+    //private int indiceProcedencia = 0;
+    //private boolean valorIndeterminado;
     private static int tomboAUX = 1;
-    
     
    //Construtor:
     public Arte(String titulo, String nome, String registro, int ano, 
@@ -87,6 +90,30 @@ public class Arte extends Artista implements Serializable {
     public void setOrigem(String origem) {
         this.origem = origem;
     }
+    
+  //public int getIndiceCategoria(){
+  //    return indiceCategoria;
+  //}
+  //
+  //public void setIndiceCategoria(int indiceCategoria){
+  //    this.indiceCategoria = indiceCategoria;
+  //}
+  //
+  //public int getIndiceProcedencia(){
+  //    return indiceProcedencia;
+  //}
+  //
+  //public void setIndiceProcedencia(int indiceProcedencia){
+  //    this.indiceProcedencia = indiceProcedencia;
+  //}
+  //
+  //public boolean getValorIndeterminado(){
+  //    return valorIndeterminado;
+  //}
+  //
+  //public void setValorIndeterminado(boolean valorIndeterminado){
+  //    this.valorIndeterminado = valorIndeterminado;
+  //}
 
     public int getTombo() {
         return tombo;

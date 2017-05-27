@@ -45,11 +45,11 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      * 
      *    Observação:
      *      Foi feito através de um construtor sobrecarregado para que o
-     *      programa ficasse mais eficiente ao reduzir a um painel o que
-     *      seriam feito em dois (Painel de Cadastro e Painel de Edição
+     *      programa ficasse mais eficiente ao reduzir en um painel o que
+     *      seria feito em dois (Painel de Cadastro e Painel de Edição
      *      tornaram-se o Painel de Registro.
      */
-    public PainelDeRegistro(int tombo) {
+    public PainelDeRegistro(int tombo) {        
         p.setupLer();
         if(p.getContinua() == true){
             p.readRecords();
@@ -57,7 +57,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             cad = p.getCad();
             
         }
+        painelEditor = true;
+        t = tombo;
         initComponents();
+        preenche_campos(tombo);
     }
     
     
@@ -72,7 +75,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         for (Arte a : p.getCad()) {
             if (a.getTombo() == tomb) {
                 return true;
-           }
+            }
         }
         return false;
     }
@@ -94,6 +97,23 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             return true;
         }else{
             return false;
+        }
+    }
+    
+    private void preenche_campos(int tombo){
+        for (Arte a : cad) {
+            if (a.getTombo() == tombo) {
+                txtNomeArtista.setText(a.getNome());
+                txtOrigemProcedencia.setText(a.getOrigem());
+                txtResArtista.setText(a.getRegistro());
+                txtSelectImagem.setText("");
+                txtTempoPeriodoProducao.setText(a.getPeriodoProducao());
+                txtTituloObra.setText(a.getTitulo());
+                formatTxtAno.setText(String.valueOf(a.getAno()));
+              //checkbIndeterminado.setSelected(a.getValorIndeterminado());
+              //cbCategoria.setSelectedIndex(a.getIndiceCategoria());
+              //cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
+            }
         }
     }
     
@@ -154,15 +174,24 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 throw new CampoVazio();
             }
             
-            if(txtPeriodo.equals("") || checkbInderteminado.isSelected()){
+            if(txtPeriodo.equals("") || checkbIndeterminado.isSelected()){
                 txtPeriodo = "Indeterminado";
             }
             
-            return new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
-                            txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
-                            String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo, //Ainda falta textar para ver se não há outro registro artistico igual
-                            String.valueOf(cbProcedencia.getSelectedItem()),
-                            txtOrigemProcedencia.getText() );
+            //Arte obra = new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
+            //                     txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
+            //                     String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo, //Ainda falta textar para ver se não há outro registro artistico igual
+            //                     String.valueOf(cbProcedencia.getSelectedItem()),
+            //                     txtOrigemProcedencia.getText(),
+            //                     cbCategoria.getSelectedIndex(),
+            //                     cbProcedencia.getSelectedIndex(), checkbIndeterminado.isSelected());
+            
+            //obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
+            //obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
+            //obra.setValorIndeterminado(checkbIndeterminado.isSelected());
+            
+            //return obra;
+            return null;
             
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
@@ -222,7 +251,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtTempoPeriodoProducao.setText("");
         txtTituloObra.setText("");
         formatTxtAno.setText("");
-        checkbInderteminado.setSelected(false);
+        checkbIndeterminado.setSelected(false);
         cbCategoria.setSelectedIndex(0);
         cbProcedencia.setSelectedIndex(0);
     }
@@ -269,7 +298,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         formatTxtAno = new javax.swing.JFormattedTextField();
         cbCategoria = new javax.swing.JComboBox<>();
         cbProcedencia = new javax.swing.JComboBox<>();
-        checkbInderteminado = new javax.swing.JCheckBox();
+        checkbIndeterminado = new javax.swing.JCheckBox();
         jBSelectImagem = new javax.swing.JButton();
         jBCancelarCadastro = new javax.swing.JButton();
         jBSalvarCadastro = new javax.swing.JButton();
@@ -319,10 +348,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         cbProcedencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Aquisição", "Comodato", "Doação", "Espólio", "Legado", "Prêmio" }));
 
-        checkbInderteminado.setText("Indeterminado");
-        checkbInderteminado.addActionListener(new java.awt.event.ActionListener() {
+        checkbIndeterminado.setText("Indeterminado");
+        checkbIndeterminado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkbInderteminadoActionPerformed(evt);
+                checkbIndeterminadoActionPerformed(evt);
             }
         });
 
@@ -387,7 +416,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                    .addComponent(checkbInderteminado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(checkbIndeterminado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSelectImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
@@ -425,7 +454,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     .addComponent(lblAnoProducao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkbInderteminado)
+                    .addComponent(checkbIndeterminado)
                     .addComponent(lblTempoProducao)
                     .addComponent(txtTempoPeriodoProducao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -534,29 +563,46 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         if (null != retorna_arte()) {
             Arte a = retorna_arte();
             System.out.println(a.toString());
-            if (!existeNaLista(a.getTombo())) {
-                p.getCad().add(a);
-                p.setupGravar();
-                p.addRecords(cad); // Adciona um produto a lista.
-                p.cleanupGravar();        // Fecha o arquivo           
-                
-                JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
-                limpa_campos();                
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            if(painelEditor ==  false){
+                if (!existeNaLista(a.getTombo())) {
+                    p.getCad().add(a);
+                    p.setupGravar();
+                    p.addRecords(cad); // Adciona um produto a lista.
+                    p.cleanupGravar();        // Fecha o arquivo           
+
+                    JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
+                    limpa_campos();                
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            
+            if(painelEditor == true){
+                if (!existeNaLista(a.getTombo())) {
+                    p.getCad().add(t, a);  //t é o índice do tombo
+                    p.setupGravar();
+                    p.addRecords(cad); // Adciona um produto a lista.
+                    p.cleanupGravar();        // Fecha o arquivo           
+
+                    JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
+                    limpa_campos();                
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                }
+                painelEditor = false;
             }
         }
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
-    private void checkbInderteminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbInderteminadoActionPerformed
+    private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkbInderteminadoActionPerformed
+    }//GEN-LAST:event_checkbIndeterminadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbProcedencia;
-    private javax.swing.JCheckBox checkbInderteminado;
+    private javax.swing.JCheckBox checkbIndeterminado;
     private javax.swing.JFormattedTextField formatTxtAno;
     private javax.swing.JButton jBCancelarCadastro;
     private javax.swing.JButton jBSalvarCadastro;
@@ -587,5 +633,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     //Outros Atributos:
     private static Persistencia p = new Persistencia();
     private LinkedList<Arte> cad = new LinkedList<Arte>();
+    private static boolean painelEditor = false;
+    private static int t = 0;
     //Fim dos Atribudos;
 }
