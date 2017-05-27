@@ -31,7 +31,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     }
     
     
-    //MÉTODOS QUE VARREM A COLEÇÃO:
+    //MÉTODOS QUE PERCORREM A COLEÇÃO:
     /** Método que Checa se há Números de Tombos Repetidos
      *    Descrição:
      *      O método verifica se o número de tombo de uma obra de arte que
