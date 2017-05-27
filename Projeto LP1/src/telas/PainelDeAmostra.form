@@ -88,9 +88,9 @@
                                       <Component id="lblMostraOrigemProce" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblMostraTombo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMostraTombo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -157,8 +157,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="JLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblMostraTombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -220,7 +220,10 @@
             <Property name="text" type="java.lang.String" value="Tempo de Produ&#xe7;&#xe3;o(anos):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
+        <Component class="javax.swing.JLabel" name="JLabel11">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Numero de Tombo:"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="botaoFechar">
           <Properties>
@@ -252,9 +255,6 @@
         <Component class="javax.swing.JLabel" name="lblMostraOrigemProce">
         </Component>
         <Component class="javax.swing.JLabel" name="lblMostraTombo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Numero de Tombo:"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

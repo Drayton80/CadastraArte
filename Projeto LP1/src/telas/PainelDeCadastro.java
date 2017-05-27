@@ -1,5 +1,7 @@
 package telas;
 
+
+
 import estruturas.Persistencia;
 import java.io.File;
 import javax.swing.JFileChooser;
@@ -9,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import exceções.*;
+import java.util.LinkedList;
 
 /** Painel de Cadastro de Obras de Artes
  *    descrição:
@@ -27,6 +30,12 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
      * Creates new form PainelDeCadastro
      */
     public PainelDeCadastro() {
+        p.setupLer();
+        if (p.getContinua() == true ){
+            p.readRecords();
+            p.cleanupLer();
+            cad = p.getCad();
+        }
         initComponents();
     }
     
@@ -508,7 +517,7 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
             if (!existeNaLista(a.getTombo())) {
                 p.getCad().add(a);
                 p.setupGravar();
-                p.addRecords(p.getCad()); // Adciona um produto a lista.
+                p.addRecords(cad); // Adciona um produto a lista.
                 p.cleanupGravar();        // Fecha o arquivo           
                 
                 JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
@@ -557,5 +566,6 @@ public class PainelDeCadastro extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     //Outros Atributos:
     private static Persistencia p = new Persistencia();
+    private LinkedList<Arte> cad = new LinkedList<Arte>();
     //Fim dos Atribudos;
 }

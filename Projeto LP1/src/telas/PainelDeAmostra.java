@@ -11,6 +11,7 @@ package telas;
  */
 import estruturas.Persistencia;
 import estruturas.Arte;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
@@ -20,6 +21,12 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
      * Creates new form PainelDeAmostra
      */
     public PainelDeAmostra(int tombo) {
+        p.setupLer();
+        if (p.getContinua() == true ){
+            p.readRecords();
+            p.cleanupLer();
+            cad = p.getCad();
+        }
         this.tombo = tombo;
         initComponents();
         MostraArte(tombo);
@@ -30,7 +37,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     }
     
     private void MostraArte(int tombo){
-        for (Arte a : p.getCad()) {
+        for (Arte a : cad) {
             
                 if (a.getTombo() == tombo) {
                     lblMostraTitulo.setText(a.getTitulo());
@@ -71,7 +78,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        JLabel11 = new javax.swing.JLabel();
         botaoFechar = new javax.swing.JToggleButton();
         botaoEditar = new javax.swing.JToggleButton();
         lblMostraTitulo = new javax.swing.JLabel();
@@ -108,6 +115,8 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Tempo de Produção(anos):");
 
+        JLabel11.setText("Numero de Tombo:");
+
         botaoFechar.setText("Fechar");
         botaoFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +125,6 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         });
 
         botaoEditar.setText("Editar");
-
-        lblMostraTombo.setText("Numero de Tombo:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,9 +169,9 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(lblMostraOrigemProce))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblMostraTombo)
+                                    .addComponent(JLabel11)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel10))))
+                                    .addComponent(lblMostraTombo))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoEditar)
@@ -214,8 +221,8 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                     .addComponent(lblMostraOrigemProce))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMostraTombo)
-                    .addComponent(jLabel10))
+                    .addComponent(JLabel11)
+                    .addComponent(lblMostraTombo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoFechar)
@@ -243,11 +250,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel11;
     private javax.swing.JLabel LabelImagem;
     private javax.swing.JToggleButton botaoEditar;
     private javax.swing.JToggleButton botaoFechar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -269,4 +276,5 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
 private static Persistencia p = new Persistencia();
 private int tombo;
+private LinkedList<Arte> cad = new LinkedList<Arte>();
 }
