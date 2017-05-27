@@ -10,8 +10,8 @@ package telas;
  * @author aluno
 
 */
-import estruturas.Arte;
 import estruturas.Persistencia;
+import estruturas.Arte;
 import java.util.*;
 import java.io.*;
 

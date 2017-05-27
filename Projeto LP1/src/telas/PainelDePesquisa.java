@@ -1,7 +1,7 @@
 package telas;
 
-import estruturas.Arte;
 import estruturas.Persistencia;
+import estruturas.Arte;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -117,6 +117,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jSMostraPesquisa.setViewportView(jTable1);
@@ -237,6 +242,13 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         jTable1.setVisible(true);
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        PainelDeAmostra frame = new PainelDeAmostra(p.getArte(jTable1.rowAtPoint(evt.getPoint())).getTombo());
+        jTelaPrincipal.add(frame);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoriaPesquisa;
@@ -255,4 +267,5 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     
     private static Persistencia p = new Persistencia();
+    
 }
