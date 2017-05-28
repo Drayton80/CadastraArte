@@ -701,8 +701,12 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
-        //if(checkbIndeterminado == true){txtTempoPeriodoProducao.setEnabled(false);}
-        //else{}
+        if(checkbIndeterminado.isSelected()){
+            txtTempoPeriodoProducao.setEnabled(false);
+        }
+        else{
+            txtTempoPeriodoProducao.setEnabled(true);
+        }
     }//GEN-LAST:event_checkbIndeterminadoActionPerformed
 
     private void cbProcedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProcedenciaActionPerformed
@@ -713,10 +717,16 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTempoPeriodoProducaoActionPerformed
 
+//Fazer comentário
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if(jCheckBox1.isSelected()){
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
             labelImagem1.setIcon(new ImageIcon(img));
+            jBSelectImagem.setEnabled(false);
+        }
+        else{
+            jBSelectImagem.setEnabled(true);
+            labelImagem1.setIcon(null);
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
