@@ -64,7 +64,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     }
     
     
-    //MÉTODOS QUE PERCORREM A COLEÇÃO:
+  //MÉTODOS QUE PERCORREM A COLEÇÃO:
     /** Método que Checa se há Números de Tombos Repetidos
      *    Descrição:
      *      O método verifica se o número de tombo de uma obra de arte que
@@ -79,6 +79,13 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         }
         return false;
     }
+    
+    /** Método que Checa se há Título de Obras Repetidos
+     *    Descrição:
+     *      O método verifica se o título de uma obra de arte que
+     *      vai ser cadastrada é igual ao de outra. Se o nome for igual
+     *      ela retorna um valor true do tipo boolean.
+     */
     private boolean existeNaListaTitulo(String titulo) {
         for (Arte a : p.getCad()) {
             if (a.getTitulo().equals(titulo)) {
@@ -100,15 +107,73 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *      Dois artistas diferentes podem conter o mesmo nome, mas não o mesmo
      *      registro, ou seja, o registro é o que diferencia cada artista.
      */
-     private boolean registro_repetido(Arte a){
-        for (Arte b : cad){
-        if( (a.getRegistro().equals(b.getRegistro())) && (!a.getNome().equals(b.getNome())) ){
-            System.out.println("ops");
-            return true;
-        }
-    } return false;
+    private boolean registro_repetido(String a, String b){
+        for (Arte c : cad){
+            if( (a.equals(c.getRegistro())) && (!b.equals(c.getNome())) ){
+                return true;
+            }
+        } return false;
     }
     
+    
+  //MÉTODOS RELATIVOS AOS CAMPOS DE CADASTRO:
+    /** Método que Testa os Campos de Texto
+     *    Descrição:
+     *      O método avalia todos os campos obrigatórios para checar 
+     *      se há algum aonde o usuário não digitou ou selecionou qualquer
+     *      coisa e retorna um valor do tipo boolean: 
+     *        - true  (caso tenha algum campo obrigatório sem algo)
+     *           ou
+     *        - false (caso todos estejam preenchidos ou selecionados)
+     *    Observação:
+     *      Os campos obrigatórios foram marcados com asteriscos ( * ) na 
+     *      interface.
+     */
+    private boolean teste_dos_campos(){
+        String txtTitulo = txtTituloObra.getText();
+        String txtAno = formatTxtAno.getText();
+        String txtNome = txtNomeArtista.getText();
+        String txtRegistro = txtResArtista.getText();
+        String txtOrigem = txtOrigemProcedencia.getText();
+        String txtCategoria = (String) cbCategoria.getSelectedItem();
+        String txtProcedencia = (String) cbProcedencia.getSelectedItem();
+        
+        if(txtTitulo.equals("")   || txtAno.equals("")    || txtNome.equals("")               ||
+           txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione") ||
+                                                             txtProcedencia.equals("Selecione")){    
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    /** Método que Limpa todos os Campos
+     *    Descrição:
+     *      O método retorna todos os campos de texto (TextField), 
+     *      campos formatados (FormattedTextField), caixas de combinação (ComboBox)
+     *      e caixas de seleção (CheckBox) da janela para o estado inicial aonde
+     *      todas estavam em sem qualquer detalhe selecionado e/ou marcado.
+     */
+    private void limpa_campos(){
+        txtNomeArtista.setText("");
+        txtOrigemProcedencia.setText("");
+        txtResArtista.setText("");
+        txtSelectImagem.setText("");
+        txtTempoPeriodoProducao.setText("");
+        txtTituloObra.setText("");
+        formatTxtAno.setText("");
+        checkbIndeterminado.setSelected(false);
+        cbCategoria.setSelectedIndex(0);
+        cbProcedencia.setSelectedIndex(0);
+    }
+    
+    /** Método que Preenche todos os Campos
+     *    Descrição:
+     *      O método preenche todos os campos de texto (TextField), 
+     *      campos formatados (FormattedTextField), caixas de combinação 
+     *      (ComboBox) e caixas de seleção (CheckBox) da janela com os 
+     *      dados da Obra de Arte que será editada no acervo do museu.
+     */
     private void preenche_campos(int tombo){
         for (Arte a : cad) {
             if (a.getTombo() == tombo) {
@@ -132,7 +197,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     }
     
     
-    //MÉTODOS DE EDIÇÃO DE FORMATO:
+  //MÉTODOS DE EDIÇÃO DE FORMATO:
     /** Método que Edita o Formato do Ano
      *    Descrição:
      *      O método cria um formato que limita o que será escrito em um
@@ -173,7 +238,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         return factory;  
     }
     
-    //OUTROS MÉTODOS:
+    
+  //OUTROS MÉTODOS:
     /** Método que Retorna um Objeto do tipo Arte
      *    Descrição:
      *      O método pega todos os dados registrados pelo usuário nos campos
@@ -186,6 +252,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         try {
             if(teste_dos_campos()){
                 throw new CampoVazio();
+            }
+            
+            if(registro_repetido(txtResArtista.getText(), txtNomeArtista.getText())){
+                throw new DadoRepetido();
             }
             
             if(txtPeriodo.equals("") || checkbIndeterminado.isSelected()){
@@ -204,67 +274,22 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             
             return obra;
             
-        } catch (NumberFormatException n) {
+        }catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
                                                     "valores cadastrados não é válido.                     "        ,
                                                     "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
-        } catch (CampoVazio n){
+        }catch (CampoVazio n){
             JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
                                                     "Campos Obrigatórios não foi preenchido ou selecionado."        ,
                                                     "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
+        }catch (DadoRepetido n){
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois o" + "\n" +
+                                                    "Registro do Artista já foi Cadastrado no nome de " + "\n" +
+                                                    "de outro artista.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            return null;
         }
-    }
-    
-    /** Método que Testa os Campos de Texto
-     *    Descrição:
-     *      O método avalia todos os campos obrigatórios para checar 
-     *      se há algum aonde o usuário não digitou ou selecionou qualquer
-     *      coisa e retorna um valor do tipo boolean: 
-     *        - true  (caso tenha algum campo obrigatório sem algo)
-     *           ou
-     *        - false (caso todos estejam preenchidos ou selecionados)
-     *    Observação:
-     *      Os campos obrigatórios foram marcados com asteriscos ( * ) na 
-     *      interface.
-     */
-    private boolean teste_dos_campos(){
-        String txtTitulo = txtTituloObra.getText();
-        String txtAno = formatTxtAno.getText();
-        String txtNome = txtNomeArtista.getText();
-        String txtRegistro = txtResArtista.getText();
-        String txtOrigem = txtOrigemProcedencia.getText();
-        String txtCategoria = (String) cbCategoria.getSelectedItem();
-        String txtProcedencia = (String) cbProcedencia.getSelectedItem();
-        
-        if(txtTitulo.equals("")   || txtAno.equals("")    || txtNome.equals("")               ||
-           txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione") ||
-                                                             txtProcedencia.equals("Selecione")){    
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-     /** Método que Limpa todos os Campos
-     *    Descrição:
-     *      O método retorna todos os campos de texto (TextField), 
-     *      campos formatados (FormattedTextField), caixas de combinação (ComboBox)
-     *      e caixas de seleção (CheckBox) da janela para o estado inicial aonde
-     *      todas estavam em sem qualquer detalhe selecionado e/ou marcado.
-     */
-    private void limpa_campos(){
-        txtNomeArtista.setText("");
-        txtOrigemProcedencia.setText("");
-        txtResArtista.setText("");
-        txtSelectImagem.setText("");
-        txtTempoPeriodoProducao.setText("");
-        txtTituloObra.setText("");
-        formatTxtAno.setText("");
-        checkbIndeterminado.setSelected(false);
-        cbCategoria.setSelectedIndex(0);
-        cbProcedencia.setSelectedIndex(0);
     }
     
     /** Método que Fecha a Janela Aberta
@@ -588,7 +613,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
          Arte verifica = retorna_arte();
         if (null != verifica) {
             Arte a = verifica;            
-            if(!registro_repetido(a)){
+            if(!registro_repetido(txtResArtista)){
                 System.out.println(a.toString());
             if(painelEditor ==  false){
                 if (!existeNaListaTitulo(a.getTitulo())) { 
