@@ -19,7 +19,7 @@
                   <Image iconType="3" name="/Imagens/application_form_add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Novas Obras"/>
-                <Property name="toolTipText" type="java.lang.String" value="Novo Cadastro... (Ctrl + N)"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCadastrarActionPerformed"/>
@@ -34,7 +34,7 @@
                   <Image iconType="3" name="/Imagens/application_form_magnify.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar Registros"/>
-                <Property name="toolTipText" type="java.lang.String" value="Pesquisar Cadastros... (Ctrl + P)"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPesquisarActionPerformed"/>
@@ -49,7 +49,7 @@
                   <Image iconType="3" name="/Imagens/application_form_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Dados"/>
-                <Property name="toolTipText" type="java.lang.String" value="Modificar Cadastro... (Ctrl + M)"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEditarActionPerformed"/>

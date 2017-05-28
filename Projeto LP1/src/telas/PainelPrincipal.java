@@ -104,7 +104,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_add.png"))); // NOI18N
         jMenuItemCadastrar.setText("Cadastrar Novas Obras");
-        jMenuItemCadastrar.setToolTipText("Novo Cadastro... (Ctrl + N)");
+        jMenuItemCadastrar.setToolTipText("");
         jMenuItemCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCadastrarActionPerformed(evt);
@@ -115,7 +115,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemPesquisar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_magnify.png"))); // NOI18N
         jMenuItemPesquisar.setText("Pesquisar Registros");
-        jMenuItemPesquisar.setToolTipText("Pesquisar Cadastros... (Ctrl + P)");
+        jMenuItemPesquisar.setToolTipText("");
         jMenuItemPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemPesquisarActionPerformed(evt);
@@ -126,7 +126,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemEditar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_edit.png"))); // NOI18N
         jMenuItemEditar.setText("Modificar Dados");
-        jMenuItemEditar.setToolTipText("Modificar Cadastro... (Ctrl + M)");
+        jMenuItemEditar.setToolTipText("");
         jMenuItemEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemEditarActionPerformed(evt);
@@ -203,7 +203,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
      */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
         while(true){
-            try{
+           try{
                 int tombo;
 
                 tombo = Integer.parseInt(JOptionPane.showInputDialog("Entre com o tombo a ser editado:"));
@@ -218,6 +218,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                     break;
                 }
+            
             } catch(NumberFormatException n){
                 JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
             }
