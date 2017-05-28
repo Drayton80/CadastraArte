@@ -613,10 +613,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
          Arte verifica = retorna_arte();
         if (null != verifica) {
             Arte a = verifica;            
-            if(!registro_repetido(txtResArtista)){
+            
                 System.out.println(a.toString());
             if(painelEditor ==  false){
-                if (!existeNaListaTitulo(a.getTitulo())) { 
+                 
                 if (!existeNaListaTombo(a.getTombo())) {
                     p.getCad().add(a);
                     p.setupGravar();
@@ -628,12 +628,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Tombo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Titulo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
-                }
-            }}else{
-                    JOptionPane.showMessageDialog(rootPane, "Numero de registro ja esta ligado a outro Artista", "Aviso", JOptionPane.ERROR_MESSAGE);
-            }
+                } 
+            
             
             if(painelEditor == true){
                 for(Arte e : cad){

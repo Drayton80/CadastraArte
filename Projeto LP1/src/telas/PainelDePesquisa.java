@@ -27,8 +27,9 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
      */ 
     
     public PainelDePesquisa() {
-        atualiza_Arte();   
-    }
+        initComponents();
+        atualiza_Arte();
+            }
     
     /** Método que Fecha a Janela Aberta
      *    Descrição:
@@ -45,8 +46,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
      * do metodo obj
      */    
     private void atualiza_Arte() {
-        initComponents();
-        p.setupLer();
+         p.setupLer();
         if (p.getContinua() == true ){
             p.readRecords();
             p.cleanupLer();
