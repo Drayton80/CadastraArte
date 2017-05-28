@@ -19,6 +19,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 public class Persistencia implements Serializable{
 
@@ -55,6 +56,11 @@ public class Persistencia implements Serializable{
         try {
             FileInputStream leitura = new FileInputStream("Arte.ser");
             input = new ObjectInputStream(leitura);
+        }catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Banco de dados inesxistente, foi criado um banco de dados", "erro", JOptionPane.ERROR_MESSAGE);
+            setupGravar();
+            addRecords(cad);
+            cleanupGravar();
         } catch (EOFException eof) {
             continua = false;  //arquivo está vazio
         } catch (IOException e) {
