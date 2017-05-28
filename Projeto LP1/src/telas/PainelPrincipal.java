@@ -101,6 +101,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuOpcoes.setText("Opções");
         jMenuOpcoes.setToolTipText("");
 
+        jMenuItemCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_add.png"))); // NOI18N
         jMenuItemCadastrar.setText("Cadastrar Novas Obras");
         jMenuItemCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +110,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenuOpcoes.add(jMenuItemCadastrar);
 
+        jMenuItemPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_magnify.png"))); // NOI18N
         jMenuItemPesquisar.setText("Pesquisar Registros");
         jMenuItemPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +119,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenuOpcoes.add(jMenuItemPesquisar);
 
+        jMenuItemEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_edit.png"))); // NOI18N
         jMenuItemEditar.setText("Modificar Dados");
         jMenuItemEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +128,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenuOpcoes.add(jMenuItemEditar);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
         jMenuItem1.setText("Sair");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
