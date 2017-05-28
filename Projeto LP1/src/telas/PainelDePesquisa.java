@@ -108,6 +108,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         setTitle("Pesquisa de Obra de Arte");
 
         cbCategoriaPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Álbum", "Aquarela", "Colagem", "Desenho", "Escultura", "Foto", "Gravura", "Impressão", "Instalação", "Livro", "Múltiplo", "Objeto", "ObraDesinc", "Perform", "Pintura", "Relevo", "Tapeçaria", "Vídeo" }));
+        cbCategoriaPesquisa.setToolTipText("Para pesquisar por Categoria, Selecione a Categoria da Obra e marque a caixa Categoria.");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,10 +133,16 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         });
         jSMostraPesquisa.setViewportView(jTable1);
 
+        txtPesquisaNome.setToolTipText("Para pesquisar por Título da Obra, digite o nome completo da obra e marque a caixa Titulo da Obra.");
+
+        txtPesquisaArtista.setToolTipText("Para pesquisar por Nome do Artista, digite o nome completo do Artista e marque a caixa Nome do Artista.");
+
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Pesquisar Registro");
 
         jBFecharPesquisa.setText("Cadastrar Nova");
+        jBFecharPesquisa.setToolTipText("Retorna para a aba de cadastro de obras de arte.");
+        jBFecharPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBFecharPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBFecharPesquisaActionPerformed(evt);
@@ -143,6 +150,8 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         });
 
         jBPesquisaRes.setText("Pesquisar");
+        jBPesquisaRes.setToolTipText("Pesquisar dados inseridos.");
+        jBPesquisaRes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBPesquisaRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBPesquisaResActionPerformed(evt);
@@ -151,14 +160,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
         buttonGroup1.add(botaoNomeArtista);
         botaoNomeArtista.setText("Nome do Artista:");
+        botaoNomeArtista.setToolTipText("");
+        botaoNomeArtista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonGroup1.add(botaoTitulo);
         botaoTitulo.setText("Titulo da Obra:");
+        botaoTitulo.setToolTipText("");
+        botaoTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonGroup1.add(botaoCategoria);
         botaoCategoria.setText("Categoria:");
+        botaoCategoria.setToolTipText("É necessário confirmar a caixa de pesquisa por categoria.");
+        botaoCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jToggleButton1.setText("Restaurar");
+        jToggleButton1.setToolTipText("Retorna para a realização de uma nova pesquisa.");
+        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);

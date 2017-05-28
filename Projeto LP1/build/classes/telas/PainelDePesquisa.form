@@ -155,6 +155,7 @@
                 <StringItem index="18" value="V&#xed;deo"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Para pesquisar por Categoria, Selecione a Categoria da Obra e marque a caixa Categoria."/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -218,8 +219,14 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtPesquisaNome">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Para pesquisar por T&#xed;tulo da Obra, digite o nome completo da obra e marque a caixa Titulo da Obra."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPesquisaArtista">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Para pesquisar por Nome do Artista, digite o nome completo do Artista e marque a caixa Nome do Artista."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloPainel">
           <Properties>
@@ -232,6 +239,10 @@
         <Component class="javax.swing.JButton" name="jBFecharPesquisa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Nova"/>
+            <Property name="toolTipText" type="java.lang.String" value="Retorna para a aba de cadastro de obras de arte."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBFecharPesquisaActionPerformed"/>
@@ -240,6 +251,10 @@
         <Component class="javax.swing.JButton" name="jBPesquisaRes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Pesquisar dados inseridos."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBPesquisaResActionPerformed"/>
@@ -251,6 +266,10 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nome do Artista:"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="botaoTitulo">
@@ -259,6 +278,10 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Titulo da Obra:"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="botaoCategoria">
@@ -267,11 +290,19 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Categoria:"/>
+            <Property name="toolTipText" type="java.lang.String" value="&#xc9; necess&#xe1;rio confirmar a caixa de pesquisa por categoria."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Restaurar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Retorna para a realiza&#xe7;&#xe3;o de uma nova pesquisa."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>

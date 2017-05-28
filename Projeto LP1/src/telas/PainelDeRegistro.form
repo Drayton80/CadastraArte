@@ -55,10 +55,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jBSalvarCadastro" min="-2" pref="72" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -198,7 +198,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Imforma&#xe7;&#xf5;es da Obra"/>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Obra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTitulo">
@@ -208,7 +208,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblAnoProducao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ano de produ&#xe7;&#xe3;o:*"/>
+            <Property name="text" type="java.lang.String" value="Ano de Produ&#xe7;&#xe3;o:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTempoProducao">
@@ -231,7 +231,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Imforma&#xe7;&#xf5;es do Artista"/>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es do Artista"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNomeArtista">
@@ -249,7 +249,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Imforma&#xe7;&#xf5;es da Proced&#xea;ncia"/>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Proced&#xea;ncia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTipoProcedencia">
@@ -263,12 +263,24 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTituloObra">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o T&#xed;tulo da Obra."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeArtista">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Nome do Artista que produziu a Obra de Arte."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrigemProcedencia">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o Local de onde a obra de arte foi adquirida."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite quantos anos foram necess&#xe1;rio para a conclus&#xe3;o da Obra."/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSelectImagem">
         </Component>
@@ -277,6 +289,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="setFormatoAno()" type="code"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Coloque o ano em que a Obra foi produzida."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbCategoria">
@@ -304,6 +317,7 @@
                 <StringItem index="18" value="V&#xed;deo"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione a Categoria em que a Obra se encaixa."/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -322,7 +336,11 @@
                 <StringItem index="6" value="Pr&#xea;mio"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione a forma como essa Obra de Arte foi adquirida."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbProcedenciaActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -330,6 +348,7 @@
         <Component class="javax.swing.JCheckBox" name="checkbIndeterminado">
           <Properties>
             <Property name="text" type="java.lang.String" value="Indeterminado"/>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione est&#xe1; caixa caso n&#xe3;o possua dados do tempo necess&#xe1;rio para a produ&#xe7;&#xe3;o da Obra."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbIndeterminadoActionPerformed"/>
@@ -338,6 +357,7 @@
         <Component class="javax.swing.JButton" name="jBSelectImagem">
           <Properties>
             <Property name="text" type="java.lang.String" value="Selecionar Imagem"/>
+            <Property name="toolTipText" type="java.lang.String" value="Importar imagem da Obra."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSelectImagemActionPerformed"/>
@@ -346,6 +366,10 @@
         <Component class="javax.swing.JButton" name="jBCancelarCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Cancelar cadastro de Obra de Arte."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelarCadastroActionPerformed"/>
@@ -353,7 +377,14 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBSalvarCadastro">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Confirmar dados."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSalvarCadastroActionPerformed"/>
@@ -372,6 +403,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="setFormatoRegistro()" type="code"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o Registro Profissional do artista."/>
           </Properties>
         </Component>
       </SubComponents>

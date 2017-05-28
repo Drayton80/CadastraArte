@@ -307,11 +307,11 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         setClosable(true);
 
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblTituloPainel.setText("Imformações da Obra");
+        lblTituloPainel.setText("Informações da Obra");
 
         lblTitulo.setText("Título da Obra:*");
 
-        lblAnoProducao.setText("Ano de produção:*");
+        lblAnoProducao.setText("Ano de Produção:*");
 
         lblTempoProducao.setText("Período de Produção:");
 
@@ -320,26 +320,43 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         lblImagem.setText("Imagem:");
 
         lblTituloPainel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblTituloPainel2.setText("Imformações do Artista");
+        lblTituloPainel2.setText("Informações do Artista");
 
         lblNomeArtista.setText("Nome do Artista:*");
 
         lblResArtista.setText("Registro do Artista:*");
 
         lblTituloPainel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblTituloPainel3.setText("Imformações da Procedência");
+        lblTituloPainel3.setText("Informações da Procedência");
 
         lblTipoProcedencia.setText("Tipo de Procedência:*");
 
         lblOrigemProcedencia.setText("Origem da Procedência:*");
 
+        txtTituloObra.setToolTipText("Digite o Título da Obra.");
+
+        txtNomeArtista.setToolTipText("Nome do Artista que produziu a Obra de Arte.");
+
+        txtOrigemProcedencia.setToolTipText("Digite o Local de onde a obra de arte foi adquirida.");
+
+        txtTempoPeriodoProducao.setToolTipText("Digite quantos anos foram necessário para a conclusão da Obra.");
+
         formatTxtAno.setFormatterFactory(setFormatoAno());
+        formatTxtAno.setToolTipText("Coloque o ano em que a Obra foi produzida.");
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Álbum", "Aquarela", "Colagem", "Desenho", "Escultura", "Foto", "Gravura", "Impressão", "Instalação", "Livro", "Múltiplo", "Objeto", "ObraDesinc", "Perform", "Pintura", "Relevo", "Tapeçaria", "Vídeo" }));
+        cbCategoria.setToolTipText("Selecione a Categoria em que a Obra se encaixa.");
 
         cbProcedencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Aquisição", "Comodato", "Doação", "Espólio", "Legado", "Prêmio" }));
+        cbProcedencia.setToolTipText("Selecione a forma como essa Obra de Arte foi adquirida.");
+        cbProcedencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbProcedenciaActionPerformed(evt);
+            }
+        });
 
         checkbIndeterminado.setText("Indeterminado");
+        checkbIndeterminado.setToolTipText("Selecione está caixa caso não possua dados do tempo necessário para a produção da Obra.");
         checkbIndeterminado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkbIndeterminadoActionPerformed(evt);
@@ -347,6 +364,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jBSelectImagem.setText("Selecionar Imagem");
+        jBSelectImagem.setToolTipText("Importar imagem da Obra.");
         jBSelectImagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSelectImagemActionPerformed(evt);
@@ -354,13 +372,18 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jBCancelarCadastro.setText("Cancelar");
+        jBCancelarCadastro.setToolTipText("Cancelar cadastro de Obra de Arte.");
+        jBCancelarCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBCancelarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCancelarCadastroActionPerformed(evt);
             }
         });
 
+        jBSalvarCadastro.setBackground(new java.awt.Color(0, 102, 102));
         jBSalvarCadastro.setText("Salvar");
+        jBSalvarCadastro.setToolTipText("Confirmar dados.");
+        jBSalvarCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSalvarCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSalvarCadastroActionPerformed(evt);
@@ -371,6 +394,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         jLabel1.setText("* são campos que devem ser preenchidos ou selecionados obrigatoriamente.");
 
         txtResArtista.setFormatterFactory(setFormatoRegistro());
+        txtResArtista.setToolTipText("Digite o Registro Profissional do artista.");
 
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
@@ -378,10 +402,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBCancelarCadastro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
+                .addGap(18, 18, 18)
+                .addComponent(jBCancelarCadastro)
+                .addGap(132, 132, 132))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,7 +430,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, Short.MAX_VALUE)
+                                    .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                     .addComponent(checkbIndeterminado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,6 +618,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkbIndeterminadoActionPerformed
+
+    private void cbProcedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProcedenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbProcedenciaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -104,6 +104,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Item Selecionado");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         LabelImagem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -111,21 +112,22 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Nome do Artista:");
 
-        jLabel6.setText("Resistro do Artista:");
+        jLabel6.setText("Registro do Artista:");
 
         jLabel7.setText("Tipo de Procedência:");
 
-        jLabel1.setText("Titulo da Obra:");
+        jLabel1.setText("Título da Obra:");
 
-        jLabel2.setText("Ano de Produção");
+        jLabel2.setText("Ano de Produção:");
 
         jLabel8.setText("Origem da Procedência:");
 
         jLabel3.setText("Tempo de Produção(anos):");
 
-        JLabel11.setText("Numero de Tombo:");
+        JLabel11.setText("Número de Tombo:");
 
         botaoFechar.setText("Fechar");
+        botaoFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaoFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoFecharActionPerformed(evt);
@@ -133,6 +135,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         });
 
         botaoEditar.setText("Editar");
+        botaoEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

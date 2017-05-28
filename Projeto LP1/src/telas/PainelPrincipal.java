@@ -101,8 +101,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuOpcoes.setText("Opções");
         jMenuOpcoes.setToolTipText("");
 
+        jMenuItemCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_add.png"))); // NOI18N
         jMenuItemCadastrar.setText("Cadastrar Novas Obras");
+        jMenuItemCadastrar.setToolTipText("Novo Cadastro... (Ctrl + N)");
         jMenuItemCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCadastrarActionPerformed(evt);
@@ -110,8 +112,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenuOpcoes.add(jMenuItemCadastrar);
 
+        jMenuItemPesquisar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_magnify.png"))); // NOI18N
         jMenuItemPesquisar.setText("Pesquisar Registros");
+        jMenuItemPesquisar.setToolTipText("Pesquisar Cadastros... (Ctrl + P)");
         jMenuItemPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemPesquisarActionPerformed(evt);
@@ -119,8 +123,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jMenuOpcoes.add(jMenuItemPesquisar);
 
+        jMenuItemEditar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_edit.png"))); // NOI18N
         jMenuItemEditar.setText("Modificar Dados");
+        jMenuItemEditar.setToolTipText("Modificar Cadastro... (Ctrl + M)");
         jMenuItemEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemEditarActionPerformed(evt);
