@@ -446,7 +446,12 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         labelImagem1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jCheckBox1.setText("NA imagem dispovivel");
+        jCheckBox1.setText("N/A imagem dispovivel");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Atribuir Imagem");
@@ -616,7 +621,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *     junto aos demais dados da obra de arte.
      */
     private void jBSelectImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelectImagemActionPerformed
-
+        if(jCheckBox1.isSelected() == false){
             if(jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){ //Verifica se o formato do arquivo é valido
                 File imagem = jBusca.getSelectedFile();
                 try{
@@ -629,12 +634,14 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
              } catch (Exception ex) {//Exceção gerada caso o arquvo selecionado seja inválido
                 JOptionPane.showMessageDialog(rootPane, "Arquivo Inválido", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-        } else {//Caso não selecione nenhum arquivo
+        } 
+            
+            else {//Caso não selecione nenhum arquivo jCheckBox1.isSelected 
             JOptionPane.showMessageDialog(null, "Voce não selecionou nenhum arquivo.");
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
             labelImagem1.setIcon(new ImageIcon(img));
         }
-
+        }
     }//GEN-LAST:event_jBSelectImagemActionPerformed
 
     /** Botão de Cancelar
@@ -705,6 +712,13 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private void txtTempoPeriodoProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTempoPeriodoProducaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTempoPeriodoProducaoActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(jCheckBox1.isSelected()){
+            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+            labelImagem1.setIcon(new ImageIcon(img));
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoria;
