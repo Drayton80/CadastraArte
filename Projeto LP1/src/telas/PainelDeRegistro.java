@@ -333,12 +333,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         lblOrigemProcedencia.setText("Origem da Procedência:*");
 
-        txtTempoPeriodoProducao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTempoPeriodoProducaoActionPerformed(evt);
-            }
-        });
-
         formatTxtAno.setFormatterFactory(setFormatoAno());
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Álbum", "Aquarela", "Colagem", "Desenho", "Escultura", "Foto", "Gravura", "Impressão", "Instalação", "Livro", "Múltiplo", "Objeto", "ObraDesinc", "Perform", "Pintura", "Relevo", "Tapeçaria", "Vídeo" }));
@@ -412,7 +406,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                    .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, Short.MAX_VALUE)
                                     .addComponent(checkbIndeterminado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,10 +504,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtTempoPeriodoProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTempoPeriodoProducaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTempoPeriodoProducaoActionPerformed
     
     /** Botão de Selecionar Imagem
      *    Descrição:
@@ -557,7 +547,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *     Ao apertar o botão o objeto será salvo no arquivo.
      */
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
-        if (null != retorna_arte()) {
+            if (null != retorna_arte()) {
             Arte a = retorna_arte();
             System.out.println(a.toString());
             if(painelEditor ==  false){
@@ -575,20 +565,30 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
             
             if(painelEditor == true){
-                if (!existeNaLista(a.getTombo())) {
-                    p.getCad().add(t, a);  //t é o índice do tombo
+                for(Arte e : cad){
+                     if (t == e.getTombo()) {
+                            e.setTitulo(txtTituloObra.getText());
+                            e.setAno(Integer.parseInt(formatTxtAno.getText()));
+                            e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
+                            e.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
+                            e.setNome(txtNomeArtista.getText());
+                            e.setRegistro(txtResArtista.getText());
+                            e.setProcedencia(String.valueOf(cbProcedencia.getSelectedItem()));
+                            e.setOrigem(txtOrigemProcedencia.getText());
+                    
+                      //t é o índice do tombo
                     p.setupGravar();
                     p.addRecords(cad); // Adciona um produto a lista.
                     p.cleanupGravar();        // Fecha o arquivo           
 
                     JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
-                    limpa_campos();                
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    limpa_campos();
+                     }
                 }
                 painelEditor = false;
             }
-        }
+            }
+            
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed

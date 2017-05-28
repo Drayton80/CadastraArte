@@ -99,6 +99,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         botaoNomeArtista = new javax.swing.JRadioButton();
         botaoTitulo = new javax.swing.JRadioButton();
         botaoCategoria = new javax.swing.JRadioButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -157,6 +158,13 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         buttonGroup1.add(botaoCategoria);
         botaoCategoria.setText("Categoria:");
 
+        jToggleButton1.setText("Restaurar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSePesquisaLayout = new javax.swing.GroupLayout(jPanelSePesquisa);
         jPanelSePesquisa.setLayout(jPanelSePesquisaLayout);
         jPanelSePesquisaLayout.setHorizontalGroup(
@@ -165,27 +173,28 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(botaoTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoNomeArtista)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(335, 335, 335)
-                        .addComponent(jBPesquisaRes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoNomeArtista)))
+                        .addGap(24, 24, 24)
+                        .addComponent(jToggleButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addComponent(jBFecharPesquisa)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                         .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addComponent(botaoCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                        .addGap(32, 32, 32))
+                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                        .addComponent(jBPesquisaRes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBFecharPesquisa)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                 .addGap(520, 520, 520)
                 .addComponent(lblTituloPainel)
@@ -209,7 +218,8 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jBPesquisaRes)
-                            .addComponent(jBFecharPesquisa)))
+                            .addComponent(jBFecharPesquisa)
+                            .addComponent(jToggleButton1)))
                     .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(botaoTitulo)
                         .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -307,6 +317,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        atualiza_Arte();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton botaoCategoria;
@@ -319,6 +333,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelSePesquisa;
     private javax.swing.JScrollPane jSMostraPesquisa;
     private javax.swing.JTable jTable1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblTituloPainel;
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
