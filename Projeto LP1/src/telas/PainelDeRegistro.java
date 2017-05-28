@@ -71,9 +71,17 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *      vai ser cadastrada é igual ao de outra. Se o número for igual
      *      ela retorna um valor true do tipo boolean.
      */
-    private boolean existeNaLista(int tomb) {
+    private boolean existeNaListaTombo(int tomb) {
         for (Arte a : p.getCad()) {
             if (a.getTombo() == tomb) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean existeNaListaTitulo(String titulo) {
+        for (Arte a : p.getCad()) {
+            if (a.getTitulo().equals(titulo)) {
                 return true;
             }
         }
@@ -92,12 +100,13 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *      Dois artistas diferentes podem conter o mesmo nome, mas não o mesmo
      *      registro, ou seja, o registro é o que diferencia cada artista.
      */
-    private boolean registro_repetido(){
-        if( ("registro1" == "registro2") && ("nome1" != "nome2") ){
+     private boolean registro_repetido(Arte a){
+        for (Arte b : cad){
+        if( (a.getRegistro().equals(b.getRegistro())) && (!a.getNome().equals(b.getNome())) ){
+            System.out.println("ops");
             return true;
-        }else{
-            return false;
         }
+    } return false;
     }
     
     private void preenche_campos(int tombo){
@@ -573,20 +582,27 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
          Arte verifica = retorna_arte();
         if (null != verifica) {
-            Arte a = verifica;
-            System.out.println(a.toString());
+            Arte a = verifica;            
+            if(!registro_repetido(a)){
+                System.out.println(a.toString());
             if(painelEditor ==  false){
-                if (!existeNaLista(a.getTombo())) {
+                if (!existeNaListaTitulo(a.getTitulo())) { 
+                if (!existeNaListaTombo(a.getTombo())) {
                     p.getCad().add(a);
                     p.setupGravar();
                     p.addRecords(cad); // Adciona um produto a lista.
                     p.cleanupGravar();        // Fecha o arquivo           
 
-                    JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
+                    JOptionPane.showMessageDialog(rootPane, "Arte Cadastrada com Sucesso.");
                     limpa_campos();                
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "Código de Produto já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(rootPane, "Tombo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Titulo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                }
+            }}else{
+                    JOptionPane.showMessageDialog(rootPane, "Numero de registro ja esta ligado a outro Artista", "Aviso", JOptionPane.ERROR_MESSAGE);
             }
             
             if(painelEditor == true){

@@ -13,6 +13,7 @@ import estruturas.Persistencia;
 import estruturas.Arte;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
 public class PainelDeAmostra extends javax.swing.JInternalFrame {
@@ -63,7 +64,14 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     }
 
     
-    
+    private boolean existeNaLista(int tomb) {
+        for (Arte a : cad) {
+            if (a.getTombo() == tomb) {
+               return true;
+            }
+        }
+        return false;
+    }
     
     
 
@@ -136,6 +144,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         botaoEditar.setText("Editar");
         botaoEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -258,6 +271,34 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         fecha_Janela();        // TODO add your handling code here:
     }//GEN-LAST:event_botaoFecharActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        boolean errado = true;
+        while(errado){
+           if(errado == true){
+            try{
+                int tomboEdit;
+
+                tomboEdit = tombo;
+
+                if (existeNaLista(tomboEdit)) {
+                    PainelDeRegistro PainelE = new PainelDeRegistro(tomboEdit);
+                    PainelE.setTitle("Editar Obra de Arte");
+                    jTelaPrincipal.add(PainelE);
+                    PainelE.setVisible(true);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }
+            
+            } catch(NumberFormatException n){
+                JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            }
+            errado = false;
+        }
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_botaoEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
