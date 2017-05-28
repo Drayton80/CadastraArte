@@ -21,7 +21,8 @@ public class Arte extends Artista implements Serializable {
     //private int indiceCategoria = 0;
     //private int indiceProcedencia = 0;
     //private boolean valorIndeterminado;       //Que que tá conteceno?
-    private static int tomboAUX = 1;
+    private static int AUX = 1;
+    private static int contador = 1;
     
    //Construtor:
     public Arte(String titulo, String nome, String registro, int ano, 
@@ -34,19 +35,15 @@ public class Arte extends Artista implements Serializable {
         this.PeriodoProducao = PeriProducao;
         this.procedencia = procedencia;
         this.origem = origem;
-        
         TomboSalvo tomboSalvo = new TomboSalvo();
-        
-        if(tomboSalvo.getTombo() > tomboAUX){
-            tomboAUX = tomboSalvo.getTombo();
+        if(tomboSalvo.getTomboSalvo() > AUX){
+            AUX = 1 + tomboSalvo.getTomboSalvo();
         }
-        
-        this.tombo = tomboAUX;
-        
-        tomboAUX ++;
+        this.tombo = AUX;  
+        AUX+=1;
+        System.out.println("VamosVer");
     }
-
-  
+    
    //Métodos:
     //Leitura e Escrita:
     public String getTitulo() {
@@ -124,6 +121,6 @@ public class Arte extends Artista implements Serializable {
     public String toString(){
         return "Título da Obra:" + titulo + '\n' + super.toString() + '\n' + "Ano de Produção:" + ano + '\n' + "Categoria:" + categoria + '\n' +
                "Período de Produção:" + PeriodoProducao + '\n' + "Procedência" + procedencia + '\n' + "Origem da Procedência:" + origem + '\n' + "Número de Tombo:" + tombo;
-    }
+    }         
 }
 

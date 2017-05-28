@@ -7,15 +7,14 @@ public class TomboSalvo {
     private static Persistencia p = new Persistencia();
     private LinkedList<Arte> cad = new LinkedList<>();
     private int tombo;
-    private int tomboAux = 1;
+    private static int tomboAux = 1;
     
     /** Método pega o atual número de tombo adquirido
      *    Descrição:
      *     O Metodo lê a coleção de objetos salvos no arquivo e retorna o maior
      *     número de tombo salvo
      */
-    
-    public int getTombo(){
+    public int getTomboSalvo(){
         p.setupLer();
         p.readRecords();
         p.cleanupLer();

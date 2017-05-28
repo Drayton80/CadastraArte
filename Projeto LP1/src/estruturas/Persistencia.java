@@ -10,6 +10,7 @@ package estruturas;
  *              Drayton Corrêa, Ewerton Santos
  */
 import estruturas.Arte;
+import java.io.*;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -27,9 +28,6 @@ public class Persistencia implements Serializable{
     private boolean continua = true;
     private boolean moreRecords = true;
     private LinkedList<Arte> cad = new LinkedList<Arte>();
-
-   
-    
     
     
 
@@ -55,8 +53,8 @@ public class Persistencia implements Serializable{
     
     public void setupLer() {
         try {
-
-            input = new ObjectInputStream(new FileInputStream("Arte.ser"));
+            FileInputStream leitura = new FileInputStream("Arte.ser");
+            input = new ObjectInputStream(leitura);
         } catch (EOFException eof) {
             continua = false;  //arquivo está vazio
         } catch (IOException e) {
@@ -77,7 +75,9 @@ public class Persistencia implements Serializable{
 
        try{
            cad = (LinkedList<Arte>) input.readObject();
-        } catch (IOException e) {
+        } catch(NullPointerException a){
+           System.out.println("Resolveu");
+        }catch (IOException e) {
             System.err.println("Erro durante leitura do arquivo\n" + e.toString());
             System.exit(1);
         } catch (ClassNotFoundException c) {
@@ -95,7 +95,9 @@ public class Persistencia implements Serializable{
 
         try {
             input.close();
-        } catch (IOException e) {
+        }catch(NullPointerException a){
+           System.out.println("Resolveu");
+        }catch (IOException e) {
             System.err.println("Falha no Fechamento do Arquivo durante Leitura\n" + e.toString());
             System.exit(1);
         }
@@ -110,7 +112,8 @@ public class Persistencia implements Serializable{
     public void setupGravar() {
 
         try {
-            output = new ObjectOutputStream(new FileOutputStream("Arte.ser", false));
+            FileOutputStream escrita = new FileOutputStream("Arte.ser");
+            output = new ObjectOutputStream(escrita);
         } catch (IOException e) {
             System.err.println("Falha na Abertura do Arquivo para Gravação\n" + e.toString());
             System.exit(1);

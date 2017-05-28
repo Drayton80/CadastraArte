@@ -203,8 +203,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
      *      edição de obras.
      */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
-        while(true){
-           try{
+        boolean errado = true;
+        while(errado){
+           if(errado == true){
+            try{
                 int tombo;
 
                 tombo = Integer.parseInt(JOptionPane.showInputDialog("Entre com o tombo a ser editado:"));
@@ -223,6 +225,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
             } catch(NumberFormatException n){
                 JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
             }
+            errado = false;
+        }
         }
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 

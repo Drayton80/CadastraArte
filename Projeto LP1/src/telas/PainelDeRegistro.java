@@ -571,8 +571,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      *     Ao apertar o botão o objeto será salvo no arquivo.
      */
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
-            if (null != retorna_arte()) {
-            Arte a = retorna_arte();
+         Arte verifica = retorna_arte();
+        if (null != verifica) {
+            Arte a = verifica;
             System.out.println(a.toString());
             if(painelEditor ==  false){
                 if (!existeNaLista(a.getTombo())) {
@@ -612,7 +613,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 painelEditor = false;
             }
             }
-            
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
