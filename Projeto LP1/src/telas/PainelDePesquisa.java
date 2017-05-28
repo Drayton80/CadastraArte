@@ -22,17 +22,25 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     /**
      * Creates new form PainelDePesquisa
      */
+        
+    /**
+     * Abre e ler aarquivo e salva na variavel cad.
+     * Depois usa o metodo Atualiza_Arte para mostrar as artes da tabele.
+     */ 
+    
     public PainelDePesquisa() {
         initComponents();
         p.setupLer();
+        if (p.getContinua() == true ){
         p.readRecords();
         p.cleanupLer();
-        
-        for (Arte art : p.getCad()) {
+        cad = p.getCad();
+        }
+        for (Arte art : cad) {
             System.out.println(art.getTitulo());   
         }
         
-        Atualiza_Arte();   
+        atualiza_Arte();   
     }
     
     /** Método que Fecha a Janela Aberta
@@ -44,25 +52,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         this.dispose();
     }
 
-    public Object[] preencheTabela(Arte a) {
-        try {
-            Object[] dados = {a.getTitulo(), a.getAno(), a.getNome(),
-                              a.getCategoria(), a.getTombo()       };
-            return dados;
-        } catch (ArrayIndexOutOfBoundsException n) {
-            return null;
-        }
-    }
-    
-    private void Atualiza_Arte() {
+    /**
+     * Metodo que pega varre a lista e
+     * mostra todos os itens formatados de acordo com o modelo
+     * do metodo obj
+     */    
+    private void atualiza_Arte() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
-        for (Arte a : p.getCad()) {
+        for (Arte a : cad) {
             model.addRow(obj(a));
         }
     }
     
-    
+    /**
+     * Metodo que cria o modelo de exibição na tabela     *  
+     */
     private Object[] obj(Arte a){
         try {
             Object[] arte = {a.getTitulo(), a.getAno(), a.getNome(), a.getCategoria(), a.getTombo()} ;
@@ -81,18 +86,19 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanelSePesquisa = new javax.swing.JPanel();
         cbCategoriaPesquisa = new javax.swing.JComboBox<>();
         jSMostraPesquisa = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         txtPesquisaNome = new javax.swing.JTextField();
         txtPesquisaArtista = new javax.swing.JTextField();
-        lblCategoriaPPesquisa = new javax.swing.JLabel();
-        lblArtistaPPequisa = new javax.swing.JLabel();
-        lblNomePPesquisa = new javax.swing.JLabel();
         lblTituloPainel = new javax.swing.JLabel();
         jBFecharPesquisa = new javax.swing.JButton();
         jBPesquisaRes = new javax.swing.JButton();
+        botaoNomeArtista = new javax.swing.JRadioButton();
+        botaoTitulo = new javax.swing.JRadioButton();
+        botaoCategoria = new javax.swing.JRadioButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -125,12 +131,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         });
         jSMostraPesquisa.setViewportView(jTable1);
 
-        lblCategoriaPPesquisa.setText("Categoria:");
-
-        lblArtistaPPequisa.setText("Nome do Artista:");
-
-        lblNomePPesquisa.setText("Título da Obra:");
-
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Pesquisar Registro");
 
@@ -148,30 +148,44 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(botaoNomeArtista);
+        botaoNomeArtista.setText("Nome do Artista:");
+
+        buttonGroup1.add(botaoTitulo);
+        botaoTitulo.setText("Titulo da Obra:");
+
+        buttonGroup1.add(botaoCategoria);
+        botaoCategoria.setText("Categoria:");
+
         javax.swing.GroupLayout jPanelSePesquisaLayout = new javax.swing.GroupLayout(jPanelSePesquisa);
         jPanelSePesquisa.setLayout(jPanelSePesquisaLayout);
         jPanelSePesquisaLayout.setHorizontalGroup(
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblNomePPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(9, 9, 9)
-                .addComponent(txtPesquisaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
-                .addComponent(lblArtistaPPequisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addComponent(botaoTitulo)
+                .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jBPesquisaRes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoNomeArtista)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addComponent(jBPesquisaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBFecharPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtPesquisaArtista))
-                .addGap(49, 49, 49)
-                .addComponent(lblCategoriaPPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(cbCategoriaPesquisa, 0, 310, Short.MAX_VALUE)
-                .addGap(59, 59, 59))
+                        .addComponent(jBFecharPesquisa)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                        .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(botaoCategoria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                 .addGap(520, 520, 520)
                 .addComponent(lblTituloPainel)
@@ -183,17 +197,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblTituloPainel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomePPesquisa)
-                    .addComponent(lblCategoriaPPesquisa)
-                    .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblArtistaPPequisa)
-                    .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBPesquisaRes)
-                    .addComponent(jBFecharPesquisa))
+                .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
+                        .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(botaoCategoria)
+                                .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(botaoNomeArtista)
+                                .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBPesquisaRes)
+                            .addComponent(jBFecharPesquisa)))
+                    .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoTitulo)
+                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(188, 188, 188))
@@ -203,11 +222,15 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelSePesquisa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelSePesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addComponent(jPanelSePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -215,6 +238,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Evento que abre o painelDeRegistro
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PainelDeRegistro pcad = new PainelDeRegistro();
         jTelaPrincipal.add(pcad);
@@ -228,8 +252,47 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
      *      registrada no acervo do museu. Isso ocorre logo após o usuário
      *      apertar o botão no menu relativo ao painel de pesquisa.
      */
+    
+    
+    /**
+     * Evento que pega o botão selecionado e o campo preencido, 
+     * e de acordo com o que estava dentro deles, faz uma varredura na lista,
+     * e mostra todas as Artes que cotem campos iguais aos pesquisado  
+     */
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
-        jTable1.setVisible(true);
+       
+        if (botaoTitulo.isSelected()) {
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setNumRows(0);
+            for (Arte a : cad) {
+                if (txtPesquisaNome.getText().equals(a.getTitulo())) {
+                    System.out.println(a.getTombo());
+                    modelo.addRow(obj(a));
+                }
+            }
+        }
+        if (botaoNomeArtista.isSelected()) {
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setNumRows(0);
+            for (Arte a : cad) {
+                if (txtPesquisaArtista.getText().equals(a.getNome())) {
+                    System.out.println(a.getTombo());
+                    modelo.addRow(obj(a));
+                }
+            }
+        }
+        if (botaoCategoria.isSelected()) {
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setNumRows(0);
+            for (Arte a : cad) {
+                if (a.getCategoria().equals(String.valueOf(cbCategoriaPesquisa.getSelectedItem()))) {
+                    System.out.println(a.getTombo());
+                    modelo.addRow(obj(a));
+                }
+            }
+        }
+
+        
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
     /** Evento do Clique do Mouse na Linha de Tabela
@@ -246,20 +309,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton botaoCategoria;
+    private javax.swing.JRadioButton botaoNomeArtista;
+    private javax.swing.JRadioButton botaoTitulo;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbCategoriaPesquisa;
     private javax.swing.JButton jBFecharPesquisa;
     private javax.swing.JButton jBPesquisaRes;
     private javax.swing.JPanel jPanelSePesquisa;
     private javax.swing.JScrollPane jSMostraPesquisa;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblArtistaPPequisa;
-    private javax.swing.JLabel lblCategoriaPPesquisa;
-    private javax.swing.JLabel lblNomePPesquisa;
     private javax.swing.JLabel lblTituloPainel;
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
     // End of variables declaration//GEN-END:variables
     
     private static Persistencia p = new Persistencia();
+    private LinkedList<Arte> cad = new LinkedList<Arte>();
     
 }

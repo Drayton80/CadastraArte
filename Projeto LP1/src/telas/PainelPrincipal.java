@@ -27,6 +27,12 @@ public class PainelPrincipal extends javax.swing.JFrame {
      *      Painel padrão da interface.
      */
     public PainelPrincipal() {
+         p.setupLer();
+        if (p.getContinua() == true ){
+            p.readRecords();
+            p.cleanupLer();
+            cad = p.getCad();
+        }
         initComponents();
     }
     

@@ -20,6 +20,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     /**
      * Creates new form PainelDeAmostra
      */
+    /**
+     * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no PainelDePesquisa.
+     * Abre e ler a lista e salva na variavel cad.
+     * Pega o metodo de mostraArte para exibir os detalhes da hora que abre o painel.
+     */
     public PainelDeAmostra(int tombo) {
         p.setupLer();
         if (p.getContinua() == true ){
@@ -35,7 +40,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private void fecha_Janela() {
         this.dispose();
     }
-    
+    /**
+     * Pega como parametro o Tombo que foi recebido na abertura da classe,
+     * comparada com o tombo de cada objeto Arte na lista,
+     * e quando acha um igual mostra os detalhes dele.  
+     */
     private void MostraArte(int tombo){
         for (Arte a : cad) {
             if (a.getTombo() == tombo) {
