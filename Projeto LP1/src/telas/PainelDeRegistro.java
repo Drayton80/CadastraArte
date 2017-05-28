@@ -161,7 +161,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtNomeArtista.setText("");
         txtOrigemProcedencia.setText("");
         txtResArtista.setText("");
-        txtSelectImagem.setText("");
         txtTempoPeriodoProducao.setText("");
         txtTituloObra.setText("");
         formatTxtAno.setText("");
@@ -183,13 +182,12 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 txtNomeArtista.setText(a.getNome());
                 txtOrigemProcedencia.setText(a.getOrigem());
                 txtResArtista.setText(a.getRegistro());
-                txtSelectImagem.setText("");
                 txtTituloObra.setText(a.getTitulo());
                 formatTxtAno.setText(String.valueOf(a.getAno()));
                 checkbIndeterminado.setSelected(a.getValorIndeterminado());
                 cbCategoria.setSelectedIndex(a.getIndiceCategoria());
                 cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
-                ManipularImagem.exibiImagemLabel(a.getImagem(),ImgMostrada);
+                ManipularImagem.exibiImagemLabel(a.getImagem(),labelImagem1);
                 
                 if(a.getValorIndeterminado()){
                     txtTempoPeriodoProducao.setText("");
@@ -324,7 +322,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         lblAnoProducao = new javax.swing.JLabel();
         lblTempoProducao = new javax.swing.JLabel();
         lblCategoria = new javax.swing.JLabel();
-        lblImagem = new javax.swing.JLabel();
         lblTituloPainel2 = new javax.swing.JLabel();
         lblNomeArtista = new javax.swing.JLabel();
         lblResArtista = new javax.swing.JLabel();
@@ -335,7 +332,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtNomeArtista = new javax.swing.JTextField();
         txtOrigemProcedencia = new javax.swing.JTextField();
         txtTempoPeriodoProducao = new javax.swing.JTextField();
-        txtSelectImagem = new javax.swing.JTextField();
         formatTxtAno = new javax.swing.JFormattedTextField();
         cbCategoria = new javax.swing.JComboBox<>();
         cbProcedencia = new javax.swing.JComboBox<>();
@@ -345,6 +341,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         jBSalvarCadastro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtResArtista = new javax.swing.JFormattedTextField();
+        labelImagem1 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -362,8 +361,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         lblTempoProducao.setText("Período de Produção:");
 
         lblCategoria.setText("Categoria:*");
-
-        lblImagem.setText("Imagem:");
 
         lblTituloPainel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel2.setText("Informações do Artista");
@@ -386,6 +383,11 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtOrigemProcedencia.setToolTipText("Digite o Local de onde a obra de arte foi adquirida.");
 
         txtTempoPeriodoProducao.setToolTipText("Digite quantos anos foram necessário para a conclusão da Obra.");
+        txtTempoPeriodoProducao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTempoPeriodoProducaoActionPerformed(evt);
+            }
+        });
 
         formatTxtAno.setFormatterFactory(setFormatoAno());
         formatTxtAno.setToolTipText("Coloque o ano em que a Obra foi produzida.");
@@ -442,137 +444,167 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtResArtista.setFormatterFactory(setFormatoRegistro());
         txtResArtista.setToolTipText("Digite o Registro Profissional do artista.");
 
+        labelImagem1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jCheckBox1.setText("NA imagem dispovivel");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setText("Atribuir Imagem");
+
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
         jPanelCadastroLayout.setHorizontalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBCancelarCadastro)
-                .addGap(170, 170, 170))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTituloPainel)
-                            .addComponent(lblTituloPainel2)
-                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                .addComponent(lblOrigemProcedencia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblAnoProducao)
-                                    .addComponent(lblTitulo)
-                                    .addComponent(lblTempoProducao)
-                                    .addComponent(lblImagem)
-                                    .addComponent(lblCategoria))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTituloObra)
-                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jBSelectImagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                            .addComponent(checkbIndeterminado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtSelectImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                            .addComponent(txtTempoPeriodoProducao)))
-                                    .addComponent(formatTxtAno)))
-                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                    .addComponent(lblResArtista)
+                                    .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                            .addGap(36, 36, 36)
+                                            .addComponent(lblNomeArtista))
+                                        .addComponent(lblTipoProcedencia, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblResArtista, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblNomeArtista, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addComponent(lblTipoProcedencia, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(txtResArtista, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbProcedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE))))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(cbProcedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE))
+                                    .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTituloPainel)
+                                    .addComponent(lblTituloPainel2)
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addComponent(lblOrigemProcedencia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTituloPainel3)
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblTempoProducao)
+                                            .addComponent(lblCategoria))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                                .addComponent(checkbIndeterminado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtTempoPeriodoProducao, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(13, 13, 13)))))
+                                .addGap(0, 2, Short.MAX_VALUE)))
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBCancelarCadastro)
+                                .addGap(170, 170, 170))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTitulo)
+                                    .addComponent(lblAnoProducao))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(formatTxtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))))
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                        .addComponent(lblTituloPainel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBSelectImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTituloPainel)
+                .addComponent(jLabel2)
+                .addGap(9, 9, 9)
+                .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBSelectImagem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTituloPainel)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTitulo))
+                    .addComponent(lblTitulo)
+                    .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(formatTxtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAnoProducao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkbIndeterminado)
                     .addComponent(lblTempoProducao)
+                    .addComponent(checkbIndeterminado)
                     .addComponent(txtTempoPeriodoProducao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblImagem)
-                    .addComponent(jBSelectImagem)
-                    .addComponent(txtSelectImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbCategoria)
-                    .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCategoria))
+                .addGap(18, 18, 18)
                 .addComponent(lblTituloPainel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeArtista)
                     .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblResArtista)
                     .addComponent(txtResArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(lblTituloPainel3)
-                .addGap(143, 143, 143)
+                .addGap(29, 29, 29)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipoProcedencia)
                     .addComponent(cbProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrigemProcedencia)
                     .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCancelarCadastro)
-                    .addComponent(jBSalvarCadastro)))
+                    .addComponent(jBSalvarCadastro)
+                    .addComponent(jBCancelarCadastro))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(jPanelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -592,7 +624,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     como uma imagem dentro 
                     do java que estará presente em todo o cadastro*/
                     img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 160); 
-                    ImgMostrada.setIcon(new ImageIcon(img));//Coloca a imagem salva no label "ImgMostrada" para receber imagem aqui
+                    labelImagem1.setIcon(new ImageIcon(img));//Coloca a imagem salva no label "ImgMostrada" para receber imagem aqui
                     
              } catch (Exception ex) {//Exceção gerada caso o arquvo selecionado seja inválido
                 JOptionPane.showMessageDialog(rootPane, "Arquivo Inválido", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -600,7 +632,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         } else {//Caso não selecione nenhum arquivo
             JOptionPane.showMessageDialog(null, "Voce não selecionou nenhum arquivo.");
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
-            ImgMostrada.setIcon(new ImageIcon(img));
+            labelImagem1.setIcon(new ImageIcon(img));
         }
 
     }//GEN-LAST:event_jBSelectImagemActionPerformed
@@ -662,12 +694,17 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
-        // TODO add your handling code here:
+        //if(checkbIndeterminado == true){txtTempoPeriodoProducao.setEnabled(false);}
+        //else{}
     }//GEN-LAST:event_checkbIndeterminadoActionPerformed
 
     private void cbProcedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProcedenciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbProcedenciaActionPerformed
+
+    private void txtTempoPeriodoProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTempoPeriodoProducaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTempoPeriodoProducaoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoria;
@@ -677,14 +714,16 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBCancelarCadastro;
     private javax.swing.JButton jBSalvarCadastro;
     private javax.swing.JButton jBSelectImagem;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanelCadastro;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel labelImagem;
+    private javax.swing.JLabel labelImagem1;
     private javax.swing.JLabel lblAnoProducao;
     private javax.swing.JLabel lblCategoria;
-    private javax.swing.JLabel lblImagem;
     private javax.swing.JLabel lblNomeArtista;
     private javax.swing.JLabel lblOrigemProcedencia;
     private javax.swing.JLabel lblResArtista;
@@ -697,7 +736,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomeArtista;
     private javax.swing.JTextField txtOrigemProcedencia;
     private javax.swing.JFormattedTextField txtResArtista;
-    private javax.swing.JTextField txtSelectImagem;
     private javax.swing.JTextField txtTempoPeriodoProducao;
     private javax.swing.JTextField txtTituloObra;
     // End of variables declaration//GEN-END:variables
