@@ -57,12 +57,13 @@ public class Persistencia implements Serializable{
             FileInputStream leitura = new FileInputStream("Arte.ser");
             input = new ObjectInputStream(leitura);
         }catch(FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Banco de dados inesxistente, foi criado um banco de dados", "erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arquivo de salvamento inexistente," + "\n" +
+                                                "foi criado um novo arquivo.", "Informe", JOptionPane.INFORMATION_MESSAGE);
             setupGravar();
             addRecords(cad);
             cleanupGravar();
         } catch (EOFException eof) {
-            continua = false;  //arquivo está vazio
+            continua = false;           //Se o arquivo estiver vazio.
         } catch (IOException e) {
             System.err.println("Falha na Abertura do Arquivo para Leitura\n" + e.toString());
             System.exit(1);

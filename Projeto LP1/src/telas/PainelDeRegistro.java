@@ -116,12 +116,17 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 txtOrigemProcedencia.setText(a.getOrigem());
                 txtResArtista.setText(a.getRegistro());
                 txtSelectImagem.setText("");
-                txtTempoPeriodoProducao.setText(a.getPeriodoProducao());
                 txtTituloObra.setText(a.getTitulo());
                 formatTxtAno.setText(String.valueOf(a.getAno()));
-              //checkbIndeterminado.setSelected(a.getValorIndeterminado());
-              //cbCategoria.setSelectedIndex(a.getIndiceCategoria());
-              //cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
+                checkbIndeterminado.setSelected(a.getValorIndeterminado());
+                cbCategoria.setSelectedIndex(a.getIndiceCategoria());
+                cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
+                
+                if(a.getValorIndeterminado()){
+                    txtTempoPeriodoProducao.setText("");
+                }else{
+                    txtTempoPeriodoProducao.setText(a.getPeriodoProducao());
+                }
             }
         }
     }
@@ -193,9 +198,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                  String.valueOf(cbProcedencia.getSelectedItem()),
                                  txtOrigemProcedencia.getText());
             
-            //obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
-            //obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
-            //obra.setValorIndeterminado(checkbIndeterminado.isSelected());
+            obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
+            obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
+            obra.setValorIndeterminado(checkbIndeterminado.isSelected());
             
             return obra;
             

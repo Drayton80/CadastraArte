@@ -18,9 +18,9 @@ public class Arte extends Artista implements Serializable {
     private String origem;
     private int tombo = 0;
     //Atributos Auxiliares:
-    //private int indiceCategoria = 0;
-    //private int indiceProcedencia = 0;
-    //private boolean valorIndeterminado;       //Que que tá conteceno?
+    private int indiceCategoria = 0;
+    private int indiceProcedencia = 0;
+    private boolean valorIndeterminado;       
     private static int AUX = 1;
     private static int contador = 1;
     
@@ -88,29 +88,29 @@ public class Arte extends Artista implements Serializable {
         this.origem = origem;
     }
     
-  //public int getIndiceCategoria(){
-  //    return indiceCategoria;
-  //}
-  //
-  //public void setIndiceCategoria(int indiceCategoria){
-  //    this.indiceCategoria = indiceCategoria;
-  //}
-  //
-  //public int getIndiceProcedencia(){
-  //    return indiceProcedencia;
-  //}
-  //
-  //public void setIndiceProcedencia(int indiceProcedencia){
-  //    this.indiceProcedencia = indiceProcedencia;
-  //}
-  //
-  //public boolean getValorIndeterminado(){
-  //    return valorIndeterminado;
-  //}
-  //
-  //public void setValorIndeterminado(boolean valorIndeterminado){
-  //    this.valorIndeterminado = valorIndeterminado;
-  //}
+    public int getIndiceCategoria(){
+        return indiceCategoria;
+    }
+
+    public void setIndiceCategoria(int indiceCategoria){
+        this.indiceCategoria = indiceCategoria;
+    }
+
+    public int getIndiceProcedencia(){
+        return indiceProcedencia;
+    }
+
+    public void setIndiceProcedencia(int indiceProcedencia){
+        this.indiceProcedencia = indiceProcedencia;
+    }
+
+    public boolean getValorIndeterminado(){
+        return valorIndeterminado;
+    }
+
+    public void setValorIndeterminado(boolean valorIndeterminado){
+        this.valorIndeterminado = valorIndeterminado;
+    }
 
     public int getTombo() {
         return tombo;
