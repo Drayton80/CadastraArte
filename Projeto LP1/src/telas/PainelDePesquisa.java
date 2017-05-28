@@ -18,28 +18,15 @@ import static telas.PainelPrincipal.jTelaPrincipal;
  */
         
 public class PainelDePesquisa extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form PainelDePesquisa
-     */
         
-    /**
-     * Abre e ler aarquivo e salva na variavel cad.
-     * Depois usa o metodo Atualiza_Arte para mostrar as artes da tabele.
+    //CONSTRUTOR:
+    /** Construtor Padrão:
+     *    Descrição:
+     *      ELe executa o método atualiza_Arte que abre, lê o arquivo e atualiza
+     *      a lista.
      */ 
     
     public PainelDePesquisa() {
-        initComponents();
-        p.setupLer();
-        if (p.getContinua() == true ){
-        p.readRecords();
-        p.cleanupLer();
-        cad = p.getCad();
-        }
-        for (Arte art : cad) {
-            System.out.println(art.getTitulo());   
-        }
-        
         atualiza_Arte();   
     }
     
@@ -58,6 +45,18 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
      * do metodo obj
      */    
     private void atualiza_Arte() {
+        initComponents();
+        p.setupLer();
+        if (p.getContinua() == true ){
+            p.readRecords();
+            p.cleanupLer();
+            cad = p.getCad();
+        }
+        
+        for (Arte art : cad) {
+            System.out.println(art.getTitulo());   
+        }
+        
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
         for (Arte a : cad) {
@@ -140,7 +139,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Pesquisar Registro");
 
-        jBFecharPesquisa.setText("Cadastrar Nova");
+        jBFecharPesquisa.setText("Cadastrar");
         jBFecharPesquisa.setToolTipText("Retorna para a aba de cadastro de obras de arte.");
         jBFecharPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBFecharPesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +268,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PainelDeRegistro pcad = new PainelDeRegistro();
         jTelaPrincipal.add(pcad);
+        pcad.setTitle("Editar Obra de Arte");
         pcad.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed

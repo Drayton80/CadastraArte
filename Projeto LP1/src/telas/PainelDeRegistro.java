@@ -414,7 +414,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBCancelarCadastro)
-                .addGap(132, 132, 132))
+                .addGap(170, 170, 170))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,7 +461,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                 .addComponent(txtResArtista, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cbProcedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE))))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

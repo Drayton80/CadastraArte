@@ -27,7 +27,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
      *      Painel padrão da interface.
      */
     public PainelPrincipal() {
-         p.setupLer();
+        p.setupLer();
         if (p.getContinua() == true ){
             p.readRecords();
             p.cleanupLer();
@@ -163,7 +163,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    /** Botão de Cadastrar Obras de Arte
+    /** Item de Menu Cadastrar Novas Obras
      *    Descrição:
      *      Abre uma janela que serve para registrar uma obra de arte no acervo
      *      pertencente ao museu.
@@ -175,7 +175,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
-    /** Botão de Pesquisar Obras de Arte
+    /** Item de Menu Pesquisar Registros
      *    Descrição:
      *      Abre uma janela que serve para buscar uma obra de arte no acervo
      *      daquelas que já foram cadastradas.
@@ -191,11 +191,15 @@ public class PainelPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowClosing
 
+    /** Item de Meno Sair
+     *    Descrição:
+     *      Encerra o programa.
+     */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
          System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    /** Botão de Editar Obras de Arte
+    /** Item de Menu Modificar Dados
      *    Descrição:
      *      Abre uma janela (JOptionPane) que pede o número de tombo e,
      *      com aquilo que for digitado nela, percorre a coleção para saber
@@ -203,31 +207,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
      *      edição de obras.
      */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
-        boolean errado = true;
-        while(errado){
-           if(errado == true){
-            try{
-                int tombo;
-
-                tombo = Integer.parseInt(JOptionPane.showInputDialog("Entre com o tombo a ser editado:"));
-
-                if (existeNaLista(tombo)) {
-                    PainelDeRegistro PainelE = new PainelDeRegistro(tombo);
-                    PainelE.setTitle("Editar Obra de Arte");
-                    jTelaPrincipal.add(PainelE);
-                    PainelE.setVisible(true);
-                    break;
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
-                    break;
-                }
-            
-            } catch(NumberFormatException n){
-                JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
-            }
-            errado = false;
-        }
-        }
+        PainelDePesquisaTombo PainelT = new PainelDePesquisaTombo();
+        jTelaPrincipal.add(PainelT);
+        PainelT.setVisible(true);
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
     /**
