@@ -98,8 +98,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addComponent(jTelaPrincipal)
         );
 
+        jMenuOpcoes.setMnemonic('c');
         jMenuOpcoes.setText("Opções");
-        jMenuOpcoes.setToolTipText("");
+        jMenuOpcoes.setToolTipText("Exibir Opções... (Alt + C)");
 
         jMenuItemCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_add.png"))); // NOI18N

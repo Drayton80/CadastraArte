@@ -6,8 +6,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenuOpcoes">
           <Properties>
+            <Property name="mnemonic" type="int" value="99"/>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="toolTipText" type="java.lang.String" value="Exibir Op&#xe7;&#xf5;es... (Alt + C)"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastrar">
