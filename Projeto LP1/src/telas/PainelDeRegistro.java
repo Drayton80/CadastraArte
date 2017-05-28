@@ -608,27 +608,26 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             if(painelEditor == true){
                 for(Arte e : cad){
                      if (t == e.getTombo()) {
-                            e.setTitulo(txtTituloObra.getText());
-                            e.setAno(Integer.parseInt(formatTxtAno.getText()));
-                            e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
-                            e.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
-                            e.setNome(txtNomeArtista.getText());
-                            e.setRegistro(txtResArtista.getText());
-                            e.setProcedencia(String.valueOf(cbProcedencia.getSelectedItem()));
-                            e.setOrigem(txtOrigemProcedencia.getText());
+                        e.setTitulo(txtTituloObra.getText());
+                        e.setAno(Integer.parseInt(formatTxtAno.getText()));
+                        e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
+                        e.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
+                        e.setNome(txtNomeArtista.getText());
+                        e.setRegistro(txtResArtista.getText());
+                        e.setProcedencia(String.valueOf(cbProcedencia.getSelectedItem()));
+                        e.setOrigem(txtOrigemProcedencia.getText());
                     
-                      //t é o índice do tombo
-                    p.setupGravar();
-                    p.addRecords(cad); // Adciona um produto a lista.
-                    p.cleanupGravar();        // Fecha o arquivo           
+                        p.setupGravar();
+                        p.addRecords(cad);          // Adciona um produto a lista.
+                        p.cleanupGravar();          // Fecha o arquivo           
 
-                    JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
-                    limpa_campos();
-                     }
+                        JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso.");
+                        limpa_campos();
+                    }
                 }
                 painelEditor = false;
             }
-            }
+        }
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
