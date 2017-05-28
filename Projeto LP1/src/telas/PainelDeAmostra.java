@@ -11,6 +11,7 @@ package telas;
  */
 import estruturas.Persistencia;
 import estruturas.Arte;
+import estruturas.ManipularImagem;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -47,7 +48,8 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
      * e quando acha um igual mostra os detalhes dele.  
      */
     private void MostraArte(int tombo){
-        for (Arte a : cad) {
+        for (Arte a : cad) 
+            
             if (a.getTombo() == tombo) {
                 lblMostraTitulo.setText(a.getTitulo());
                 lblMostraAno.setText(String.valueOf(a.getAno()));
@@ -58,10 +60,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 lblMostraTipoProce.setText(a.getProcedencia());
                 lblMostraOrigemProce.setText(a.getOrigem());
                 lblMostraTombo.setText(String.valueOf(a.getTombo()));
+                ManipularImagem.exibiImagemLabel(a.getImagem(), labelImagem);
             }
             
+            
         }
-    }
 
     
     private boolean existeNaLista(int tomb) {
@@ -85,7 +88,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelImagem = new javax.swing.JLabel();
+        labelImagem = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -114,7 +117,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         setTitle("Item Selecionado");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        LabelImagem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        labelImagem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setText("Categoria:");
 
@@ -203,14 +206,14 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                             .addComponent(botaoFechar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addComponent(LabelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LabelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -303,7 +306,6 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel11;
-    private javax.swing.JLabel LabelImagem;
     private javax.swing.JToggleButton botaoEditar;
     private javax.swing.JToggleButton botaoFechar;
     private javax.swing.JLabel jLabel1;
@@ -315,6 +317,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelImagem;
     private javax.swing.JLabel lblMostraAno;
     private javax.swing.JLabel lblMostraCategoria;
     private javax.swing.JLabel lblMostraNomeArtista;

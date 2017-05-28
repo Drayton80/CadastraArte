@@ -22,12 +22,12 @@ public class Arte extends Artista implements Serializable {
     private int indiceProcedencia = 0;
     private boolean valorIndeterminado;       
     private static int AUX = 1;
-    private static int contador = 1;
+    byte[] imagem;
     
    //Construtor:
     public Arte(String titulo, String nome, String registro, int ano, 
                 String categoria, String PeriProducao, String procedencia, 
-                String origem){
+                String origem, byte[] imagem){
         super(nome, registro);
         this.titulo = titulo;
         this.ano = ano;
@@ -35,6 +35,7 @@ public class Arte extends Artista implements Serializable {
         this.PeriodoProducao = PeriProducao;
         this.procedencia = procedencia;
         this.origem = origem;
+        this.imagem = imagem;
         TomboSalvo tomboSalvo = new TomboSalvo();
         if(tomboSalvo.getTomboSalvo() > AUX){
             AUX = 1 + tomboSalvo.getTomboSalvo();
@@ -46,6 +47,13 @@ public class Arte extends Artista implements Serializable {
     
    //Métodos:
     //Leitura e Escrita:
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
     public String getTitulo() {
         return titulo;
     }
