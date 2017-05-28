@@ -115,7 +115,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemPesquisar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_magnify.png"))); // NOI18N
         jMenuItemPesquisar.setText("Pesquisar Registros");
-        jMenuItemPesquisar.setToolTipText("");
+        jMenuItemPesquisar.setToolTipText("Pesquisa e exibe Obras de Arte.");
         jMenuItemPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemPesquisarActionPerformed(evt);
@@ -126,7 +126,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemEditar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_edit.png"))); // NOI18N
         jMenuItemEditar.setText("Modificar Dados");
-        jMenuItemEditar.setToolTipText("");
+        jMenuItemEditar.setToolTipText("Pesquisa por Tombo e altera dados.");
         jMenuItemEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemEditarActionPerformed(evt);

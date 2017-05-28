@@ -34,7 +34,7 @@
                   <Image iconType="3" name="/Imagens/application_form_magnify.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar Registros"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Pesquisa e exibe Obras de Arte."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPesquisarActionPerformed"/>
@@ -49,7 +49,7 @@
                   <Image iconType="3" name="/Imagens/application_form_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Dados"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Pesquisa por Tombo e altera dados."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEditarActionPerformed"/>
