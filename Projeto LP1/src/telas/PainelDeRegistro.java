@@ -143,8 +143,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         
         if(txtTitulo.equals("")   || txtAno.equals("")    || txtNome.equals("")               ||
            txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione") ||
-                                                             txtProcedencia.equals("Selecione")){    
-            return true;
+           labelImagem1.getIcon().equals(null) || txtProcedencia.equals("Selecione")){    
+           return true;
         }else{
             return false;
         }
