@@ -590,6 +590,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if(jCheckBox1.isSelected()){
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+            imagemAUX = ManipularImagem.getImgBytes(img);
             labelImagem1.setIcon(new ImageIcon(img));
             jBSelectImagem.setEnabled(false);
         }
@@ -677,8 +678,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             else {//Caso não selecione nenhum arquivo jCheckBox1.isSelected
                 JOptionPane.showMessageDialog(null, "Voce não selecionou nenhum arquivo.");
                 img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+                imagemAUX = ManipularImagem.getImgBytes(img);
                 labelImagem1.setIcon(new ImageIcon(img));
-            }
+                            }
         }
     }//GEN-LAST:event_jBSelectImagemActionPerformed
 
