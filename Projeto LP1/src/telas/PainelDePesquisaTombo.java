@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
 import estruturas.Arte;
@@ -11,10 +6,16 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-/**
- *
- * @author drayton80
+/** Painel de Pesquisar Tombo
+ *    Descrição:
+ *      Esse pequeno painel serve para pesquisar o tombo de uma Obra de Arte
+ *      do acervo para que possa ser editado.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
  */
+
 public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
     //Construtores:
      /** Construtor do Painel Principal:
@@ -191,8 +192,8 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtTombo;
     // End of variables declaration//GEN-END:variables
-    //Outros Atributos:
+    // Outros Atributos:
     private static LinkedList<Arte> cad = new LinkedList<Arte>();   
     private static Persistencia p = new Persistencia();
-    //Fim dos outros Atributos;
+    // Fim dos outros Atributos;
 }

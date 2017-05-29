@@ -40,21 +40,18 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         this.dispose();
     }
 
-     /** 
-     /**  * Metodo que pega varre a lista e
-      * mostra todos os itens formatados de acordo com o modelo
-      * do metodo obj
+     /** Método que Atualiza a Lista de Obras de Arte  
+      *    Descrição:
+      *      Percorre toda a coleção e exibe todos os itens formatados de
+      *      acordo com o modelo do metodo obj.
       */    
     private void atualiza_Arte() {
-         p.setupLer();
+        p.setupLer();
+        
         if (p.getContinua() == true ){
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
-        }
-        
-        for (Arte art : cad) {
-            System.out.println(art.getTitulo());   
         }
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -64,8 +61,9 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }
     
-     /**
-      * Metodo que cria o modelo de exibição na tabela     *  
+     /** Método do Modelo de Exibição
+      *    Descrição:
+      *      O método cria o modelo que será exibido na tabela de pesquisa.
       */
     private Object[] obj(Arte a){
         try {
@@ -290,28 +288,26 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //Evento que abre o painelDeRegistro
+    
+    
+    //Eventos de Botões e Clicks:
+     /** Botão de Cadastrar
+      *    Descrição:
+      *      Abre uma nova janela de cadastro e fecha a de pesquisa.
+      */
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PainelDeRegistro pcad = new PainelDeRegistro();
         jTelaPrincipal.add(pcad);
-        pcad.setTitle("Editar Obra de Arte");
+        pcad.setTitle("Cadastrar Obra de Arte");
         pcad.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
-
-    /** Método que Mostra a Tabela
+  
+    /** Botão de Pesquisar
      *    Descrição:
-     *      O método abre uma tabela que apresenta os dados de cada obra
-     *      registrada no acervo do museu. Isso ocorre logo após o usuário
-     *      apertar o botão no menu relativo ao painel de pesquisa.
-     */
-    
-    
-    /**
-     * Evento que pega o botão selecionado e o campo preencido, 
-     * e de acordo com o que estava dentro deles, faz uma varredura na lista,
-     * e mostra todas as Artes que cotem campos iguais aos pesquisado  
+     *      Ao ser apertado, ele captura o botão de rádio que foi selecionado
+     *      e o campo preenchido para que, com esses dados, percorra a coleção
+     *      em busca de todos os objetos que possuam os mesmos dados. 
      */
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
        
@@ -345,8 +341,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                 }
             }
         }
-
-        
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
     /** Evento do Clique do Mouse na Linha de Tabela
@@ -360,42 +354,69 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         frame.setVisible(false);
         frame.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
-
+    
+    /** Botão de Restaurar
+     *    Descrição: 
+     *      Ele retorna a lista para seu estado primordial aonde é exibido
+     *      todas as Obras de Arte do acervo ao em vez de apenas o que está
+     *      sendo pesquisado.
+     */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         atualiza_Arte();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
-
+    
+    
+    //Botões de Rádio:
+     /** Botão de Rádio de Título da Obra
+      *    Desrição:
+      *      Quando ele é pressionado, gera um evento que habilita a escrita
+      *      no campo de pesquisa de título e desabilita nos outros dois.
+      */
     private void botaoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTituloActionPerformed
-        if(botaoTitulo.isSelected()){
-        txtPesquisaNome.setEnabled(true);
-        txtPesquisaArtista.setEnabled(false);
-        cbCategoriaPesquisa.setEnabled(false);
-        }if(botaoTitulo.isSelected() == false){
-        txtPesquisaArtista.setEnabled(true);
-        cbCategoriaPesquisa.setEnabled(true);
+        if (botaoTitulo.isSelected()) {
+            txtPesquisaNome.setEnabled(true);
+            txtPesquisaArtista.setEnabled(false);
+            cbCategoriaPesquisa.setEnabled(false);
+        }
+        if (botaoTitulo.isSelected() == false) {
+            txtPesquisaArtista.setEnabled(true);
+            cbCategoriaPesquisa.setEnabled(true);
         }
     }//GEN-LAST:event_botaoTituloActionPerformed
-
+    
+     /** Botão de Rádio de Nome do Artista
+      *    Desrição:
+      *      Quando ele é pressionado, gera um evento que habilita a escrita
+      *      no campo de pesquisa do nome do artista e desabilita nos outros 
+      *      dois.
+      */
     private void botaoNomeArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNomeArtistaActionPerformed
-       if(botaoNomeArtista.isSelected()){
-        txtPesquisaArtista.setEnabled(true);
-        txtPesquisaNome.setEnabled(false);
-        cbCategoriaPesquisa.setEnabled(false);
-        }if(botaoNomeArtista.isSelected() == false){
-        txtPesquisaNome.setEnabled(true);
-        cbCategoriaPesquisa.setEnabled(true);
+        if (botaoNomeArtista.isSelected()) {
+            txtPesquisaArtista.setEnabled(true);
+            txtPesquisaNome.setEnabled(false);
+            cbCategoriaPesquisa.setEnabled(false);
+        }
+        if (botaoNomeArtista.isSelected() == false) {
+            txtPesquisaNome.setEnabled(true);
+            cbCategoriaPesquisa.setEnabled(true);
         }
     }//GEN-LAST:event_botaoNomeArtistaActionPerformed
 
+    /** Botão de Rádio de Nome da Categoria
+     *    Desrição:
+     *      Quando ele é pressionado, gera um evento que habilita a seleção
+     *      na caixa de combinação da categoria e desabilita os campos de
+     *      texto.
+     */
     private void botaoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCategoriaActionPerformed
-        if(botaoCategoria.isSelected()){
-        cbCategoriaPesquisa.setEnabled(true);
-        txtPesquisaArtista.setEnabled(false);
-        txtPesquisaNome.setEnabled(false);
+        if (botaoCategoria.isSelected()) {
+            cbCategoriaPesquisa.setEnabled(true);
+            txtPesquisaArtista.setEnabled(false);
+            txtPesquisaNome.setEnabled(false);
         }
-        if(botaoCategoria.isSelected() == false){
-        txtPesquisaArtista.setEnabled(true);
-        txtPesquisaNome.setEnabled(true);
+        if (botaoCategoria.isSelected() == false) {
+            txtPesquisaArtista.setEnabled(true);
+            txtPesquisaNome.setEnabled(true);
         }
     }//GEN-LAST:event_botaoCategoriaActionPerformed
 
@@ -417,8 +438,8 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
     // End of variables declaration//GEN-END:variables
-    
+    // Outros Atributos:
     private static Persistencia p = new Persistencia();
     private LinkedList<Arte> cad = new LinkedList<Arte>();
-    
+    // Fim dos outros Atributos;
 }

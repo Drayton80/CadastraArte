@@ -299,7 +299,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
      /** Item de Menu Modificar Dados
       *    Descrição:
-      *      Abre um painel (PainelDePesquisaTombO) que pede o número de tombo e,
+      *      Abre um painel (PainelDePesquisaTombo) que pede o número de tombo e,
       *      com aquilo que for digitado nele, percorre a coleção para saber
       *      se esse tombo existe para logo em seguida abrir a janela de
       *      edição de obras.
