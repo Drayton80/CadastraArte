@@ -27,7 +27,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
       */
     public PainelDeAmostra(int tombo) {
         p.setupLer();
-        if (p.getContinua() == true ){
+        if (p.getContinua() == true) {
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
@@ -37,13 +37,20 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         MostraArte(tombo);
     }
     
+      /** Método que Fecha a Janela Aberta
+      *    Descrição:
+      *      O método simplesmente fecha por completo a janela aberta no momento
+      *      em que ele é chamado.
+      */
     private void fecha_Janela() {
         this.dispose();
     }
-    /**
-     * Pega como parametro o Tombo que foi recebido na abertura da classe,
-     * comparada com o tombo de cada objeto Arte na lista,
-     * e quando acha um igual mostra os detalhes dele.  
+    
+    /** Metodo que pega os dados de uma obra registrada
+     *      Descrição:
+     *      Pega como parametro o Tombo que foi recebido na abertura da classe,
+     *      comparada com o tombo de cada objeto Arte na lista,
+     *      e quando acha um igual mostra os detalhes dele.  
      */
     private void MostraArte(int tombo){
         for (Arte a : cad) 
@@ -64,16 +71,22 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
             
         }
 
-    
+    /** Metodo que verifica se o número de tombo já foi cadastrado
+     *      Descrição:
+     *      Essse método vai nos auxiliar no momemento em que formos pesquisar
+     *      uma obra pelo número de tombo para edita-la. Ele vai desempenhar o
+     *      papel de verificar se o número de tombo desejado já foi atribuito 
+     *      para algum objeto
+     */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
-               return true;
+                return true;
             }
         }
         return false;
     }
-    
+
     
 
     /**
@@ -269,36 +282,42 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         fecha_Janela();        // TODO add your handling code here:
     }//GEN-LAST:event_botaoFecharActionPerformed
-
+    
+    /** Metodo se o número de tombo já foi cadastrado
+     *      Descrição: Se o botão for pressionado, fazemos uma varredura em 
+     *      todos os registros feitos em busca de um número de tombo condizente
+     *      com o mostrado na tela de amostra atual. Quando o encontrarmos 
+     *      abrimos um painel de registro com os dados salvos daquela obra.
+     *      
+     */
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         boolean errado = true;
-        while(errado){
-           if(errado == true){
-            try{
-                int tomboEdit;
-
-                tomboEdit = tombo;
-
-                if (existeNaLista(tomboEdit)) {
-                    PainelDeRegistro PainelE = new PainelDeRegistro(tomboEdit);
-                    PainelE.setTitle("Editar Obra de Arte");
-                    jTelaPrincipal.add(PainelE);
-                    PainelE.setVisible(true);
-                    break;
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
-                    break;
+        while (errado) {
+            if (errado == true) {
+                try {
+                    int tomboEdit;
+                    tomboEdit = tombo;
+                    if (existeNaLista(tomboEdit)) {
+                        PainelDeRegistro PainelE = new PainelDeRegistro(tomboEdit);
+                        PainelE.setTitle("Editar Obra de Arte");
+                        jTelaPrincipal.add(PainelE);
+                        PainelE.setVisible(true);
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                        break;
+                    }
+                } catch (NumberFormatException n) {
+                    JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
-            
-            } catch(NumberFormatException n){
-                JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                errado = false;
             }
-            errado = false;
         }
-        }// TODO add your handling code here:
     }//GEN-LAST:event_botaoEditarActionPerformed
 
 

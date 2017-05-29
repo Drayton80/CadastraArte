@@ -195,14 +195,14 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 checkbIndeterminado.setSelected(a.getValorIndeterminado());
                 cbCategoria.setSelectedIndex(a.getIndiceCategoria());
                 cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
-                ManipularImagem.exibiImagemLabel(a.getImagem(),labelImagem1);
+                ManipularImagem.exibiImagemLabel(a.getImagem(), labelImagem1);
                 imagemAUX = a.getImagem();
-                if(Arrays.equals(imagemAUX, vazioAUX) ){
+                if (Arrays.equals(imagemAUX, vazioAUX)) {
                     jCheckBox1.setSelected(true);
                 }
-                if(a.getValorIndeterminado()){
+                if (a.getValorIndeterminado()) {
                     txtTempoPeriodoProducao.setText("");
-                }else{
+                } else {
                     txtTempoPeriodoProducao.setText(a.getPeriodoProducao());
                 }
             }
@@ -261,46 +261,46 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       */
     private Arte retorna_arte(){    
         String txtPeriodo = txtTempoPeriodoProducao.getText();
-        
+
         try {
-            if(teste_dos_campos()){
+            if (teste_dos_campos()) {
                 throw new CampoVazio();
             }
-            
-            if(registro_repetido(txtResArtista.getText(), txtNomeArtista.getText())){
+
+            if (registro_repetido(txtResArtista.getText(), txtNomeArtista.getText())) {
                 throw new DadoRepetido();
             }
-            
-            if(txtPeriodo.equals("") || checkbIndeterminado.isSelected()){
+
+            if (txtPeriodo.equals("") || checkbIndeterminado.isSelected()) {
                 txtPeriodo = "Indeterminado";
             }
-            
+
             Arte obra = new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
-                                txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()), 
-                                 String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo,
-                                 String.valueOf(cbProcedencia.getSelectedItem()),
-                                 txtOrigemProcedencia.getText(), ManipularImagem.getImgBytes(img));
-            
+                    txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()),
+                    String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo,
+                    String.valueOf(cbProcedencia.getSelectedItem()),
+                    txtOrigemProcedencia.getText(), ManipularImagem.getImgBytes(img));
+
             obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
             obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
             obra.setValorIndeterminado(checkbIndeterminado.isSelected());
-            
+
             return obra;
-            
-        }catch (NumberFormatException n) {
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
-                                                    "valores cadastrados não é válido.                     "        ,
-                                                    "Aviso", JOptionPane.ERROR_MESSAGE);
+
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n"
+                    + "valores cadastrados não é válido.                     ",
+                    "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
-        }catch (CampoVazio n){
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n" +
-                                                    "Campos Obrigatórios não foi preenchido ou selecionado."        ,
-                                                    "Aviso", JOptionPane.ERROR_MESSAGE);
+        } catch (CampoVazio n) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n"
+                    + "Campos Obrigatórios não foi preenchido ou selecionado.",
+                    "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
-        }catch (DadoRepetido n){
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois o" + "\n" +
-                                                    "Registro do Artista já foi Cadastrado no nome de " + "\n" +
-                                                    "de outro artista.", "Aviso", JOptionPane.ERROR_MESSAGE);
+        } catch (DadoRepetido n) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois o" + "\n"
+                    + "Registro do Artista já foi Cadastrado no nome de " + "\n"
+                    + "de outro artista.", "Aviso", JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
@@ -591,16 +591,18 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
    
-   //Botões:
-    //Fazer comentário
+     /** Caixa de seleção para falta de imagem
+      *    Descrição:
+      *     Ao assinalar o botão definimos que não há registro fotográfico
+      *     da obra em questão
+      */
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if(jCheckBox1.isSelected()){
+        if (jCheckBox1.isSelected()) {
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 149);
             imagemAUX = ManipularImagem.getImgBytes(img);
             labelImagem1.setIcon(new ImageIcon(img));
             jBSelectImagem.setEnabled(false);
-        }
-        else{
+        } else {
             jBSelectImagem.setEnabled(true);
             labelImagem1.setIcon(null);
         }
@@ -611,16 +613,15 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       *     Ao apertar o botão o objeto será salvo no arquivo.
       */
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
-        if(painelEditor ==  false){
+        if (painelEditor == false) {
             Arte verifica = retorna_arte();
             if (null != verifica) {
                 Arte a = verifica;
-                System.out.println(a.toString());
                 if (!existeNaListaTombo(a.getTombo())) {
                     p.getCad().add(a);
                     p.setupGravar();
-                    p.addRecords(cad); // Adciona um produto a lista.
-                    p.cleanupGravar();        // Fecha o arquivo
+                    p.addRecords(cad);
+                    p.cleanupGravar();
 
                     JOptionPane.showMessageDialog(rootPane, "Arte Cadastrada com Sucesso.");
                     limpa_campos();
@@ -630,10 +631,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
         }
 
-        if(painelEditor == true){
-            for(Arte e : cad){
+        if (painelEditor == true) {
+            for (Arte e : cad) {
                 if (t == e.getTombo()) {
-                    e.setTitulo(txtTituloObra.getText()); //Tá pegando o título
+                    e.setTitulo(txtTituloObra.getText());
                     e.setAno(Integer.parseInt(formatTxtAno.getText()));
                     e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
                     e.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
@@ -641,11 +642,11 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     e.setRegistro(txtResArtista.getText());
                     e.setProcedencia(String.valueOf(cbProcedencia.getSelectedItem()));
                     e.setOrigem(txtOrigemProcedencia.getText());
-                    e.setImagem(imagemAUX); 
+                    e.setImagem(imagemAUX);
                     p.setupGravar();
-                    p.addRecords(cad);          // Adciona um produto a lista.
-                    p.cleanupGravar();          // Fecha o arquivo
-                    
+                    p.addRecords(cad);
+                    p.cleanupGravar();
+
                     JOptionPane.showMessageDialog(rootPane, "Produto Editado com Sucesso.");
                     limpa_campos();
                     fecha_janela();
@@ -669,33 +670,24 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       *     junto aos demais dados da obra de arte.
       */
     private void jBSelectImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelectImagemActionPerformed
-        if(jCheckBox1.isSelected() == false){
+        if (jCheckBox1.isSelected() == false) {
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagem", "jpg", "png");
-                jBusca.setFileFilter(filter);                
-            if(jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){ //Verifica se o formato do arquivo é valido
+            jBusca.setFileFilter(filter);
+            if (jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File imagem = jBusca.getSelectedFile();
-                try{
-                    /*Salvamos esses dados
-                    como uma imagem dentro
-                    do java que estará presente em todo o cadastro*/
+                try {
                     img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 149);
                     imagemAUX = ManipularImagem.getImgBytes(img);
-                    labelImagem1.setIcon(new ImageIcon(img));//Coloca a imagem salva no label "ImgMostrada" para receber imagem aqui
-
-                } catch (Exception ex) {//Exceção gerada caso o arquvo selecionado seja inválido
+                    labelImagem1.setIcon(new ImageIcon(img));
+                } catch (Exception ex) {
                     JOptionPane.showMessageDialog(rootPane, "Arquivo Inválido", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-            }
-
-            else {//Caso não selecione nenhum arquivo jCheckBox1.isSelected
+            } else {
                 JOptionPane.showMessageDialog(null, "Voce não selecionou nenhum arquivo.");
-                
-                            }
+            }
         }
     }//GEN-LAST:event_jBSelectImagemActionPerformed
     
-    
-   //Caixas de Seleção:
      /** Caixa de Seleção do Período de Produção Indeterminado:
       *    Descrição:
       *      Caso a caixa seja selecionada, é gerado um evento que não 
@@ -751,10 +743,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private LinkedList<Arte> cad = new LinkedList<Arte>();
     private static boolean painelEditor = false;
     private static int t = 0;
+    JFileChooser jBusca = new JFileChooser();
     private BufferedImage img;
     private BufferedImage imagemVazia = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
-    JFileChooser jBusca = new JFileChooser();
     private byte[] imagemAUX, vazioAUX = ManipularImagem.getImgBytes(imagemVazia);
-    //Passamos os dados dessa imagem a uma variável do tipo File
     //Fim dos Atribudos;
 }

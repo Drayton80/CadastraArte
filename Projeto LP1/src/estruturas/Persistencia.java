@@ -42,7 +42,11 @@ public class Persistencia implements Serializable{
     public LinkedList<Arte> getCad() {
         return cad;
     }
-
+    
+    /** Método que Retorna o estado do arquivo
+     *    Descrição:
+     *     O Metodo retorna se é possível ou não ler algum arquivo.
+     */
     public boolean getContinua() {
         return continua;
     }
