@@ -14,19 +14,19 @@ public class TomboSalvo {
      *     O Metodo lê a coleção de objetos salvos no arquivo e retorna o maior
      *     número de tombo salvo
      */
-    public int getTomboSalvo(){
+    public int getTomboSalvo() {
         p.setupLer();
         p.readRecords();
         p.cleanupLer();
         cad = p.getCad();
-        
-        for(Arte a : cad){
+
+        for (Arte a : cad) {
             tombo = a.getTombo();
-            if(tombo > tomboAux){
+            if (tombo > tomboAux) {
                 tomboAux = tombo;
             }
         }
-        
+
         return tomboAux;
     }
 }
