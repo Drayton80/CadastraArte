@@ -1,12 +1,18 @@
 package estruturas;
 
-/**
- *Descrição:
- * 
- */
 import java.io.*;
 
- public class Artista implements Serializable {
+/** Classe Artista
+ *    Descrição:
+ *      Contém os métodos e atributos relativos ao artista sendo a Superclasse
+ *      da classe Arte.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
+
+public class Artista implements Serializable {
    //Atributos
     protected String nome;
     protected String registro;
@@ -32,7 +38,7 @@ import java.io.*;
         this.registro = registro;
     }
     
-    //Relatório dos Dados:
+   //Relatório dos Dados:
     public String toString(){
         return "Nome:" + nome + '\n' + "Registro Artístico:" + registro;
     }

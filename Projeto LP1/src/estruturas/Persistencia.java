@@ -1,14 +1,5 @@
 package estruturas;
 
-/** Estruturas
- *    descrição:
- *      Essa classe vai prover métodos que auxilie em todas as partes
- *      que tratara
- * 
- *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
- *              Drayton Corrêa, Ewerton Santos
- */
 import estruturas.Arte;
 import java.io.*;
 import java.io.EOFException;
@@ -21,23 +12,33 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
-public class Persistencia implements Serializable{
+/** Classe Persistência
+ *    Descrição:
+ *      Essa classe vai prover métodos que auxilie a todos os objetos os
+ *      quais forem declarados como pertencentes a ela.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
 
+public class Persistencia implements Serializable{
+    
     //Atributos:
     private ObjectInputStream input;
     private ObjectOutputStream output;
     private boolean continua = true;
     private boolean moreRecords = true;
     private LinkedList<Arte> cad = new LinkedList<Arte>();
-    
-    
 
-    /** Método que retorna a coleção
+    
+    //MÉTODOS:
+    
+    /** Método que Retorna a Coleção
      *    Descrição:
      *     O Metodo retorna aquilo que está salvo na coleção 
-     *     naquele momento
+     *     em determinado momento.
      */
-    
     public LinkedList<Arte> getCad() {
         return cad;
     }
@@ -46,12 +47,11 @@ public class Persistencia implements Serializable{
         return continua;
     }
     
-    /** Método que habilita modo de leitura
+    /** Método que Habilita o Modo de Leitura
      *    Descrição:
      *     O Metodo abre o arquivo e habilita a stream para que nos retorne os
-     *     dados gravados no arquivo
+     *     dados gravados no arquivo.
      */
-    
     public void setupLer() {
         try {
             FileInputStream leitura = new FileInputStream("Arte.ser");
@@ -71,12 +71,11 @@ public class Persistencia implements Serializable{
 
     }
 
-    /** Método que salva o arquivo na coleção
+    /** Método que Salva o Arquivo na Coleção
      *    Descrição:
      *     O Metodo pega aquilo que está sendo lido no arquivo e transcreve
      *     na nossa coleção cad
      */
-    
     public void readRecords() {
 
 

@@ -1,17 +1,5 @@
 package telas;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author aluno
-
-*/
 import estruturas.Persistencia;
 import estruturas.Arte;
 import java.util.*;
@@ -19,14 +7,24 @@ import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+/** Painel Principal
+ *    Descrição:
+ *      Esse painel contém o menu e todas as ligações para os demais paíneis
+ *      sendo, em linhas gerais, a própria main.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
 
 public class PainelPrincipal extends javax.swing.JFrame {
-    
-    //CONSTRUTOR:
-    /** Construtor do Painel Principal:
-     *    Descrição:
-     *      Painel padrão da interface.
-     */
+    //Construtores:
+     /** Construtor do Painel Principal:
+      *    Descrição:
+      *      Painel padrão da interface em conjunto com os métodos da
+      *      persistência que copiam todos os objetos do arquivo Arte.ser
+      *      para a coleção no aplicativo.
+      */
     public PainelPrincipal() {
         p.setupLer();
         if (p.getContinua() == true ){
@@ -38,12 +36,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());
     }
     
-    //MÉTODOS:
-    /** Método de Testar se Existe na Lista
-     *    Descrição:
-     *      O método percorre a coleção e checa se existe o tombo enviado
-     *      no parâmetro.     * 
-     */
+    
+    //Métodos:
+     /** Método de Testar se Existe na Lista
+      *    Descrição:
+      *      O método percorre a coleção e checa se existe o tombo enviado
+      *      no parâmetro, retornando um valor do tipo boolean que é:
+      *          - True: quando o tombo recebido como parâmetro é igual ao de
+      *            outro na coleção.
+      *              ou
+      *          - False: quando não há um tombo igual na coleção.
+      */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
@@ -52,7 +55,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         }
         return false;
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -257,11 +261,12 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    /** Item de Menu Cadastrar Novas Obras
-     *    Descrição:
-     *      Abre uma janela que serve para registrar uma obra de arte no acervo
-     *      pertencente ao museu.
-     */
+    //Items de Menu:
+     /** Item de Menu Cadastrar Novas Obras
+      *    Descrição:
+      *      Abre uma janela que serve para registrar uma obra de arte no acervo
+      *      pertencente ao museu.
+      */
     private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
         PainelDeRegistro PainelC = new PainelDeRegistro();
         PainelC.setTitle("Cadastrar Obra de Arte");
@@ -269,11 +274,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         PainelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
-    /** Item de Menu Pesquisar Registros
-     *    Descrição:
-     *      Abre uma janela que serve para buscar uma obra de arte no acervo
-     *      daquelas que já foram cadastradas.
-     */
+     /** Item de Menu Pesquisar Registros
+      *    Descrição:
+      *      Abre uma janela que serve para buscar uma obra de arte no acervo
+      *      do museu dentre aquelas que já foram cadastradas.
+      */
     private void jMenuItemPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPesquisarActionPerformed
         PainelDePesquisa PainelP = new PainelDePesquisa();
         jTelaPrincipal.add(PainelP);
@@ -284,21 +289,21 @@ public class PainelPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_formWindowClosing
 
-    /** Item de Meno Sair
-     *    Descrição:
-     *      Encerra o programa.
-     */
+     /** Item de Meno Sair
+      *    Descrição:
+      *      Encerra o programa.
+      */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
          System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    /** Item de Menu Modificar Dados
-     *    Descrição:
-     *      Abre uma janela (JOptionPane) que pede o número de tombo e,
-     *      com aquilo que for digitado nela, percorre a coleção para saber
-     *      se esse tombo existe para logo em seguida abrir a janela de
-     *      edição de obras.
-     */
+     /** Item de Menu Modificar Dados
+      *    Descrição:
+      *      Abre um painel (PainelDePesquisaTombO) que pede o número de tombo e,
+      *      com aquilo que for digitado nele, percorre a coleção para saber
+      *      se esse tombo existe para logo em seguida abrir a janela de
+      *      edição de obras.
+      */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
         PainelDePesquisaTombo PainelT = new PainelDePesquisaTombo();
         jTelaPrincipal.add(PainelT);
@@ -307,7 +312,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PainelDeRegistro PainelC = new PainelDeRegistro();
-        PainelC.setTitle("Cadastrar Obra de Arte");
+        PainelC.setTitle("");
         jTelaPrincipal.add(PainelC);
         PainelC.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -376,9 +381,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPrincipal;
     protected static javax.swing.JDesktopPane jTelaPrincipal;
     // End of variables declaration//GEN-END:variables
-
-private static LinkedList<Arte> cad = new LinkedList<Arte>();
-private static Persistencia p = new Persistencia();
-
-
+    // Outros Atributos:
+    private static LinkedList<Arte> cad = new LinkedList<Arte>();
+    private static Persistencia p = new Persistencia();
+    // Fim dos outros Atributos;
 }

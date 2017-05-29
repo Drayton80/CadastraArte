@@ -1,12 +1,16 @@
 package estruturas;
 
-/**
- * Descrição:
- *  Classe de instância dos objetos Obras de Artes
- */
 import java.io.*;
 import java.util.LinkedList;
 
+/** Classe Arte
+ *    Descrição:
+ *      Classe de instância dos objetos que representam as Obras de Artes.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
 
 public class Arte extends Artista implements Serializable {
    //Atributos Essenciais:
@@ -17,7 +21,7 @@ public class Arte extends Artista implements Serializable {
     private String procedencia;
     private String origem;
     private int tombo = 0;
-    //Atributos Auxiliares:
+   //Atributos Auxiliares:
     private int indiceCategoria = 0;
     private int indiceProcedencia = 0;
     private boolean valorIndeterminado;       

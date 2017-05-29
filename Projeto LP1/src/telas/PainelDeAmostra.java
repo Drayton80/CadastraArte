@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
-/**
- *
- * @author arman
- */
 import estruturas.Persistencia;
 import estruturas.Arte;
 import estruturas.ManipularImagem;
@@ -17,16 +8,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-public class PainelDeAmostra extends javax.swing.JInternalFrame {
+/** Painel de Amostra das Obras de Arte
+ *    Descrição:
+ *      Esse painel exibe todos os dados de uma obra de arte para a
+ *      visualização, mas não para serem editados.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
 
-    /**
-     * Creates new form PainelDeAmostra
-     */
-    /**
-     * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no PainelDePesquisa.
-     * Abre e ler a lista e salva na variavel cad.
-     * Pega o metodo de mostraArte para exibir os detalhes da hora que abre o painel.
-     */
+public class PainelDeAmostra extends javax.swing.JInternalFrame {
+    //Construtores:
+     /**
+      * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no PainelDePesquisa.
+      * Abre e ler a lista e salva na variavel cad.
+      * Pega o metodo de mostraArte para exibir os detalhes da hora que abre o painel.
+      */
     public PainelDeAmostra(int tombo) {
         p.setupLer();
         if (p.getContinua() == true ){

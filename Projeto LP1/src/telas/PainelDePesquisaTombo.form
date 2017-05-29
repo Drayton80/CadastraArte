@@ -51,9 +51,9 @@
                       <Component id="txtTombo" alignment="0" min="-2" pref="364" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="95" max="-2" attributes="0"/>
-                          <Component id="ButaoContinuar" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoContinuar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButaoCancelar" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="BotaoCancelar" min="-2" pref="79" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -70,8 +70,8 @@
                   <Component id="txtTombo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ButaoContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ButaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -94,7 +94,7 @@
             <Property name="text" type="java.lang.String" value="Escreva abaixo o n&#xfa;mero de tombo da Obra que deseja editar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ButaoContinuar">
+        <Component class="javax.swing.JButton" name="BotaoContinuar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Continuar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -102,10 +102,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButaoContinuarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoContinuarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ButaoCancelar">
+        <Component class="javax.swing.JButton" name="BotaoCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -113,7 +113,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButaoCancelarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoCancelarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
