@@ -5,7 +5,8 @@ import java.util.LinkedList;
 
 /** Classe Arte
  *    Descrição:
- *      Classe de instância dos objetos que representam as Obras de Artes.
+ *      Classe de instância dos objetos que representam as Obras de Artes
+ *      pertencentes ao acervo do museu.
  * 
  *    @author Grupo 06
  *      alunos: Armando Neto, Douglas Lima
