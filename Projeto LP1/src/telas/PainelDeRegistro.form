@@ -21,8 +21,8 @@
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[630, 670]"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <SerializedValue value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-48,0,0,2,118"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -43,436 +43,394 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" min="-2" pref="614" max="-2" attributes="0"/>
+          <Component id="jPanelCadastro" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="618" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanelCadastro" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JPanel" name="jPanelCadastro">
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelCadastro">
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace pref="47" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblTempoProducao" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTitulo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblAnoProducao" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCategoria" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblAnoProducao" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCategoria" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTitulo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomeArtista" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTempoProducao" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblResArtista" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblOrigemProcedencia" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTipoProcedencia" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                      <Component id="lblNomeArtista" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cbCategoria" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="txtTempoPeriodoProducao" min="-2" pref="234" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="checkbIndeterminado" min="-2" pref="132" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtTituloObra" min="-2" pref="390" max="-2" attributes="0"/>
+                                          <Component id="formatTxtAno" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtNomeArtista" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
+                                      <Component id="txtResArtista" min="-2" pref="142" max="-2" attributes="0"/>
+                                      <Component id="txtOrigemProcedencia" alignment="0" min="-2" pref="389" max="-2" attributes="0"/>
+                                      <Component id="cbProcedencia" min="-2" pref="143" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="cbCategoria" alignment="0" pref="138" max="32767" attributes="0"/>
-                                      <Component id="formatTxtAno" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtTempoPeriodoProducao" min="-2" pref="234" max="-2" attributes="0"/>
-                                          <EmptySpace pref="24" max="32767" attributes="0"/>
-                                          <Component id="checkbIndeterminado" min="-2" pref="132" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtTituloObra" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtNomeArtista" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblResArtista" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblOrigemProcedencia" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTipoProcedencia" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="lblTituloPainel3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
-                                                  </Group>
+                                          <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="labelImagem1" min="-2" pref="160" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="jBSelectImagem" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                              <Component id="jCheckBox1" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                              <Component id="lblTituloPainel" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jBSalvarCadastro" min="-2" pref="72" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="cbProcedencia" min="-2" pref="143" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="txtResArtista" min="-2" pref="142" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="txtOrigemProcedencia" alignment="1" min="-2" pref="389" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelImagem1" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="jBSelectImagem" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="lblTituloPainel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblTituloPainel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jBSalvarCadastro" min="-2" pref="72" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jBCancelarCadastro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblTituloPainel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblTituloPainel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelImagem1" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBSelectImagem" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblTituloPainel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTituloObra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtTempoPeriodoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTempoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkbIndeterminado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblAnoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="formatTxtAno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCategoria" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="cbCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="lblTituloPainel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblNomeArtista" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNomeArtista" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtResArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblResArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="lblTituloPainel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTipoProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jBSalvarCadastro" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBCancelarCadastro" min="-2" pref="23" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="labelImagem1" min="-2" pref="160" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jBSelectImagem" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblTituloPainel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtTituloObra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtTempoPeriodoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTempoProducao" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkbIndeterminado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatTxtAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAnoProducao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cbCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCategoria" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblTituloPainel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="txtNomeArtista" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNomeArtista" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblResArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtResArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblTituloPainel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOrigemProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblTipoProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbProcedencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jBSalvarCadastro" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jBCancelarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblTituloPainel">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Obra"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTitulo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="T&#xed;tulo da Obra:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblAnoProducao">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ano de Produ&#xe7;&#xe3;o:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTempoProducao">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Per&#xed;odo de Produ&#xe7;&#xe3;o:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCategoria">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Categoria:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTituloPainel2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es do Artista"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNomeArtista">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nome do Artista:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblResArtista">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registro do Artista:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTituloPainel3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Proced&#xea;ncia"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTipoProcedencia">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo de Proced&#xea;ncia:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblOrigemProcedencia">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Origem da Proced&#xea;ncia:*"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTituloObra">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Digite o T&#xed;tulo da Obra."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtNomeArtista">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Nome do Artista que produziu a Obra de Arte."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtOrigemProcedencia">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Digite o Local de onde a obra de arte foi adquirida."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Digite quantos anos foram necess&#xe1;rio para a conclus&#xe3;o da Obra."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formatTxtAno">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="setFormatoAno()" type="code"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Coloque o ano em que a Obra foi produzida."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbCategoria">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="19">
-                    <StringItem index="0" value="Selecione"/>
-                    <StringItem index="1" value="&#xc1;lbum"/>
-                    <StringItem index="2" value="Aquarela"/>
-                    <StringItem index="3" value="Colagem"/>
-                    <StringItem index="4" value="Desenho"/>
-                    <StringItem index="5" value="Escultura"/>
-                    <StringItem index="6" value="Foto"/>
-                    <StringItem index="7" value="Gravura"/>
-                    <StringItem index="8" value="Impress&#xe3;o"/>
-                    <StringItem index="9" value="Instala&#xe7;&#xe3;o"/>
-                    <StringItem index="10" value="Livro"/>
-                    <StringItem index="11" value="M&#xfa;ltiplo"/>
-                    <StringItem index="12" value="Objeto"/>
-                    <StringItem index="13" value="ObraDesinc"/>
-                    <StringItem index="14" value="Perform"/>
-                    <StringItem index="15" value="Pintura"/>
-                    <StringItem index="16" value="Relevo"/>
-                    <StringItem index="17" value="Tape&#xe7;aria"/>
-                    <StringItem index="18" value="V&#xed;deo"/>
-                  </StringArray>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Selecione a Categoria em que a Obra se encaixa."/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbProcedencia">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="7">
-                    <StringItem index="0" value="Selecione"/>
-                    <StringItem index="1" value="Aquisi&#xe7;&#xe3;o"/>
-                    <StringItem index="2" value="Comodato"/>
-                    <StringItem index="3" value="Doa&#xe7;&#xe3;o"/>
-                    <StringItem index="4" value="Esp&#xf3;lio"/>
-                    <StringItem index="5" value="Legado"/>
-                    <StringItem index="6" value="Pr&#xea;mio"/>
-                  </StringArray>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Selecione a forma como essa Obra de Arte foi adquirida."/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="checkbIndeterminado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Indeterminado"/>
-                <Property name="toolTipText" type="java.lang.String" value="Selecione est&#xe1; caixa caso n&#xe3;o possua dados do tempo necess&#xe1;rio para a produ&#xe7;&#xe3;o da Obra."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbIndeterminadoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBSelectImagem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Selecionar Imagem"/>
-                <Property name="toolTipText" type="java.lang.String" value="Importar imagem da Obra."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSelectImagemActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBCancelarCadastro">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-                <Property name="toolTipText" type="java.lang.String" value="Cancelar cadastro de Obra de Arte."/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor em Forma de M&#xe3;o"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelarCadastroActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBSalvarCadastro">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Salvar"/>
-                <Property name="toolTipText" type="java.lang.String" value="Confirmar dados."/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor em Forma de M&#xe3;o"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSalvarCadastroActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="2"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="* s&#xe3;o campos que devem ser preenchidos ou selecionados obrigatoriamente."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtResArtista">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="setFormatoRegistro()" type="code"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Digite o Registro Profissional do artista."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelImagem1">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="N/A imagem dispovivel"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Atribuir Imagem"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblTituloPainel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Obra"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTitulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="T&#xed;tulo da Obra:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAnoProducao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ano de Produ&#xe7;&#xe3;o:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTempoProducao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Per&#xed;odo de Produ&#xe7;&#xe3;o:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCategoria">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Categoria:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTituloPainel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es do Artista"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNomeArtista">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nome do Artista:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblResArtista">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registro do Artista:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTituloPainel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es da Proced&#xea;ncia"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTipoProcedencia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo de Proced&#xea;ncia:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblOrigemProcedencia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Origem da Proced&#xea;ncia:*"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTituloObra">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o T&#xed;tulo da Obra."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNomeArtista">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Nome do Artista que produziu a Obra de Arte."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtOrigemProcedencia">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o Local de onde a obra de arte foi adquirida."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite quantos anos foram necess&#xe1;rio para a conclus&#xe3;o da Obra."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="formatTxtAno">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="setFormatoAno()" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Coloque o ano em que a Obra foi produzida."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbCategoria">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="19">
+                <StringItem index="0" value="Selecione"/>
+                <StringItem index="1" value="&#xc1;lbum"/>
+                <StringItem index="2" value="Aquarela"/>
+                <StringItem index="3" value="Colagem"/>
+                <StringItem index="4" value="Desenho"/>
+                <StringItem index="5" value="Escultura"/>
+                <StringItem index="6" value="Foto"/>
+                <StringItem index="7" value="Gravura"/>
+                <StringItem index="8" value="Impress&#xe3;o"/>
+                <StringItem index="9" value="Instala&#xe7;&#xe3;o"/>
+                <StringItem index="10" value="Livro"/>
+                <StringItem index="11" value="M&#xfa;ltiplo"/>
+                <StringItem index="12" value="Objeto"/>
+                <StringItem index="13" value="ObraDesinc"/>
+                <StringItem index="14" value="Perform"/>
+                <StringItem index="15" value="Pintura"/>
+                <StringItem index="16" value="Relevo"/>
+                <StringItem index="17" value="Tape&#xe7;aria"/>
+                <StringItem index="18" value="V&#xed;deo"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione a Categoria em que a Obra se encaixa."/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbProcedencia">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value="Selecione"/>
+                <StringItem index="1" value="Aquisi&#xe7;&#xe3;o"/>
+                <StringItem index="2" value="Comodato"/>
+                <StringItem index="3" value="Doa&#xe7;&#xe3;o"/>
+                <StringItem index="4" value="Esp&#xf3;lio"/>
+                <StringItem index="5" value="Legado"/>
+                <StringItem index="6" value="Pr&#xea;mio"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione a forma como essa Obra de Arte foi adquirida."/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="checkbIndeterminado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Indeterminado"/>
+            <Property name="toolTipText" type="java.lang.String" value="Selecione est&#xe1; caixa caso n&#xe3;o possua dados do tempo necess&#xe1;rio para a produ&#xe7;&#xe3;o da Obra."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbIndeterminadoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBSelectImagem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Selecionar Imagem"/>
+            <Property name="toolTipText" type="java.lang.String" value="Importar imagem da Obra."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSelectImagemActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBCancelarCadastro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Cancelar cadastro de Obra de Arte."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelarCadastroActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBSalvarCadastro">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Confirmar dados."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSalvarCadastroActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="* s&#xe3;o campos que devem ser preenchidos ou selecionados obrigatoriamente."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtResArtista">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="setFormatoRegistro()" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o Registro Profissional do artista."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelImagem1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N/A imagem dispovivel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Atribuir Imagem"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
