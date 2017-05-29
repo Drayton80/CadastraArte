@@ -161,16 +161,31 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         botaoNomeArtista.setText("Nome do Artista:");
         botaoNomeArtista.setToolTipText("");
         botaoNomeArtista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoNomeArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoNomeArtistaActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(botaoTitulo);
         botaoTitulo.setText("Titulo da Obra:");
         botaoTitulo.setToolTipText("");
         botaoTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoTituloActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(botaoCategoria);
         botaoCategoria.setText("Categoria:");
         botaoCategoria.setToolTipText("É necessário confirmar a caixa de pesquisa por categoria.");
         botaoCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCategoriaActionPerformed(evt);
+            }
+        });
 
         jToggleButton1.setText("Restaurar");
         jToggleButton1.setToolTipText("Retorna para a realização de uma nova pesquisa.");
@@ -337,6 +352,40 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         atualiza_Arte();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void botaoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTituloActionPerformed
+        if(botaoTitulo.isSelected()){
+        txtPesquisaNome.setEnabled(true);
+        txtPesquisaArtista.setEnabled(false);
+        cbCategoriaPesquisa.setEnabled(false);
+        }if(botaoTitulo.isSelected() == false){
+        txtPesquisaArtista.setEnabled(true);
+        cbCategoriaPesquisa.setEnabled(true);
+        }
+    }//GEN-LAST:event_botaoTituloActionPerformed
+
+    private void botaoNomeArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNomeArtistaActionPerformed
+       if(botaoNomeArtista.isSelected()){
+        txtPesquisaArtista.setEnabled(true);
+        txtPesquisaNome.setEnabled(false);
+        cbCategoriaPesquisa.setEnabled(false);
+        }if(botaoNomeArtista.isSelected() == false){
+        txtPesquisaNome.setEnabled(true);
+        cbCategoriaPesquisa.setEnabled(true);
+        }
+    }//GEN-LAST:event_botaoNomeArtistaActionPerformed
+
+    private void botaoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCategoriaActionPerformed
+        if(botaoCategoria.isSelected()){
+        cbCategoriaPesquisa.setEnabled(true);
+        txtPesquisaArtista.setEnabled(false);
+        txtPesquisaNome.setEnabled(false);
+        }
+        if(botaoCategoria.isSelected() == false){
+        txtPesquisaArtista.setEnabled(true);
+        txtPesquisaNome.setEnabled(true);
+        }
+    }//GEN-LAST:event_botaoCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

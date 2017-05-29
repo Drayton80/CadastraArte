@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import exceções.*;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /** Painel de Cadastro de Obras de Artes
@@ -174,6 +175,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         cbCategoria.setSelectedIndex(0);
         cbProcedencia.setSelectedIndex(0);
         labelImagem1.setIcon(null);
+        jCheckBox1.setSelected(false);
     }
     
     /** Método que Preenche todos os Campos
@@ -196,7 +198,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
                 ManipularImagem.exibiImagemLabel(a.getImagem(),labelImagem1);
                 imagemAUX = a.getImagem();
-                
+                if(Arrays.equals(imagemAUX, vazioAUX) ){
+                    jCheckBox1.setSelected(true);
+                }
                 if(a.getValorIndeterminado()){
                     txtTempoPeriodoProducao.setText("");
                 }else{
@@ -452,7 +456,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Atribuir Imagem");
+        jLabel2.setText("Atribuir Imagem*");
 
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
@@ -493,9 +497,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                         .addGap(210, 210, 210)
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(20, 20, 20))
                                             .addComponent(jBSelectImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblTituloPainel)))
@@ -513,6 +514,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
                         .addComponent(lblTituloPainel3)
                         .addGap(203, 203, 203))))
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,9 +644,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     p.setupGravar();
                     p.addRecords(cad);          // Adciona um produto a lista.
                     p.cleanupGravar();          // Fecha o arquivo
-
+                    
                     JOptionPane.showMessageDialog(rootPane, "Produto Editado com Sucesso.");
                     limpa_campos();
+                    fecha_janela();
                 }
             }
             painelEditor = false;
@@ -659,7 +665,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
      */
     private void jBSelectImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelectImagemActionPerformed
         if(jCheckBox1.isSelected() == false){
-            
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagem", "jpg", "png");
+                jBusca.setFileFilter(filter);                
             if(jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){ //Verifica se o formato do arquivo é valido
                 File imagem = jBusca.getSelectedFile();
                 try{
@@ -677,9 +684,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
             else {//Caso não selecione nenhum arquivo jCheckBox1.isSelected
                 JOptionPane.showMessageDialog(null, "Voce não selecionou nenhum arquivo.");
-                img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
-                imagemAUX = ManipularImagem.getImgBytes(img);
-                labelImagem1.setIcon(new ImageIcon(img));
+                
                             }
         }
     }//GEN-LAST:event_jBSelectImagemActionPerformed
@@ -734,8 +739,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private static boolean painelEditor = false;
     private static int t = 0;
     private BufferedImage img;
+    private BufferedImage imagemVazia = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
     JFileChooser jBusca = new JFileChooser();
-    private byte[] imagemAUX;
-  //Passamos os dados dessa imagem a uma variável do tipo File
+    private byte[] imagemAUX, vazioAUX = ManipularImagem.getImgBytes(imagemVazia);
+    //Passamos os dados dessa imagem a uma variável do tipo File
     //Fim dos Atribudos;
 }
