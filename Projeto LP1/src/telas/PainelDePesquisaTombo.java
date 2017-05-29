@@ -64,11 +64,13 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
         setTitle("Janela de Pesquisa");
 
         txtTombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTombo.setToolTipText("Digite o número de Tombo da Obra de Arte.");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Escreva abaixo o número de tombo da Obra que deseja editar:");
 
         ButaoContinuar.setText("Continuar");
+        ButaoContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButaoContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButaoContinuarActionPerformed(evt);
@@ -76,6 +78,7 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
         });
 
         ButaoCancelar.setText("Cancelar");
+        ButaoCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButaoCancelarActionPerformed(evt);
