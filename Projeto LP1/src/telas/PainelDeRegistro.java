@@ -596,7 +596,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 //Fazer comentário
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if(jCheckBox1.isSelected()){
-            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 149);
             imagemAUX = ManipularImagem.getImgBytes(img);
             labelImagem1.setIcon(new ImageIcon(img));
             jBSelectImagem.setEnabled(false);
@@ -675,7 +675,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     /*Salvamos esses dados
                     como uma imagem dentro
                     do java que estará presente em todo o cadastro*/
-                    img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 160);
+                    img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 149);
                     imagemAUX = ManipularImagem.getImgBytes(img);
                     labelImagem1.setIcon(new ImageIcon(img));//Coloca a imagem salva no label "ImgMostrada" para receber imagem aqui
 
