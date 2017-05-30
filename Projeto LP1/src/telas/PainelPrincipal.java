@@ -2,61 +2,56 @@ package telas;
 
 import estruturas.Persistencia;
 import estruturas.Arte;
+import java.awt.Dimension;
 import java.util.*;
 import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/** Painel Principal
- *    Descrição:
- *      Esse painel contém o menu e todas as ligações para os demais paíneis
- *      sendo, em linhas gerais, a própria main.
- * 
- *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
- *              Drayton Corrêa, Ewerton Santos
+/**
+ * Painel Principal Descrição: Esse painel contém o menu e todas as ligações
+ * para os demais paíneis sendo, em linhas gerais, a própria main.
+ *
+ * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
+ * Santos
  */
-
 public class PainelPrincipal extends javax.swing.JFrame {
     //Construtores:
-     /** Construtor do Painel Principal:
-      *    Descrição:
-      *      Painel padrão da interface em conjunto com os métodos da
-      *      persistência que copiam todos os objetos do arquivo Arte.ser
-      *      para a coleção no aplicativo.
-      */
+
+    /**
+     * Construtor do Painel Principal: Descrição: Painel padrão da interface em
+     * conjunto com os métodos da persistência que copiam todos os objetos do
+     * arquivo Arte.ser para a coleção no aplicativo.
+     */
     public PainelPrincipal() {
         p.setupLer();
-        if (p.getContinua() == true ){
+        if (p.getContinua() == true) {
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
         }
         initComponents();
         this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());
+        this.setLocationRelativeTo(null);//Faz o programa iniciar no centro da tela
     }
-    
-    
+
     //Métodos:
-     /** Método de Testar se Existe na Lista
-      *    Descrição:
-      *      O método percorre a coleção e checa se existe o tombo enviado
-      *      no parâmetro, retornando um valor do tipo boolean que é:
-      *          - True: quando o tombo recebido como parâmetro é igual ao de
-      *            outro na coleção.
-      *              ou
-      *          - False: quando não há um tombo igual na coleção.
-      */
+    /**
+     * Método de Testar se Existe na Lista Descrição: O método percorre a
+     * coleção e checa se existe o tombo enviado no parâmetro, retornando um
+     * valor do tipo boolean que é: - True: quando o tombo recebido como
+     * parâmetro é igual ao de outro na coleção. ou - False: quando não há um
+     * tombo igual na coleção.
+     */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
-               return true;
+                return true;
             }
         }
         return false;
     }
-    
-    
+                 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,23 +106,23 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipalLayout.setHorizontalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addContainerGap(317, Short.MAX_VALUE)
                 .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTelaPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(273, 273, 273))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTelaPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(339, 339, 339))))
+                    .addGroup(jTelaPrincipalLayout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(jLabel5))
+                    .addGroup(jTelaPrincipalLayout.createSequentialGroup()
+                        .addGap(357, 357, 357)
+                        .addComponent(jLabel2)))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(566, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
         );
 
         jLabel2.getAccessibleContext().setAccessibleDescription("");
@@ -208,54 +203,53 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     //Items de Menu:
-     /** Item de Menu Cadastrar Novas Obras
-      *    Descrição:
-      *      Abre uma janela que serve para registrar uma obra de arte no acervo
-      *      pertencente ao museu.
-      */
+    /**
+     * Item de Menu Cadastrar Novas Obras Descrição: Abre uma janela que serve
+     * para registrar uma obra de arte no acervo pertencente ao museu.
+     */
     private void jMenuItemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarActionPerformed
-        PainelDeRegistro PainelC = new PainelDeRegistro();
-        PainelC.setTitle("Cadastrar Obra de Arte");
-        jTelaPrincipal.add(PainelC);
-        PainelC.setVisible(true);
+        PainelDeRegistro painelC = new PainelDeRegistro();
+        painelC.setTitle("Cadastrar Obra de Arte");
+        jTelaPrincipal.add(painelC);
+        painelC.setPosicao();
+        painelC.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
-     /** Item de Menu Pesquisar Registros
-      *    Descrição:
-      *      Abre uma janela que serve para buscar uma obra de arte no acervo
-      *      do museu dentre aquelas que já foram cadastradas.
-      */
+    /**
+     * Item de Menu Pesquisar Registros Descrição: Abre uma janela que serve
+     * para buscar uma obra de arte no acervo do museu dentre aquelas que já
+     * foram cadastradas.
+     */
     private void jMenuItemPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPesquisarActionPerformed
-        PainelDePesquisa PainelP = new PainelDePesquisa();
-        jTelaPrincipal.add(PainelP);
-        PainelP.setVisible(true);
+        PainelDePesquisa painelP = new PainelDePesquisa();
+        jTelaPrincipal.add(painelP);
+        painelP.setPosicao();
+        painelP.setVisible(true);
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       
+
     }//GEN-LAST:event_formWindowClosing
 
-     /** Item de Meno Sair
-      *    Descrição:
-      *      Encerra o programa.
-      */
+    /**
+     * Item de Meno Sair Descrição: Encerra o programa.
+     */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-     /** Item de Menu Modificar Dados
-      *    Descrição:
-      *      Abre um painel (PainelDePesquisaTombo) que pede o número de tombo e,
-      *      com aquilo que for digitado nele, percorre a coleção para saber
-      *      se esse tombo existe para logo em seguida abrir a janela de
-      *      edição de obras.
-      */
+    /**
+     * Item de Menu Modificar Dados Descrição: Abre um painel
+     * (PainelDePesquisaTombo) que pede o número de tombo e, com aquilo que for
+     * digitado nele, percorre a coleção para saber se esse tombo existe para
+     * logo em seguida abrir a janela de edição de obras.
+     */
     private void jMenuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditarActionPerformed
-        PainelDePesquisaTombo PainelT = new PainelDePesquisaTombo();
-        jTelaPrincipal.add(PainelT);
-        PainelT.setVisible(true);
+        PainelDePesquisaTombo painelT = new PainelDePesquisaTombo();
+        jTelaPrincipal.add(painelT);
+        painelT.setPosicao();
+        painelT.setVisible(true);
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
     /**

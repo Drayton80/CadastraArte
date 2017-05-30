@@ -12,68 +12,73 @@ import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import exceções.*;
+import java.awt.Dimension;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Locale;
+import static telas.PainelPrincipal.jTelaPrincipal;
+import static telas.PainelDePesquisa.jToggleButton1;
 
-/** Painel de Cadastro de Obras de Artes
- *    Descrição:
- *      Esse painel possuí tudo acerca do cadastro e edição de uma obra de arte
- *      efetuado no acervo do museu.
- * 
- *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
- *              Drayton Corrêa, Ewerton Santos
+
+/**
+ * Painel de Cadastro de Obras de Artes Descrição: Esse painel possuí tudo
+ * acerca do cadastro e edição de uma obra de arte efetuado no acervo do museu.
+ *
+ * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
+ * Santos
  */
-
 public class PainelDeRegistro extends javax.swing.JInternalFrame {
-   //Construrores:
-    /** Construtor para o Painel de Cadastro
-     *    Descrição:
-     *      Abre o arquivo para Cadastrar uma nova obra de arte no acervo do 
-     *      museu. 
+    //Construrores:
+
+    /**
+     * Construtor para o Painel de Cadastro Descrição: Abre o arquivo para
+     * Cadastrar uma nova obra de arte no acervo do museu.
      */
     public PainelDeRegistro() {
         p.setupLer();
-        if (p.getContinua() == true ){
+        if (p.getContinua() == true) {
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
         }
         initComponents();
+        getRootPane().setDefaultButton(jBSalvarCadastro);
     }
-    
-    /** Construtor para o Painel de Edição
-     *    Descrição:
-     *      Abre o arquivo para Editar uma obra de arte do acervo do museu.
-     * 
-     *    Observação:
-     *      Foi feito através de um construtor sobrecarregado para que o
-     *      programa ficasse mais eficiente ao reduzir en um painel o que
-     *      seria feito em dois (Painel de Cadastro e Painel de Edição
-     *      tornaram-se o Painel de Registro.
+
+    /**
+     * Construtor para o Painel de Edição Descrição: Abre o arquivo para Editar
+     * uma obra de arte do acervo do museu.
+     *
+     * Observação: Foi feito através de um construtor sobrecarregado para que o
+     * programa ficasse mais eficiente ao reduzir en um painel o que seria feito
+     * em dois (Painel de Cadastro e Painel de Edição tornaram-se o Painel de
+     * Registro.
      */
-    public PainelDeRegistro(int tombo) {        
+    public PainelDeRegistro(int tombo) {
         p.setupLer();
-        if(p.getContinua() == true){
+        if (p.getContinua() == true) {
             p.readRecords();
             p.cleanupLer();
             cad = p.getCad();
-            
+
         }
         painelEditor = true;
         t = tombo;
         initComponents();
         preenche_campos(tombo);
+        getRootPane().setDefaultButton(jBSalvarCadastro);
+        
+        
     }
-    
-   //Métodos:
+
+    //Métodos:
     //Métodos que Percorrem a Coleção::
-     /** Método que Checa se há Números de Tombos Repetidos
-      *    Descrição:
-      *      O método verifica se o número de tombo de uma obra de arte que
-      *      vai ser cadastrada é igual ao de outra. Se o número for igual
-      *      ela retorna um valor true do tipo boolean.
-      */
+    /**
+     * Método que Checa se há Números de Tombos Repetidos Descrição: O método
+     * verifica se o número de tombo de uma obra de arte que vai ser cadastrada
+     * é igual ao de outra. Se o número for igual ela retorna um valor true do
+     * tipo boolean.
+     */
     private boolean existeNaListaTombo(int tomb) {
         for (Arte a : p.getCad()) {
             if (a.getTombo() == tomb) {
@@ -82,57 +87,36 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         }
         return false;
     }
-    
-     /** Método que Checa se há Título de Obras Repetidos
-      *    Descrição:
-      *      O método verifica se o título de uma obra de arte que
-      *      vai ser cadastrada é igual ao de outra. Se o nome for igual
-      *      ela retorna um valor true do tipo boolean.
-      */
-    private boolean existeNaListaTitulo(String titulo) {
-        for (Arte a : p.getCad()) {
-            if (a.getTitulo().equals(titulo)) {
+
+    /**
+     * Método que Checa se há Registros Repetidos Descrição: O método percorre
+     * toda a coleção em busca de se há algum registro igual ao que será
+     * registrado, se sim ele verificará se esse registro pertence a um artista
+     * com o nome diferente daquele que será cadastrado. Se ambas as condições
+     * forem verdades o método retornará um valor true do tipo boolean.
+     *
+     * Observação: Dois artistas diferentes podem conter o mesmo nome, mas não o
+     * mesmo registro, ou seja, o registro é o que diferencia cada artista.
+     */
+    private boolean registro_repetido(String a, String b) {
+        for (Arte c : cad) {
+            if ((a.equals(c.getRegistro())) && (!b.equals(c.getNome()))) {
                 return true;
             }
         }
         return false;
     }
-    
-     /** Método que Checa se há Registros Repetidos
-      *    Descrição:
-      *      O método percorre toda a coleção em busca de se há algum registro
-      *      igual ao que será registrado, se sim ele verificará se esse registro
-      *      pertence a um artista com o nome diferente daquele que será 
-      *      cadastrado. Se ambas as condições forem verdades o método
-      *      retornará um valor true do tipo boolean.
-      * 
-      *    Observação:
-      *      Dois artistas diferentes podem conter o mesmo nome, mas não o mesmo
-      *      registro, ou seja, o registro é o que diferencia cada artista.
-      */
-    private boolean registro_repetido(String a, String b){
-        for (Arte c : cad){
-            if( (a.equals(c.getRegistro())) && (!b.equals(c.getNome())) ){
-                return true;
-            }
-        } return false;
-    }
-    
-    
+
     //Métodos Relativos aos Campos de Cadastro:
-     /** Método que Testa os Campos de Texto
-      *    Descrição:
-      *      O método avalia todos os campos obrigatórios para checar 
-      *      se há algum aonde o usuário não digitou ou selecionou qualquer
-      *      coisa e retorna um valor do tipo boolean: 
-      *        - true  (caso tenha algum campo obrigatório sem algo)
-      *           ou
-      *        - false (caso todos estejam preenchidos ou selecionados)
-      *    Observação:
-      *      Os campos obrigatórios foram marcados com asteriscos ( * ) na 
-      *      interface.
-      */
-    private boolean teste_dos_campos(){
+    /**
+     * Método que Testa os Campos de Texto Descrição: O método avalia todos os
+     * campos obrigatórios para checar se há algum aonde o usuário não digitou
+     * ou selecionou qualquer coisa e retorna um valor do tipo boolean: - true
+     * (caso tenha algum campo obrigatório sem algo) ou - false (caso todos
+     * estejam preenchidos ou selecionados) Observação: Os campos obrigatórios
+     * foram marcados com asteriscos ( * ) na interface.
+     */
+    private boolean teste_dos_campos() {
         String txtTitulo = txtTituloObra.getText();
         String txtAno = formatTxtAno.getText();
         String txtNome = txtNomeArtista.getText();
@@ -141,29 +125,29 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         String txtCategoria = (String) cbCategoria.getSelectedItem();
         String txtProcedencia = (String) cbProcedencia.getSelectedItem();
         boolean semImagem = false;
-        
-        if(labelImagem1.getIcon() == null){
+
+        if (labelImagem1.getIcon() == null) {
             semImagem = true;
         }
-        
-        if(txtTitulo.equals("")   || txtAno.equals("")    || txtNome.equals("")               ||
-           txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione") ||
-           semImagem || txtProcedencia.equals("Selecione")){ 
-            
-           return true;
-        }else{
+
+        if (txtTitulo.equals("") || txtAno.equals("") || txtNome.equals("")
+                || txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione")
+                || semImagem || txtProcedencia.equals("Selecione")) {
+
+            return true;
+        } else {
             return false;
         }
     }
-    
-     /** Método que Limpa todos os Campos
-      *    Descrição:
-      *      O método retorna todos os campos de texto (TextField), 
-      *      campos formatados (FormattedTextField), caixas de combinação (ComboBox)
-      *      e caixas de seleção (CheckBox) da janela para o estado inicial aonde
-      *      todas estavam em sem qualquer detalhe selecionado e/ou marcado.
-      */
-    private void limpa_campos(){
+
+    /**
+     * Método que Limpa todos os Campos Descrição: O método retorna todos os
+     * campos de texto (TextField), campos formatados (FormattedTextField),
+     * caixas de combinação (ComboBox) e caixas de seleção (CheckBox) da janela
+     * para o estado inicial aonde todas estavam em sem qualquer detalhe
+     * selecionado e/ou marcado.
+     */
+    private void limpa_campos() {
         txtNomeArtista.setText("");
         txtOrigemProcedencia.setText("");
         txtResArtista.setText("");
@@ -176,15 +160,14 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         labelImagem1.setIcon(null);
         jCheckBox1.setSelected(false);
     }
-    
-     /** Método que Preenche todos os Campos
-      *    Descrição:
-      *      O método preenche todos os campos de texto (TextField), 
-      *      campos formatados (FormattedTextField), caixas de combinação 
-      *      (ComboBox) e caixas de seleção (CheckBox) da janela com os 
-      *      dados da Obra de Arte que será editada no acervo do museu.
-      */
-    private void preenche_campos(int tombo){
+
+    /**
+     * Método que Preenche todos os Campos Descrição: O método preenche todos os
+     * campos de texto (TextField), campos formatados (FormattedTextField),
+     * caixas de combinação (ComboBox) e caixas de seleção (CheckBox) da janela
+     * com os dados da Obra de Arte que será editada no acervo do museu.
+     */
+    private void preenche_campos(int tombo) {
         for (Arte a : cad) {
             if (a.getTombo() == tombo) {
                 txtNomeArtista.setText(a.getNome());
@@ -199,6 +182,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 imagemAUX = a.getImagem();
                 if (Arrays.equals(imagemAUX, vazioAUX)) {
                     jCheckBox1.setSelected(true);
+                    jBSelectImagem.setEnabled(false);
                 }
                 if (a.getValorIndeterminado()) {
                     txtTempoPeriodoProducao.setText("");
@@ -208,58 +192,54 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
         }
     }
-    
-    
+
     //Métodos de Edição de Formato:
-     /** Método que Edita o Formato do Ano
-      *    Descrição:
-      *      O método cria um formato que limita o que será escrito em um
-      *      campo de texto para que restrinja-o a apenas 4 caracteres
-      *      onde será apenas possível digitar números.
-      *    Créditos:
-      *      O código original foi disponibilizado pela professora Daniela Coelho
-      *      no programa da aula prática da lista de exercícios número 4.
-      */
-    public static DefaultFormatterFactory setFormatoAno() {  
-        MaskFormatter comFoco = null;  
-        
-        try{   
-            comFoco = new MaskFormatter("####");  
-        }catch (Exception pe) { }
-        
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
+    /**
+     * Método que Edita o Formato do Ano Descrição: O método cria um formato que
+     * limita o que será escrito em um campo de texto para que restrinja-o a
+     * apenas 4 caracteres onde será apenas possível digitar números. Créditos:
+     * O código original foi disponibilizado pela professora Daniela Coelho no
+     * programa da aula prática da lista de exercícios número 4.
+     */
+    public static DefaultFormatterFactory setFormatoAno() {
+        MaskFormatter comFoco = null;
+
+        try {
+            comFoco = new MaskFormatter("####");
+        } catch (Exception pe) {
+        }
+
+        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);
+        return factory;
     }
-    
-     /** Método que Edita o Formato do Registro
-      *    Descrição:
-      *      O método cria um formato que limita o que será escrito em um
-      *      campo de texto para que restrinja-o a apenas 8 caracteres
-      *      onde será apenas possível digitar números.
-      *    Créditos:
-      *      O código original foi disponibilizado pela professora Daniela Coelho
-      *      no programa da aula prática da lista de exercícios número 4.
-      */
-    public static DefaultFormatterFactory setFormatoRegistro() {  
-        MaskFormatter comFoco = null;  
-        
-        try{   
-            comFoco = new MaskFormatter("########");  
-        }catch (Exception pe) { }
-        
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
+
+    /**
+     * Método que Edita o Formato do Registro Descrição: O método cria um
+     * formato que limita o que será escrito em um campo de texto para que
+     * restrinja-o a apenas 8 caracteres onde será apenas possível digitar
+     * números. Créditos: O código original foi disponibilizado pela professora
+     * Daniela Coelho no programa da aula prática da lista de exercícios número
+     * 4.
+     */
+    public static DefaultFormatterFactory setFormatoRegistro() {
+        MaskFormatter comFoco = null;
+
+        try {
+            comFoco = new MaskFormatter("########");
+        } catch (Exception pe) {
+        }
+
+        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);
+        return factory;
     }
-    
-    
+
     //Outros Métodos:
-     /** Método que Retorna um Objeto do tipo Arte
-      *    Descrição:
-      *      O método pega todos os dados registrados pelo usuário nos campos
-      *      dispostos para tal e retorna um objeto do tipo Arte aonde esses
-      *      dados estarão guardados.
-      */
-    private Arte retorna_arte(){    
+    /**
+     * Método que Retorna um Objeto do tipo Arte Descrição: O método pega todos
+     * os dados registrados pelo usuário nos campos dispostos para tal e retorna
+     * um objeto do tipo Arte aonde esses dados estarão guardados.
+     */
+    private Arte retorna_arte() {
         String txtPeriodo = txtTempoPeriodoProducao.getText();
 
         try {
@@ -304,22 +284,29 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             return null;
         }
     }
-    
-     /** Método que Fecha a Janela Aberta
-      *    Descrição:
-      *      O método simplesmente fecha por completo a janela aberta no momento
-      *      em que ele é chamado.
-      */
+
+    /**
+     * Método que Centraliza a Janela Descrição: O método pega o tamanho da tela
+     * principal e e cria a jenla no meio dela.
+     */
+    public void setPosicao() {
+        Dimension d = jTelaPrincipal.getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    /**
+     * Método que Fecha a Janela Aberta Descrição: O método simplesmente fecha
+     * por completo a janela aberta no momento em que ele é chamado.
+     */
     private void fecha_janela() {
         this.dispose();
     }
-    
-    
-     /**
-      * This method is called from within the constructor to initialize the form.
-      * WARNING: Do NOT modify this code. The content of this method is always
-      * regenerated by the Form Editor.
-      */
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -600,13 +587,11 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-   
-     /** Caixa de seleção para falta de imagem
-      *    Descrição:
-      *     Ao assinalar o botão definimos que não há registro fotográfico
-      *     da obra em questão
-      */
+
+    /**
+     * Caixa de seleção para falta de imagem Descrição: Ao assinalar o botão
+     * definimos que não há registro fotográfico da obra em questão
+     */
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
             img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
@@ -619,10 +604,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-     /** Botão de Salvar
-      *    Descrição:
-      *     Ao apertar o botão o objeto será salvo no arquivo.
-      */
+    /**
+     * Botão de Salvar Descrição: Ao apertar o botão o objeto será salvo no
+     * arquivo.
+     */
     private void jBSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarCadastroActionPerformed
         if (painelEditor == false) {
             Arte verifica = retorna_arte();
@@ -635,21 +620,34 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     p.cleanupGravar();
 
                     JOptionPane.showMessageDialog(rootPane, "Arte Cadastrada com Sucesso.\n"
-                                                           +"Tombo gerado:" + a.getTombo());
-                                                             
+                            + "Tombo gerado:" + a.getTombo());
+
                     limpa_campos();
+                    PainelPergunta painelPer = new PainelPergunta();
+                    painelPer.setTitle("Cadastrar Obra de Arte");
+                    jTelaPrincipal.add(painelPer);
+                    painelPer.setPosicao();
+                    painelPer.setVisible(true);
+                    PainelDePesquisa.atualizacao_Instantanea();
+                    fecha_janela();
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Tombo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
             }
+
         }
 
         if (painelEditor == true) {
             for (Arte e : cad) {
                 if (t == e.getTombo()) {
+                    String txtPeriodo = txtTempoPeriodoProducao.getText();
                     e.setTitulo(txtTituloObra.getText());
                     e.setAno(Integer.parseInt(formatTxtAno.getText()));
-                    e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
+                    if (checkbIndeterminado.isSelected()) {
+                        e.setPeriodoProducao("Indeterminado");
+                    } else {
+                        e.setPeriodoProducao(txtTempoPeriodoProducao.getText());
+                    }
                     e.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
                     e.setNome(txtNomeArtista.getText());
                     e.setRegistro(txtResArtista.getText());
@@ -662,26 +660,27 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
                     JOptionPane.showMessageDialog(rootPane, "Produto Editado com Sucesso.");
                     limpa_campos();
+                    PainelDePesquisa.atualizacao_Instantanea();
                     fecha_janela();
                 }
             }
             painelEditor = false;
         }
+        
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
-    
-     /** Botão de Cancelar o Cadastro/Edição:
-      *    Descrição:
-      *      Ao ser apertado fecha a janela devido ao cancelamento.     
-      */
+
+    /**
+     * Botão de Cancelar o Cadastro/Edição: Descrição: Ao ser apertado fecha a
+     * janela devido ao cancelamento.
+     */
     private void jBCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarCadastroActionPerformed
         this.dispose();
     }//GEN-LAST:event_jBCancelarCadastroActionPerformed
 
-     /** Botão de Selecionar Imagem
-      *    Descrição:
-      *     Abre a janela de pesquisa para a busca da imagem que será salva
-      *     junto aos demais dados da obra de arte.
-      */
+    /**
+     * Botão de Selecionar Imagem Descrição: Abre a janela de pesquisa para a
+     * busca da imagem que será salva junto aos demais dados da obra de arte.
+     */
     private void jBSelectImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelectImagemActionPerformed
         if (jCheckBox1.isSelected() == false) {
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagem", "jpg", "png");
@@ -700,24 +699,22 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jBSelectImagemActionPerformed
-    
-     /** Caixa de Seleção do Período de Produção Indeterminado:
-      *    Descrição:
-      *      Caso a caixa seja selecionada, é gerado um evento que não 
-      *      permite ao usuário digitar qualquer outra coisa dentro do
-      *      campo de texto relativo ao período de produção (logo ao
-      *      lado da caixa de seleção do indeterminado).
-      */
+
+    /**
+     * Caixa de Seleção do Período de Produção Indeterminado: Descrição: Caso a
+     * caixa seja selecionada, é gerado um evento que não permite ao usuário
+     * digitar qualquer outra coisa dentro do campo de texto relativo ao período
+     * de produção (logo ao lado da caixa de seleção do indeterminado).
+     */
     private void checkbIndeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbIndeterminadoActionPerformed
-        if(checkbIndeterminado.isSelected()){
+        if (checkbIndeterminado.isSelected()) {
             txtTempoPeriodoProducao.setEnabled(false);
-        }
-        else{
+        } else {
             txtTempoPeriodoProducao.setEnabled(true);
         }
     }//GEN-LAST:event_checkbIndeterminadoActionPerformed
 
-        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbProcedencia;

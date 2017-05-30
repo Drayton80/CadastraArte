@@ -3,28 +3,27 @@ package telas;
 import estruturas.Persistencia;
 import estruturas.Arte;
 import estruturas.ManipularImagem;
+import java.awt.Dimension;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-/** Painel de Amostra das Obras de Arte
- *    Descrição:
- *      Esse painel exibe todos os dados de uma obra de arte para a
- *      visualização, mas não para serem editados.
- * 
- *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
- *              Drayton Corrêa, Ewerton Santos
+/**
+ * Painel de Amostra das Obras de Arte Descrição: Esse painel exibe todos os
+ * dados de uma obra de arte para a visualização, mas não para serem editados.
+ *
+ * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
+ * Santos
  */
-
 public class PainelDeAmostra extends javax.swing.JInternalFrame {
+
     //Construtores:
-     /**
-      * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no PainelDePesquisa.
-      * Abre e ler a lista e salva na variavel cad.
-      * Pega o metodo de mostraArte para exibir os detalhes da hora que abre o painel.
-      */
+    /**
+     * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no
+     * PainelDePesquisa. Abre e ler a lista e salva na variavel cad. Pega o
+     * metodo de mostraArte para exibir os detalhes da hora que abre o painel.
+     */
     public PainelDeAmostra(int tombo) {
         p.setupLer();
         if (p.getContinua() == true) {
@@ -36,25 +35,32 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         initComponents();
         MostraArte(tombo);
     }
-    
-      /** Método que Fecha a Janela Aberta
-      *    Descrição:
-      *      O método simplesmente fecha por completo a janela aberta no momento
-      *      em que ele é chamado.
-      */
+
+    /**
+     * Método que Fecha a Janela Aberta Descrição: O método simplesmente fecha
+     * por completo a janela aberta no momento em que ele é chamado.
+     */
     private void fecha_Janela() {
         this.dispose();
     }
-    
-    /** Metodo que pega os dados de uma obra registrada
-     *      Descrição:
-     *      Pega como parametro o Tombo que foi recebido na abertura da classe,
-     *      comparada com o tombo de cada objeto Arte na lista,
-     *      e quando acha um igual mostra os detalhes dele.  
+
+    /**
+     * Método que Centraliza a Janela Descrição: O método pega o tamanho da tela
+     * principal e e cria a jenla no meio dela.
      */
-    private void MostraArte(int tombo){
-        for (Arte a : cad) 
-            
+    public void setPosicao() {
+        Dimension d = jTelaPrincipal.getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    /**
+     * Metodo que pega os dados de uma obra registrada Descrição: Pega como
+     * parametro o Tombo que foi recebido na abertura da classe, comparada com o
+     * tombo de cada objeto Arte na lista, e quando acha um igual mostra os
+     * detalhes dele.
+     */
+    private void MostraArte(int tombo) {
+        for (Arte a : cad) {
             if (a.getTombo() == tombo) {
                 lblMostraTitulo.setText(a.getTitulo());
                 lblMostraAno.setText(String.valueOf(a.getAno()));
@@ -67,16 +73,16 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 lblMostraTombo.setText(String.valueOf(a.getTombo()));
                 ManipularImagem.exibiImagemLabel(a.getImagem(), labelImagem);
             }
-            
-            
         }
 
-    /** Metodo que verifica se o número de tombo já foi cadastrado
-     *      Descrição:
-     *      Essse método vai nos auxiliar no momemento em que formos pesquisar
-     *      uma obra pelo número de tombo para edita-la. Ele vai desempenhar o
-     *      papel de verificar se o número de tombo desejado já foi atribuito 
-     *      para algum objeto
+    }
+
+    /**
+     * Metodo que verifica se o número de tombo já foi cadastrado Descrição:
+     * Essse método vai nos auxiliar no momemento em que formos pesquisar uma
+     * obra pelo número de tombo para edita-la. Ele vai desempenhar o papel de
+     * verificar se o número de tombo desejado já foi atribuito para algum
+     * objeto
      */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
@@ -86,8 +92,6 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         }
         return false;
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -282,18 +286,18 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         fecha_Janela();        // TODO add your handling code here:
     }//GEN-LAST:event_botaoFecharActionPerformed
-    
-    /** Metodo se o número de tombo já foi cadastrado
-     *      Descrição: Se o botão for pressionado, fazemos uma varredura em 
-     *      todos os registros feitos em busca de um número de tombo condizente
-     *      com o mostrado na tela de amostra atual. Quando o encontrarmos 
-     *      abrimos um painel de registro com os dados salvos daquela obra.
-     *      
+
+    /**
+     * Metodo se o número de tombo já foi cadastrado Descrição: Se o botão for
+     * pressionado, fazemos uma varredura em todos os registros feitos em busca
+     * de um número de tombo condizente com o mostrado na tela de amostra atual.
+     * Quando o encontrarmos abrimos um painel de registro com os dados salvos
+     * daquela obra.
+     *
      */
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         boolean errado = true;
@@ -303,10 +307,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                     int tomboEdit;
                     tomboEdit = tombo;
                     if (existeNaLista(tomboEdit)) {
-                        PainelDeRegistro PainelE = new PainelDeRegistro(tomboEdit);
-                        PainelE.setTitle("Editar Obra de Arte");
-                        jTelaPrincipal.add(PainelE);
-                        PainelE.setVisible(true);
+                        PainelDeRegistro painelE = new PainelDeRegistro(tomboEdit);
+                        painelE.setTitle("Editar Obra de Arte");
+                        jTelaPrincipal.add(painelE);
+                        painelE.setPosicao();
+                        painelE.setVisible(true);
                         break;
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
@@ -318,6 +323,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 errado = false;
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
 
@@ -346,7 +352,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblMostraTombo;
     // End of variables declaration//GEN-END:variables
 
-private static Persistencia p = new Persistencia();
-private int tombo;
-private LinkedList<Arte> cad = new LinkedList<Arte>();
+    private static Persistencia p = new Persistencia();
+    private int tombo;
+    private LinkedList<Arte> cad = new LinkedList<Arte>();
 }
