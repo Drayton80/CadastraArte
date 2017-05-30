@@ -101,9 +101,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(261, 261, 261)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
