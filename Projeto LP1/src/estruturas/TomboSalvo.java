@@ -7,7 +7,7 @@ public class TomboSalvo {
     private static Persistencia p = new Persistencia();
     private LinkedList<Arte> cad = new LinkedList<>();
     private int tombo;
-    private static int tomboAux = 1;
+    private static int tomboAux = 0;
     
     /** Método pega o atual número de tombo adquirido
      *    Descrição:

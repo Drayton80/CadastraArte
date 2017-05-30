@@ -45,9 +45,11 @@ public class Arte extends Artista implements Serializable {
         if(tomboSalvo.getTomboSalvo() > AUX){
             AUX = 1 + tomboSalvo.getTomboSalvo();
         }
+        if(tomboSalvo.getTomboSalvo() == 1){
+            AUX++;
+        }
         this.tombo = AUX;  
         AUX+=1;
-        System.out.println("VamosVer");
     }
     
    //Métodos:

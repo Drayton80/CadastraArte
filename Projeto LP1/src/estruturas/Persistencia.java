@@ -86,7 +86,6 @@ public class Persistencia implements Serializable{
        try{
            cad = (LinkedList<Arte>) input.readObject();
         } catch(NullPointerException a){
-           System.out.println("Resolveu");
         }catch (IOException e) {
             System.err.println("Erro durante leitura do arquivo\n" + e.toString());
             System.exit(1);
@@ -106,7 +105,6 @@ public class Persistencia implements Serializable{
         try {
             input.close();
         }catch(NullPointerException a){
-           System.out.println("Resolveu");
         }catch (IOException e) {
             System.err.println("Falha no Fechamento do Arquivo durante Leitura\n" + e.toString());
             System.exit(1);
