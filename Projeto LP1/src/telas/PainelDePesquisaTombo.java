@@ -7,21 +7,24 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-/**
- * Painel de Pesquisar Tombo Descrição: Esse pequeno painel serve para pesquisar
- * o tombo de uma Obra de Arte do acervo para que possa ser editado.
- *
- * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
- * Santos
+/** Painel de Pesquisar Tombo
+ *    Descrição:
+ *      Esse pequeno painel serve para pesquisar o tombo de uma Obra de Arte
+ *      do acervo para que possa ser editado.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
  */
 public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
 
     //Construtores:
-    /**
-     * Construtor do Painel Principal: Descrição: Painel padrão da interface em
-     * conjunto com os métodos da persistência que copiam todos os objetos do
-     * arquivo Arte.ser para a coleção cad no aplicativo.
-     */
+     /** Construtor do Painel Principal:
+      *    Descrição:
+      *      Painel padrão da interface em conjunto com os métodos da
+      *      persistência que copiam todos os objetos do arquivo Arte.ser
+      *      para a coleção cad no aplicativo.
+      */
     public PainelDePesquisaTombo() {
         p.setupLer();
         if (p.getContinua() == true) {
@@ -34,10 +37,11 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
     }
 
     //Métodos:
-    /**
-     * Método de Testar se Existe na Lista Descrição: O método percorre a
-     * coleção e checa se existe o tombo enviado no parâmetro. *
-     */
+     /** Método de Testar se Existe na Lista
+      *    Descrição:
+      *      O método percorre a coleção e checa se existe o tombo enviado
+      *      no parâmetro.     * 
+      */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
@@ -47,9 +51,10 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
         return false;
     }
 
-    /**
-     * Método que Centraliza a Janela Descrição: O método pega o tamanho da tela
-     * principal e e cria a jenla no meio dela.
+    /** Método que Centraliza a Janela 
+     *    Descrição: 
+     *      O método pega o tamanho da tela principal e e cria a jenla no meio
+     *      dela.
      */
     public void setPosicao() {
         Dimension d = jTelaPrincipal.getSize();
@@ -145,13 +150,14 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Botões:
-    /**
-     * Botão de Continuar Descrição: Ao ser apertado, checa se o tombo digitado
-     * no campo de texto existe na coleção e, caso exista, abre um painel de
-     * edição. Caso o tombo não esteja registrado na coleção, ele informa isso
-     * ao usuário assim como se houver algo incorreto naquilo que foi digitado
-     * no campo.
-     */
+     /** Botão de Continuar
+      *    Descrição:
+      *      Ao ser apertado, checa se o tombo digitado no campo de texto
+      *      existe na coleção e, caso exista, abre um painel de edição.
+      *      Caso o tombo não esteja registrado na coleção, ele informa
+      *      isso ao usuário assim como se houver algo incorreto naquilo
+      *      que foi digitado no campo. 
+      */
     private void BotaoContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoContinuarActionPerformed
         boolean errado = true;
 

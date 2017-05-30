@@ -8,21 +8,23 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-/**
- * Painel de Pesquisa de Obras de Artes descrição: Esse painel possuí tudo
- * acerca da pesquisa de uma obra de arte no acervo cadastrado.
- *
- * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
- * Santos
+/** Painel de Pesquisa de Obras de Artes
+ *    descrição:
+ *      Esse painel possuí tudo acerca da pesquisa de uma obra de arte
+ *      no acervo cadastrado.
+ * 
+ *    @author Grupo 06
+ *      alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
  */
 public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
     //Metodos Estaticos.
-    /**
-     * Método que Atualiza a Lista de Obras de Arte Descrição: Percorre toda a
-     * coleção e exibe todos os itens formatados de acordo com o modelo do
-     * metodo obj.
-     */
+    /** Método que Atualiza a Lista de Obras de Arte  
+      *    Descrição:
+      *      Percorre toda a coleção e exibe todos os itens formatados de
+      *      acordo com o modelo do metodo obj.
+      */ 
     protected static void atualiza_Arte() {
         p.setupLer();
 
@@ -39,18 +41,19 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }
 
-    /**
-     * Método que atualiza a tabela de pesquisa assim que qualquer alteração, é
-     * feita em uma Arte.
+    /** Metodo de Atualizar a Tabela Instantaneamente
+     *    Descrição:
+     *      Método que atualiza a tabela de pesquisa assim que qualquer alteração, é
+     *      feita em uma Arte.
      */
     static void atualizacao_Instantanea() {
         atualiza_Arte();
     }
 
-    /**
-     * Método do Modelo de Exibição Descrição: O método cria o modelo que será
-     * exibido na tabela de pesquisa.
-     */
+    /** Método do Modelo de Exibição
+      *    Descrição:
+      *      O método cria o modelo que será exibido na tabela de pesquisa.
+      */
     protected static Object[] obj(Arte a) {
         try {
             Object[] arte = {a.getTitulo(), a.getAno(), a.getNome(), a.getCategoria(), a.getTombo()};
@@ -61,33 +64,32 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     }
 
     //Contrutores:
-    /**
-     * Construtor Padrão: Descrição: ELe executa o método atualiza_Arte que
-     * abre, lê o arquivo e atualiza a lista.
-     */
+     /** Construtor Padrão:
+      *    Descrição:
+      *      ELe executa o método atualiza_Arte que abre, lê o arquivo e atualiza
+      *      a lista.
+      */ 
     public PainelDePesquisa() {
         initComponents();
         atualiza_Arte();
         getRootPane().setDefaultButton(jBPesquisaRes);
     }
+    
 
     //Métodos:
-    /**
-     * Método que Fecha a Janela Aberta: Descrição: O método simplesmente fecha
-     * por completo a janela aberta no momento em que ele é chamado.
-     */
+     /** Método que Fecha a Janela Aberta:
+      *    Descrição:
+      *      O método simplesmente fecha por completo a janela aberta no momento
+      *      em que ele é chamado.
+      */
     private void fecha_Janela() {
         this.dispose();
     }
 
-    /**
-     * Método que Atualiza a Lista de Obras de Arte Descrição: Percorre toda a
-     * coleção e exibe todos os itens formatados de acordo com o modelo do
-     * metodo obj.
-     */
-    /**
-     * Método que Centraliza a Janela Descrição: O método pega o tamanho da tela
-     * principal e e cria a jenla no meio dela.
+    /** Método que Centraliza a Janela 
+     *    Descrição: 
+     *      O método pega o tamanho da tela principal e e cria a jenla no meio
+     *      dela.
      */
     public void setPosicao() {
         Dimension d = jTelaPrincipal.getSize();
@@ -310,10 +312,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Eventos de Botões e Clicks:
-    /**
-     * Botão de Cadastrar Descrição: Abre uma nova janela de cadastro e fecha a
-     * de pesquisa.
-     */
+     /** Botão de Cadastrar
+      *    Descrição:
+      *      Abre uma nova janela de cadastro e fecha a de pesquisa.
+      */
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PainelDeRegistro painelC = new PainelDeRegistro();
         jTelaPrincipal.add(painelC);
@@ -323,11 +325,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
 
-    /**
-     * Botão de Pesquisar Descrição: Ao ser apertado, ele captura o botão de
-     * rádio que foi selecionado e o campo preenchido para que, com esses dados,
-     * percorra a coleção em busca de todos os objetos que possuam os mesmos
-     * dados.
+    /** Botão de Pesquisar
+     *    Descrição:
+     *      Ao ser apertado, ele captura o botão de rádio que foi selecionado
+     *      e o campo preenchido para que, com esses dados, percorra a coleção
+     *      em busca de todos os objetos que possuam os mesmos dados. 
      */
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
 
@@ -363,10 +365,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBPesquisaResActionPerformed
 
-    /**
-     * Evento do Clique do Mouse na Linha de Tabela Descrição: Após um clique em
-     * uma das linhas da tabela, é aberto em uma janela todas as informações
-     * sobre a obra de arte.
+    /** Evento do Clique do Mouse na Linha de Tabela
+     *    Descrição:
+     *      Após um clique em uma das linhas da tabela, é aberto em uma janela
+     *      todas as informações sobre a obra de arte.
      */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         PainelDeAmostra painelA = new PainelDeAmostra(p.getArte(jTable1.rowAtPoint(evt.getPoint())).getTombo());
@@ -376,21 +378,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         painelA.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
-    /**
-     * Botão de Restaurar Descrição: Ele retorna a lista para seu estado
-     * primordial aonde é exibido todas as Obras de Arte do acervo ao em vez de
-     * apenas o que está sendo pesquisado.
+    /** Botão de Restaurar
+     *    Descrição: 
+     *      Ele retorna a lista para seu estado primordial aonde é exibido
+     *      todas as Obras de Arte do acervo ao em vez de apenas o que está
+     *      sendo pesquisado.
      */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         atualiza_Arte();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     //Botões de Rádio:
-    /**
-     * Botão de Rádio de Título da Obra Desrição: Quando ele é pressionado, gera
-     * um evento que habilita a escrita no campo de pesquisa de título e
-     * desabilita nos outros dois.
-     */
+     /** Botão de Rádio de Título da Obra
+      *    Desrição:
+      *      Quando ele é pressionado, gera um evento que habilita a escrita
+      *      no campo de pesquisa de título e desabilita nos outros dois.
+      */
     private void botaoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTituloActionPerformed
         if (botaoTitulo.isSelected()) {
             txtPesquisaNome.setEnabled(true);
@@ -403,11 +406,12 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_botaoTituloActionPerformed
 
-    /**
-     * Botão de Rádio de Nome do Artista Desrição: Quando ele é pressionado,
-     * gera um evento que habilita a escrita no campo de pesquisa do nome do
-     * artista e desabilita nos outros dois.
-     */
+    /** Botão de Rádio de Nome do Artista
+      *    Desrição:
+      *      Quando ele é pressionado, gera um evento que habilita a escrita
+      *      no campo de pesquisa do nome do artista e desabilita nos outros 
+      *      dois.
+      */
     private void botaoNomeArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNomeArtistaActionPerformed
         if (botaoNomeArtista.isSelected()) {
             txtPesquisaArtista.setEnabled(true);
@@ -420,10 +424,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_botaoNomeArtistaActionPerformed
 
-    /**
-     * Botão de Rádio de Nome da Categoria Desrição: Quando ele é pressionado,
-     * gera um evento que habilita a seleção na caixa de combinação da categoria
-     * e desabilita os campos de texto.
+   /** Botão de Rádio de Nome da Categoria
+     *    Desrição:
+     *      Quando ele é pressionado, gera um evento que habilita a seleção
+     *      na caixa de combinação da categoria e desabilita os campos de
+     *      texto.
      */
     private void botaoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCategoriaActionPerformed
         if (botaoCategoria.isSelected()) {
