@@ -355,6 +355,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         labelImagem1 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -457,6 +458,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Atribuir Imagem*");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel3.setText("* * O tombo da sua Arte será gerado automaticamente no momento de salvar.");
+
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
         jPanelCadastroLayout.setHorizontalGroup(
@@ -497,33 +501,38 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                         .addGap(184, 184, 184)))
                 .addGap(52, 52, 52))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(lblTituloPainel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(lblTituloPainel2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(lblTituloPainel3))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(213, 213, 213)
                         .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBCancelarCadastro))
-                    .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                            .addGap(242, 242, 242)
-                            .addComponent(jLabel2))
-                        .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1))
-                        .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                            .addGap(207, 207, 207)
-                            .addComponent(lblTituloPainel2))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jBSelectImagem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -569,11 +578,13 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     .addComponent(cbProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBCancelarCadastro))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -598,7 +609,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       */
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
-            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 149);
+            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
             imagemAUX = ManipularImagem.getImgBytes(img);
             labelImagem1.setIcon(new ImageIcon(img));
             jBSelectImagem.setEnabled(false);
@@ -623,7 +634,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     p.addRecords(cad);
                     p.cleanupGravar();
 
-                    JOptionPane.showMessageDialog(rootPane, "Arte Cadastrada com Sucesso.");
+                    JOptionPane.showMessageDialog(rootPane, "Arte Cadastrada com Sucesso.\n"
+                                                           +"Tombo gerado:" + a.getTombo());
+                                                             
                     limpa_campos();
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Tombo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
@@ -676,7 +689,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             if (jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File imagem = jBusca.getSelectedFile();
                 try {
-                    img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 149);
+                    img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 160);
                     imagemAUX = ManipularImagem.getImgBytes(img);
                     labelImagem1.setIcon(new ImageIcon(img));
                 } catch (Exception ex) {
@@ -717,6 +730,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanelCadastro;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel labelImagem;
