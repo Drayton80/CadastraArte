@@ -33,11 +33,15 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             p.cleanupLer();
             cad = p.getCad();
         }
-
+        try{
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
         for (Arte a : cad) {
             model.addRow(obj(a));
+        }
+        }catch(NullPointerException e){
+                
+                
         }
     }
 

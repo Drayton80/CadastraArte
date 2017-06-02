@@ -645,9 +645,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     painelPer.setTitle("Cadastrar Obra de Arte");
                     jTelaPrincipal.add(painelPer);
                     painelPer.setPosicao();
+                    fecha_janela();
                     painelPer.setVisible(true);
                     PainelDePesquisa.atualizacao_Instantanea();
-                    fecha_janela();
+                 
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Tombo da Arte já Cadastrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
