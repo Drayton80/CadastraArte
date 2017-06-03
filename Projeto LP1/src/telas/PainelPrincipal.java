@@ -7,6 +7,9 @@ import java.util.*;
 import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /** Painel Principal
  *    Descrição:
@@ -66,7 +69,24 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelPrincipal = new javax.swing.JPanel();
-        jTelaPrincipal = new javax.swing.JDesktopPane();
+        // Intanciação de um objeto do tipo ImageIcon aonde no construtor está
+        // sendo pego como parâmetro o local nos packages onde está a Tela de
+        // Fundo.
+        ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/Tela de Fundo.png"));
+
+        //Objeto do tipo Image que recebe a imagem do icone.
+        Image imagem = icone.getImage();
+        jTelaPrincipal = new javax.swing.JDesktopPane(){
+            /** Método Paint Component
+            *    Descrição:
+            *      Tal método sobreescreve a tela de fundo padrão do Painel da Área
+            *      de Trabalho do NetBeans.
+            */
+            public void paintComponent(Graphics g){
+                g.drawImage(imagem,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
         jLabel1 = new javax.swing.JLabel();
         jMenuBarra = new javax.swing.JMenuBar();
         jMenuOpcoes = new javax.swing.JMenu();
@@ -83,8 +103,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTelaPrincipal.setBackground(new java.awt.Color(51, 204, 255));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bem vindo.png"))); // NOI18N
 
         jTelaPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -93,17 +111,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.setLayout(jTelaPrincipalLayout);
         jTelaPrincipalLayout.setHorizontalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(276, 276, 276)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTelaPrincipalLayout.createSequentialGroup()
+                .addContainerGap(367, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addGap(271, 271, 271))
         );
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(261, 261, 261)
+                .addGap(201, 201, 201)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
@@ -114,7 +132,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTelaPrincipal)
         );
 
         jMenuOpcoes.setMnemonic('c');
@@ -172,7 +190,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
