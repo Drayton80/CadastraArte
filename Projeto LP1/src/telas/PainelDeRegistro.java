@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Locale;
 import static telas.PainelPrincipal.jTelaPrincipal;
-import static telas.PainelDePesquisa.jToggleButton1;
 
 
 /** Painel de Cadastro de Obras de Artes
@@ -44,6 +43,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             p.cleanupLer();
             cad = p.getCad();
         }
+        painelEditor = false;
         initComponents();
         getRootPane().setDefaultButton(jBSalvarCadastro);
     }
@@ -197,6 +197,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 }
                 if (a.getValorIndeterminado()) {
                     txtTempoPeriodoProducao.setText("");
+                    txtTempoPeriodoProducao.setEnabled(false);
                 } else {
                     txtTempoPeriodoProducao.setText(a.getPeriodoProducao());
                 }
@@ -662,7 +663,16 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         }
 
         if (painelEditor == true) {
-            for (Arte e : cad) {
+            try {
+            if (teste_dos_campos()) {
+                throw new CampoVazio();
+            }
+
+            if (registro_repetido(txtResArtista.getText(), txtNomeArtista.getText())) {
+                throw new DadoRepetido();
+            }
+                        
+               for (Arte e : cad) {
                 if (t == e.getTombo()) {
                     String txtPeriodo = txtTempoPeriodoProducao.getText();
                     e.setTitulo(txtTituloObra.getText());
@@ -678,19 +688,39 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     e.setProcedencia(String.valueOf(cbProcedencia.getSelectedItem()));
                     e.setOrigem(txtOrigemProcedencia.getText());
                     e.setImagem(imagemAUX);
+                    e.setIndiceCategoria(cbCategoria.getSelectedIndex());
+                    e.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
+                    e.setValorIndeterminado(checkbIndeterminado.isSelected());
                     p.setupGravar();
                     p.addRecords(cad);
                     p.cleanupGravar();
-
+                    
+                    
                     JOptionPane.showMessageDialog(rootPane, "Produto Editado com Sucesso.");
                     limpa_campos();
                     PainelDePesquisa.atualizacao_Instantanea();
                     fecha_janela();
-                }
+                     }
             }
-            painelEditor = false;
+            } catch (NumberFormatException n) {
+                JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n"
+                    + "valores cadastrados não é válido.                     ",
+                    "Aviso", JOptionPane.ERROR_MESSAGE);
+            
+            } catch (CampoVazio n) {
+                JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois um dos" + "\n"
+                    + "Campos Obrigatórios não foi preenchido ou selecionado.",
+                    "Aviso", JOptionPane.ERROR_MESSAGE);
+            
+            } catch (DadoRepetido n) {
+                JOptionPane.showMessageDialog(rootPane, "Não foi possível registrar a obra de arte, pois o" + "\n"
+                    + "Registro do Artista já foi Cadastrado no nome de " + "\n"
+                    + "de outro artista.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            
+            }
+            
         }
-        
+
     }//GEN-LAST:event_jBSalvarCadastroActionPerformed
 
     /** Botão de Cancelar o Cadastro/Edição:

@@ -122,7 +122,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         botaoNomeArtista = new javax.swing.JRadioButton();
         botaoTitulo = new javax.swing.JRadioButton();
         botaoCategoria = new javax.swing.JRadioButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -212,12 +212,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             }
         });
 
-        jToggleButton1.setText("Restaurar");
-        jToggleButton1.setToolTipText("Retorna para a realização de uma nova pesquisa.");
-        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Restaurar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -227,21 +225,22 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
             jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSMostraPesquisa, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(botaoTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoNomeArtista)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jToggleButton1)))
+                        .addGap(23, 23, 23)
+                        .addComponent(botaoTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(botaoNomeArtista))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSePesquisaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSePesquisaLayout.createSequentialGroup()
                         .addComponent(txtPesquisaArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(botaoCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbCategoriaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +274,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
                         .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jBPesquisaRes)
                             .addComponent(jBFecharPesquisa)
-                            .addComponent(jToggleButton1)))
+                            .addComponent(jButton1)))
                     .addGroup(jPanelSePesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(botaoTitulo)
                         .addComponent(txtPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -382,16 +381,6 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         painelA.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
-    /** Botão de Restaurar
-     *    Descrição: 
-     *      Ele retorna a lista para seu estado primordial aonde é exibido
-     *      todas as Obras de Arte do acervo ao em vez de apenas o que está
-     *      sendo pesquisado.
-     */
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        atualiza_Arte();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     //Botões de Rádio:
      /** Botão de Rádio de Título da Obra
       *    Desrição:
@@ -446,6 +435,10 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_botaoCategoriaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        atualiza_Arte();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton botaoCategoria;
@@ -455,11 +448,11 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbCategoriaPesquisa;
     private javax.swing.JButton jBFecharPesquisa;
     private javax.swing.JButton jBPesquisaRes;
+    protected static javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelSePesquisa;
     private javax.swing.JScrollPane jSMostraPesquisa;
     protected static javax.swing.JTable jTable1;
-    protected static javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblTituloPainel;
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
