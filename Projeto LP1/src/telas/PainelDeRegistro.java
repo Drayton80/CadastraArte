@@ -407,12 +407,15 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Álbum", "Aquarela", "Colagem", "Desenho", "Escultura", "Foto", "Gravura", "Impressão", "Instalação", "Livro", "Múltiplo", "Objeto", "ObraDesinc", "Perform", "Pintura", "Relevo", "Tapeçaria", "Vídeo" }));
         cbCategoria.setToolTipText("Selecione a Categoria em que a Obra se encaixa.");
+        cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         cbProcedencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Aquisição", "Comodato", "Doação", "Espólio", "Legado", "Prêmio" }));
         cbProcedencia.setToolTipText("Selecione a forma como essa Obra de Arte foi adquirida.");
+        cbProcedencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         checkbIndeterminado.setText("Indeterminado");
         checkbIndeterminado.setToolTipText("Selecione está caixa caso não possua dados do tempo necessário para a produção da Obra.");
+        checkbIndeterminado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         checkbIndeterminado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkbIndeterminadoActionPerformed(evt);
@@ -421,6 +424,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         jBSelectImagem.setText("Selecionar Imagem");
         jBSelectImagem.setToolTipText("Importar imagem da Obra.");
+        jBSelectImagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBSelectImagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSelectImagemActionPerformed(evt);
@@ -454,6 +458,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         labelImagem1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jCheckBox1.setText("N/A imagem dispovivel");
+        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);

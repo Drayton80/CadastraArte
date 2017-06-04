@@ -335,6 +335,9 @@
               </StringArray>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Selecione a Categoria em que a Obra se encaixa."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -354,6 +357,9 @@
               </StringArray>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Selecione a forma como essa Obra de Arte foi adquirida."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -363,6 +369,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Indeterminado"/>
             <Property name="toolTipText" type="java.lang.String" value="Selecione est&#xe1; caixa caso n&#xe3;o possua dados do tempo necess&#xe1;rio para a produ&#xe7;&#xe3;o da Obra."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbIndeterminadoActionPerformed"/>
@@ -372,6 +381,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Selecionar Imagem"/>
             <Property name="toolTipText" type="java.lang.String" value="Importar imagem da Obra."/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSelectImagemActionPerformed"/>
@@ -429,6 +441,9 @@
         <Component class="javax.swing.JCheckBox" name="jCheckBox1">
           <Properties>
             <Property name="text" type="java.lang.String" value="N/A imagem dispovivel"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>

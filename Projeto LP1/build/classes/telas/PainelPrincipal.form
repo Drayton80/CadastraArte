@@ -21,6 +21,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Novas Obras"/>
                 <Property name="toolTipText" type="java.lang.String" value="Lan&#xe7;ar o Obra de Arte no sistema"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Padr&#xe3;o"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCadastrarActionPerformed"/>
@@ -75,7 +78,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Museu de Arte Moderna"/>
+    <Property name="title" type="java.lang.String" value="Museu de Arte Moderna de S&#xe3;o Paulo"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -151,12 +154,10 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton3" min="-2" pref="235" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" alignment="1" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="235" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButton3" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="1" min="-2" pref="226" max="-2" attributes="0"/>
+                          <Component id="jButton2" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -170,9 +171,9 @@
                       <EmptySpace pref="187" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="62" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" pref="62" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -192,6 +193,9 @@
                   <Image iconType="3" name="/imagens/menu_hexagonal_editar.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Padr&#xe3;o"/>
+                </Property>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/menu_hexagonal_editar_afundado.png"/>
                 </Property>
@@ -220,6 +224,9 @@
                   <Image iconType="3" name="/imagens/menu_hexagonal_cadastrar.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Padr&#xe3;o"/>
+                </Property>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/menu_hexagonal_cadastrar_afundado.png"/>
                 </Property>

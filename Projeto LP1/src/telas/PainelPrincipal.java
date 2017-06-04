@@ -2,14 +2,12 @@ package telas;
 
 import estruturas.Persistencia;
 import estruturas.Arte;
-import java.awt.Dimension;
 import java.util.*;
 import java.io.*;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import java.awt.Image;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+
 
 /** Painel Principal
  *    Descrição:
@@ -36,7 +34,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             cad = p.getCad();
         }
         initComponents();
-        this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());
+        this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());//Coloca o icone no painel principal
         this.setLocationRelativeTo(null);//Faz o programa iniciar no centro da tela
     }
 
@@ -99,7 +97,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Museu de Arte Moderna");
+        setTitle("Museu de Arte Moderna de São Paulo");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -113,6 +111,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/menu_hexagonal_editar.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/menu_hexagonal_editar_afundado.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +130,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/menu_hexagonal_cadastrar.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/menu_hexagonal_cadastrar_afundado.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,11 +153,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addContainerGap(343, Short.MAX_VALUE))
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jTelaPrincipalLayout.setVerticalGroup(
@@ -168,9 +167,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -193,6 +192,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jMenuItemCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/application_form_add.png"))); // NOI18N
         jMenuItemCadastrar.setText("Cadastrar Novas Obras");
         jMenuItemCadastrar.setToolTipText("Lançar o Obra de Arte no sistema");
+        jMenuItemCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuItemCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCadastrarActionPerformed(evt);
