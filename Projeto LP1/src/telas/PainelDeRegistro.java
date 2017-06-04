@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.image.BufferedImage;
 import estruturas.Arte;
-import estruturas.ManipularImagem;
+import estruturas.ManipulaçãoDeImagem;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -189,7 +189,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                 checkbIndeterminado.setSelected(a.getValorIndeterminado());
                 cbCategoria.setSelectedIndex(a.getIndiceCategoria());
                 cbProcedencia.setSelectedIndex(a.getIndiceProcedencia());
-                ManipularImagem.exibiImagemLabel(a.getImagem(), labelImagem1);
+                ManipulaçãoDeImagem.exibiImagemLabel(a.getImagem(), labelImagem1);
                 imagemAUX = a.getImagem();
                 if (Arrays.equals(imagemAUX, vazioAUX)) {
                     jCheckBox1.setSelected(true);
@@ -275,7 +275,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                     txtResArtista.getText(), Integer.parseInt(formatTxtAno.getText()),
                     String.valueOf(cbCategoria.getSelectedItem()), txtPeriodo,
                     String.valueOf(cbProcedencia.getSelectedItem()),
-                    txtOrigemProcedencia.getText(), ManipularImagem.getImgBytes(img));
+                    txtOrigemProcedencia.getText(), ManipulaçãoDeImagem.getImgBytes(img));
 
             obra.setIndiceCategoria(cbCategoria.getSelectedIndex());
             obra.setIndiceProcedencia(cbProcedencia.getSelectedIndex());
@@ -618,8 +618,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       */
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
-            img = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
-            imagemAUX = ManipularImagem.getImgBytes(img);
+            img = ManipulaçãoDeImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+            imagemAUX = ManipulaçãoDeImagem.getImgBytes(img);
             labelImagem1.setIcon(new ImageIcon(img));
             jBSelectImagem.setEnabled(false);
         } else {
@@ -743,8 +743,8 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             if (jBusca.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File imagem = jBusca.getSelectedFile();
                 try {
-                    img = ManipularImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 160);
-                    imagemAUX = ManipularImagem.getImgBytes(img);
+                    img = ManipulaçãoDeImagem.setImagemDimensao(imagem.getAbsolutePath(), 160, 160);
+                    imagemAUX = ManipulaçãoDeImagem.getImgBytes(img);
                     labelImagem1.setIcon(new ImageIcon(img));
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(rootPane, "Arquivo Inválido", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -813,7 +813,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
     private static int t = 0;
     JFileChooser jBusca = new JFileChooser();
     private BufferedImage img;
-    private BufferedImage imagemVazia = ManipularImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
-    private byte[] imagemAUX, vazioAUX = ManipularImagem.getImgBytes(imagemVazia);
+    private BufferedImage imagemVazia = ManipulaçãoDeImagem.setImagemDimensao("src\\imagens\\Not_available.jpg", 160, 160);
+    private byte[] imagemAUX, vazioAUX = ManipulaçãoDeImagem.getImgBytes(imagemVazia);
     //Fim dos Atribudos;
 }

@@ -2,7 +2,7 @@ package telas;
 
 import estruturas.Persistencia;
 import estruturas.Arte;
-import estruturas.ManipularImagem;
+import estruturas.ManipulaçãoDeImagem;
 import java.awt.Dimension;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
@@ -76,7 +76,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 lblMostraTipoProce.setText(a.getProcedencia());
                 lblMostraOrigemProce.setText(a.getOrigem());
                 lblMostraTombo.setText(String.valueOf(a.getTombo()));
-                ManipularImagem.exibiImagemLabel(a.getImagem(), labelImagem);
+                ManipulaçãoDeImagem.exibiImagemLabel(a.getImagem(), labelImagem);
             }
         }
 
