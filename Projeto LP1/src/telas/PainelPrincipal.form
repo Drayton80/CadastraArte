@@ -140,7 +140,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    /** M&#xe9;todo Paint Component&#xa;    *    Descri&#xe7;&#xe3;o:&#xa;    *      Tal m&#xe9;todo sobreescreve a tela de fundo padr&#xe3;o do Painel da &#xc1;rea&#xa;    *      de Trabalho do NetBeans.&#xa;    */&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(imagem,0,0,getWidth(),getHeight(),this);&#xa;    }&#xa;&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="// Intancia&#xe7;&#xe3;o de um objeto do tipo ImageIcon aonde no construtor est&#xe1;&#xa;// sendo pego como par&#xe2;metro o local nos packages onde est&#xe1; a Tela de&#xa;// Fundo.&#xa;ImageIcon icone = new ImageIcon(getClass().getResource(&quot;/imagens/tela_de_fundo.png&quot;));&#xa;&#xa;//Objeto do tipo Image que recebe a imagem do icone.&#xa;Image imagem = icone.getImage();"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="// Instancia&#xe7;&#xe3;o de um objeto do tipo ImageIcon aonde no construtor est&#xe1;&#xa;// sendo pego como par&#xe2;metro o local nos packages onde est&#xe1; a Tela de&#xa;// Fundo.&#xa;ImageIcon icone = new ImageIcon(getClass().getResource(&quot;/imagens/tela_de_fundo.png&quot;));&#xa;&#xa;//Objeto do tipo Image que recebe a imagem do icone.&#xa;Image imagem = icone.getImage();"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="12"/>
           </AuxValues>
 
@@ -183,7 +183,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Bem vindo.png"/>
+                  <Image iconType="3" name="/imagens/bem_vindo.png"/>
                 </Property>
               </Properties>
             </Component>

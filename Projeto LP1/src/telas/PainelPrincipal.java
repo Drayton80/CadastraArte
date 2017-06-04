@@ -48,7 +48,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
       *              ou
       *          - False: quando não há um tombo igual na coleção.
       */
-    private boolean existeNaLista(int tomb) {
+    private boolean existe_na_lista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
                 return true;
@@ -56,6 +56,25 @@ public class PainelPrincipal extends javax.swing.JFrame {
         }
         return false;
     }
+    
+    /** Método que Muda a Imagem do Bem Vindo
+     *    Descrição:
+     *      Ao ser chamado, ele troca a imagem do texto de bem vindo para
+     *      uma vazia com objetivo de, assim, tirar da tela algo que não
+     *      é mais obrigatoriamente necessário.
+     * 
+     */
+    private void bem_vindo_vazio(){
+         // Criando um objeto do tipo ImageIcon e pegando o caminho no projeto
+         // aonde está a imagem que será mudada.
+        ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/imagem_vazia.png"));
+         // Criando um objeto do tipo Image que recebe a imagem do icone com a largura e altura do Label do Bem Vindo
+         // com o objetivo de dimensioná-la e deixar preparada para ser jogada no Label.
+        Image imagem = icone.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT);
+         // Mudando o icone do Label do Bem Vindo para a imagem recém dimensionada.
+        jLabel1.setIcon(new ImageIcon(imagem));
+    }
+    
                  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,7 +86,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelPrincipal = new javax.swing.JPanel();
-        // Intanciação de um objeto do tipo ImageIcon aonde no construtor está
+        // Instanciação de um objeto do tipo ImageIcon aonde no construtor está
         // sendo pego como parâmetro o local nos packages onde está a Tela de
         // Fundo.
         ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/tela_de_fundo.png"));
@@ -107,7 +126,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         jTelaPrincipal.setPreferredSize(new java.awt.Dimension(1320, 750));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bem vindo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bem_vindo.png"))); // NOI18N
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/menu_hexagonal_editar.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
@@ -264,6 +283,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelC);
         painelC.setPosicao();
         painelC.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jMenuItemCadastrarActionPerformed
 
     /** Item de Menu Pesquisar Registros 
@@ -276,6 +297,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelP);
         painelP.setPosicao();
         painelP.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jMenuItemPesquisarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -302,9 +325,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelT);
         painelT.setPosicao();
         painelT.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
-    //Botões Tela Principal
+    //Botões do Menu da Tela Principal
     /** Botão Editar
       *    Descrição:
       *      Abre um painel (PainelDePesquisaTombo) que pede o número de tombo e,
@@ -317,6 +342,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelT);
         painelT.setPosicao();
         painelT.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /** Botão Pesquisar
@@ -329,6 +356,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelP);
         painelP.setPosicao();
         painelP.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /** Botão Cadastrar
@@ -342,6 +371,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.add(painelC);
         painelC.setPosicao();
         painelC.setVisible(true);
+        
+        bem_vindo_vazio();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
