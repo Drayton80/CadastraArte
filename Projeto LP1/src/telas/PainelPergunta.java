@@ -1,44 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
 import java.awt.Dimension;
 import static telas.PainelPrincipal.jTelaPrincipal;
 
-/**
- * Painel de Pergunta descrição: Esse painel pergunta ao usuario se ele dejesa
- * cadastrar outra obra, se ele responder sim, abre a janela de cadastro, se
- * responder não, fecha o Painel de Pergunta
+/** Painel de Pergunta
+ *    Descrição:
+ *      Esse painel pergunta ao usuário se ele dejesa cadastrar outra obra,
+ *      se ele apertar:
+ *          - sim: abre a janela de cadastro;
+ *          - não: fecha o Painel de Pergunta
  *
- * @author Grupo 06 alunos: Armando Neto, Douglas Lima Drayton Corrêa, Ewerton
- * Santos
+ *    @author Grupo 06
+ *      Alunos: Armando Neto, Douglas Lima 
+ *      Drayton Corrêa, Ewerton Santos
  */
 public class PainelPergunta extends javax.swing.JInternalFrame {
-    //Contrutores:
-    /** Construtor Padrão:
-     *    Descrição:
-     *      Construtor padrão do painel.
-     */
+     /** Construtor:
+      *    Descrição:
+      *      Construtor padrão do painel.
+      */
     public PainelPergunta() {
         initComponents();
         getRootPane().setDefaultButton(jButton1);
     }
 
     
-    //Métodos:
-    /** Método que Centraliza a Janela 
-     *    Descrição: 
-     *      O método pega o tamanho da tela principal e e cria a jenla no meio
-     *      dela.
-     */
+   //MÉTODOS:
+     /** Método que Centraliza a Janela 
+      *    Descrição: 
+      *      O método captura o tamanho do painel e, através desse valor,
+      *      faz com que as janelas sejam abertas no centro desse painel.
+      */
     public void setPosicao() {
         Dimension d = jTelaPrincipal.getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,8 +105,9 @@ public class PainelPergunta extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   
     
-    //Botões:
+   //BOTÕES:
     /** Botão do Sim
      *    Descrição:
      *      Abre um novo painel de cadastro.

@@ -15,17 +15,17 @@ import static telas.PainelPrincipal.jTelaPrincipal;
  *      visualização, mas não para serem editados.
  * 
  *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
+ *      Alunos: Armando Neto, Douglas Lima
  *              Drayton Corrêa, Ewerton Santos
  */
 
 public class PainelDeAmostra extends javax.swing.JInternalFrame {
-
-    //Construtores:
-     /**
-      * Recebe como parametro um int que é o Tombo da Arte que foi selecionada no PainelDePesquisa.
-      * Abre e ler a lista e salva na variavel cad.
-      * Pega o metodo de mostraArte para exibir os detalhes da hora que abre o painel.
+     /** Construtor:
+      *    Descrição:
+      *      Recebe como parametro um inteiro que é o Tombo da Arte o qual foi
+      *      selecionada no PainelDePesquisa. Após isso, abre e lê a lista, 
+      *      salva na variavel cad e pega o metodo de mostraArte para exibir 
+      *      os detalhes no momento em que abrir o painel.
       */
     public PainelDeAmostra(int tombo) {
         p.setupLer();
@@ -38,32 +38,32 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         initComponents();
         MostraArte(tombo);
     }
-
-    /** Método que Fecha a Janela Aberta
-      *    Descrição:
-      *      O método simplesmente fecha por completo a janela aberta no momento
-      *      em que ele é chamado.
-      */
+    
+   //MÉTODOS:
+     /** Método que Fecha a Janela Aberta
+       *    Descrição:
+       *      O método simplesmente fecha por completo a janela aberta no momento
+       *      em que ele é chamado.
+       */
     private void fecha_Janela() {
         this.dispose();
     }
 
-    /** Método que Centraliza a Janela 
-     *    Descrição: 
-     *      O método pega o tamanho da tela principal e e cria a jenla no meio
-     *      dela.
-     */
+     /** Método que Centraliza a Janela 
+      *    Descrição: 
+      *      O método faz com que as janelas sejam abertas no centro da tela.
+      */
     public void setPosicao() {
         Dimension d = jTelaPrincipal.getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
 
-   /** Metodo que pega os dados de uma obra registrada
-     *      Descrição:
-     *      Pega como parametro o Tombo que foi recebido na abertura da classe,
-     *      comparada com o tombo de cada objeto Arte na lista,
-     *      e quando acha um igual mostra os detalhes dele.  
-     */
+     /** Método que Pega os Dados de uma Obra Registrada
+      *      Descrição:
+      *        Pega como parâmetro o Tombo que foi recebido na abertura da 
+      *        classe, comparada com o tombo de cada objeto Arte na lista
+      *        e quando encontra um igual mostra os detalhes dele.  
+      */
     private void MostraArte(int tombo) {
         for (Arte a : cad) {
             if (a.getTombo() == tombo) {
@@ -82,13 +82,13 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
     }
 
-    /** Metodo que verifica se o número de tombo já foi cadastrado
-     *      Descrição:
-     *      Essse método vai nos auxiliar no momemento em que formos pesquisar
-     *      uma obra pelo número de tombo para edita-la. Ele vai desempenhar o
-     *      papel de verificar se o número de tombo desejado já foi atribuito 
-     *      para algum objeto
-     */
+     /** Método que Verifica se o Tombo já foi Cadastrado
+      *    Descrição:
+      *      Essse método auxilia no momemento em que for pesquisado
+      *      uma obra pelo número de tombo para edita-la. Ele vai 
+      *      desempenhar o papel de verificar se o número de tombo desejado 
+      *      já foi atribuito para algum objeto
+      */
     private boolean existeNaLista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
@@ -290,14 +290,15 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /** Metodo se o número de tombo já foi cadastrado
-     *      Descrição: Se o botão for pressionado, fazemos uma varredura em 
-     *      todos os registros feitos em busca de um número de tombo condizente
-     *      com o mostrado na tela de amostra atual. Quando o encontrarmos 
-     *      abrimos um painel de registro com os dados salvos daquela obra.
-     *      
-     */
+    
+   //BOTÕES:
+     /** Botão de Editar
+      *    Descrição:
+      *      Se o botão for pressionado, é feita uma varredura em todos os
+      *      registros cadastrados em busca de um número de tombo igual
+      *      com o mostrado na tela de amostra atual. Quando ele é encontrado 
+      *      abre-se um painel de registro com os dados salvos daquela obra.
+      */
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         boolean errado = true;
         while (errado) {
@@ -325,11 +326,15 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
+     /** Botão de Fechar
+      *    Descrição:
+      *      Ao ser pressionado, fecha o painel de amostra.
+      */
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
         fecha_Janela();        // TODO add your handling code here:
     }//GEN-LAST:event_botaoFecharActionPerformed
 
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel11;
