@@ -10,7 +10,7 @@ package exceções;
  *      repetidos.      
  * 
  *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
+ *      Alunos: Armando Neto, Douglas Lima
  *              Drayton Corrêa, Ewerton Santos
  */
 
