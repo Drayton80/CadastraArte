@@ -72,7 +72,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         // Intanciação de um objeto do tipo ImageIcon aonde no construtor está
         // sendo pego como parâmetro o local nos packages onde está a Tela de
         // Fundo.
-        ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/Tela de Fundo.png"));
+        ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/tela_de_fundo.png"));
 
         //Objeto do tipo Image que recebe a imagem do icone.
         Image imagem = icone.getImage();
@@ -113,17 +113,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jTelaPrincipal.setLayout(jTelaPrincipalLayout);
         jTelaPrincipalLayout.setHorizontalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTelaPrincipalLayout.createSequentialGroup()
-                .addContainerGap(412, Short.MAX_VALUE)
+            .addGroup(jTelaPrincipalLayout.createSequentialGroup()
+                .addGap(340, 340, 340)
                 .addComponent(jLabel1)
-                .addGap(271, 271, 271))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(201, 201, 201)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
