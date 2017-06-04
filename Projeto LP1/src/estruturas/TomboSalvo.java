@@ -2,6 +2,12 @@ package estruturas;
 
 import java.util.LinkedList;
 
+/** Classe Tombo Salvo
+ *    @author Grupo 06
+ *      Alunos: Armando Neto, Douglas Lima
+ *              Drayton Corrêa, Ewerton Santos
+ */
+
 public class TomboSalvo {
    //Atributos:
     private static Persistencia p = new Persistencia();
