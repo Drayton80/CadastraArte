@@ -8,7 +8,7 @@ import java.io.*;
  *      da classe Arte.
  * 
  *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
+ *      Alunos: Armando Neto, Douglas Lima
  *              Drayton Corrêa, Ewerton Santos
  */
 

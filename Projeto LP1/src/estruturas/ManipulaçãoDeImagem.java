@@ -13,8 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-/**
- ** Classe Manipulação de Imagem
+/** Classe Manipulação de Imagem
  *    Descrição:
  *      Imagem colhida de Marcelo Siedler, com a devida autorizaçao da professora, 
  *      que nos fornece métodos que serão muito úteis na manipulação

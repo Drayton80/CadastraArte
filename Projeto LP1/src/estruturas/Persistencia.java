@@ -14,17 +14,16 @@ import javax.swing.JOptionPane;
 
 /** Classe Persistência
  *    Descrição:
- *      Essa classe vai prover métodos que auxilie a todos os objetos os
- *      quais forem declarados como pertencentes a ela.
+ *      Essa classe vai prover métodos que auxilie a todos os objetos que
+ *      forem declarados como pertencentes a ela.
  * 
  *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
+ *      Alunos: Armando Neto, Douglas Lima
  *              Drayton Corrêa, Ewerton Santos
  */
 
-public class Persistencia implements Serializable{
-    
-    //Atributos:
+public class Persistencia implements Serializable{ 
+  //ATRIBUTOS:
     private ObjectInputStream input;
     private ObjectOutputStream output;
     private boolean continua = true;
@@ -32,34 +31,29 @@ public class Persistencia implements Serializable{
     private LinkedList<Arte> cad = new LinkedList<Arte>();
 
     
-    //MÉTODOS:
-    
-    /** Método que Retorna a Coleção
-     *    Descrição:
-     *     O Metodo retorna aquilo que está salvo na coleção 
-     *     em determinado momento.
-     */
+   //MÉTODOS:
+     /** Método que Retorna a Coleção
+      *    Descrição:
+      *      O Metodo retorna aquilo que está salvo na coleção 
+      *      em determinado momento.
+      */
     public LinkedList<Arte> getCad() {
         return cad;
     }
     
-    /** Método que Retorna o estado do arquivo
-     *    Descrição:
-     *     O Metodo retorna se é possível ou não ler algum arquivo.
-     */
+     /** Método que Retorna o Estado do Arquivo
+      *    Descrição:
+      *     O Metodo retorna se é possível ou não ler algum arquivo.
+      */
     public boolean getContinua() {
         return continua;
-    }
-    
-    public void removeProduto(Arte a) {
-        cad.remove(a);
     }    
     
-    /** Método que Habilita o Modo de Leitura
-     *    Descrição:
-     *     O Metodo abre o arquivo e habilita a stream para que nos retorne os
-     *     dados gravados no arquivo.
-     */
+     /** Método que Habilita o Modo de Leitura
+      *    Descrição:
+      *      O Metodo abre o arquivo e habilita a stream para que nos retorne os
+      *      dados gravados no arquivo.
+      */
     public void setupLer() {
         try {
             FileInputStream leitura = new FileInputStream("Arte.ser");
@@ -79,11 +73,11 @@ public class Persistencia implements Serializable{
 
     }
 
-    /** Método que Salva o Arquivo na Coleção
-     *    Descrição:
-     *     O Metodo pega aquilo que está sendo lido no arquivo e transcreve
-     *     na nossa coleção cad
-     */
+     /** Método que Salva o Arquivo na Coleção
+      *    Descrição:
+      *      O Metodo pega aquilo que está sendo lido no arquivo e transcreve
+      *      na nossa coleção cad.
+      */
     public void readRecords() {
 
 
@@ -98,12 +92,11 @@ public class Persistencia implements Serializable{
         }
     }
 
-    /** Método que fecha o arquivo
-     *    Descrição:
-     *     O Metodo permite fecharmos o arquivo após o usarmos 
-     *     em modo de leitura
-     */
-    
+     /** Método que Fecha o Arquivo
+      *    Descrição:
+      *      O Metodo permite fechar o arquivo após o seu uso em modo 
+      *      de leitura.
+      */
     public void cleanupLer() {
 
         try {
@@ -115,12 +108,11 @@ public class Persistencia implements Serializable{
         }
     }
     
-    /** Método habilita o modo de escrita
-     *    Descrição:
-     *     O Metodo permite que possamos abrir o nosso arquivo e habilitar a 
-     *     stream para que nos possamos escrever no arquivo
-     */
-
+     /** Método Habilita o Modo de Escrita
+      *    Descrição:
+      *      O método permite abrir o arquivo e habilitar a stream para que
+      *      seja possível escrever no arquivo.
+      */
     public void setupGravar() {
 
         try {
@@ -132,13 +124,12 @@ public class Persistencia implements Serializable{
         }
     }
 
-    /** Método que salva a coleção no arquivo
-     *    Descrição:
-     *    O método escreve no arquivo, que deve estar em modo de leitura,
-     *    a nossa coleção de objetos de arte
-     *    
-     */
-    
+     /** Método que Salva a Coleção no Arquivo
+      *    Descrição:
+      *      O método escreve no arquivo, que deve estar em modo de leitura,
+      *      a coleção de objetos de arte do museu.
+      *    
+      */
     public void addRecords(LinkedList<Arte> cad) {
 
         try {
@@ -149,13 +140,11 @@ public class Persistencia implements Serializable{
         }
     }
 
-    /** Método que fecha o arquivo
-     *    Descrição:
-     *     O Metodo permite que possamos fechar o nosso arquivo de modo 
-     *     que isso só deve ocorrer quando todos os objetos tiverem sido 
-     *     gravados
-     */
-    
+     /** Método que Fecha o Arquivo
+      *    Descrição:
+      *      O método permite fechar o arquivo e isso apenas deve ocorrer quando
+      *      todos os objetos tiverem sido gravados.
+      */
     public void cleanupGravar() {
 
         try {
@@ -168,19 +157,13 @@ public class Persistencia implements Serializable{
 
     }
 
-    /** Metodo que retorna um objeto de arte
-     *      Descrição:
-     *       O método permite que nós retornemos para o programa um objeto de
-     *       arte da coleção cad na posição x
-     */
-    
+     /** Método que Retorna um Objeto de Arte
+      *    Descrição:
+      *      O método permite que seja retornado para o programa um objeto de
+      *      arte da coleção cad em uma determinada posição "x".
+      */
     public Arte getArte(int x) {
         return cad.get(x);
     }
-         
-    public void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
+    
 }

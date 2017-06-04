@@ -9,7 +9,7 @@ import java.util.LinkedList;
  *      pertencentes ao acervo do museu.
  * 
  *    @author Grupo 06
- *      alunos: Armando Neto, Douglas Lima
+ *      Alunos: Armando Neto, Douglas Lima
  *              Drayton Corrêa, Ewerton Santos
  */
 
@@ -132,7 +132,7 @@ public class Arte extends Artista implements Serializable {
     }
     
     
-    //Relatório dos Dados:
+   //Relatório dos Dados:
     public String toString(){
         return "Título da Obra:" + titulo + '\n' + super.toString() + '\n' + "Ano de Produção:" + ano + '\n' + "Categoria:" + categoria + '\n' +
                "Período de Produção:" + PeriodoProducao + '\n' + "Procedência" + procedencia + '\n' + "Origem da Procedência:" + origem + '\n' + "Número de Tombo:" + tombo;
