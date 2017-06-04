@@ -304,6 +304,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
         painelT.setVisible(true);
     }//GEN-LAST:event_jMenuItemEditarActionPerformed
 
+    //Botões Tela Principal
+    /** Botão Editar
+      *    Descrição:
+      *      Abre um painel (PainelDePesquisaTombo) que pede o número de tombo e,
+      *      com aquilo que for digitado nele, percorre a coleção para saber
+      *      se esse tombo existe para logo em seguida abrir a janela de
+      *      edição de obras.
+      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PainelDePesquisaTombo painelT = new PainelDePesquisaTombo();
         jTelaPrincipal.add(painelT);
@@ -311,6 +319,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         painelT.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /** Botão Pesquisar
+     *    Descrição: 
+     *      Abre uma janela que serve para buscar uma obra de arte no acervo do
+     *      museu dentre aquelas que já foram cadastradas.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         PainelDePesquisa painelP = new PainelDePesquisa();
         jTelaPrincipal.add(painelP);
@@ -318,6 +331,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         painelP.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /** Botão Cadastrar
+      *    Descrição:
+      *      Abre uma janela que serve para registrar uma obra de arte no acervo
+      *      pertencente ao museu.
+      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         PainelDeRegistro painelC = new PainelDeRegistro();
         painelC.setTitle("Cadastrar Obra de Arte");
