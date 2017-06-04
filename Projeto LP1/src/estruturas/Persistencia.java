@@ -51,6 +51,10 @@ public class Persistencia implements Serializable{
         return continua;
     }
     
+    public void removeProduto(Arte a) {
+        cad.remove(a);
+    }    
+    
     /** Método que Habilita o Modo de Leitura
      *    Descrição:
      *     O Metodo abre o arquivo e habilita a stream para que nos retorne os

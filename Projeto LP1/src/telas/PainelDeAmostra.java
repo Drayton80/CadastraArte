@@ -129,6 +129,7 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         lblMostraTipoProce = new javax.swing.JLabel();
         lblMostraOrigemProce = new javax.swing.JLabel();
         lblMostraTombo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -173,12 +174,20 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(27, 27, 27)
@@ -200,10 +209,6 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(lblMostraAno))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(lblMostraTempProducao))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(lblMostraRegiArtista))
@@ -212,8 +217,12 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblMostraTipoProce))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblMostraTempProducao))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblMostraOrigemProce))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(JLabel11)
@@ -227,7 +236,9 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,10 +281,11 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLabel11)
                     .addComponent(lblMostraTombo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoFechar)
-                    .addComponent(botaoEditar))
+                    .addComponent(botaoEditar)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -290,11 +302,6 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
-    private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
-        fecha_Janela();        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoFecharActionPerformed
 
     /** Metodo se o número de tombo já foi cadastrado
      *      Descrição: Se o botão for pressionado, fazemos uma varredura em 
@@ -330,11 +337,36 @@ public class PainelDeAmostra extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
+    private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
+        fecha_Janela();        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoFecharActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir ?", "Aviso", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            for (Arte a : cad) {
+                if (a.getTombo() == tombo) {
+                    this.dispose();
+                    cad.remove(a);
+                    p.setupGravar();
+                    p.addRecords(cad);
+                    p.cleanupGravar();
+                    JOptionPane.showMessageDialog(rootPane, "Arte Excluida", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                    PainelDePesquisa.atualizacao_Instantanea();
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Tombo não encontrado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel11;
     private javax.swing.JToggleButton botaoEditar;
     private javax.swing.JToggleButton botaoFechar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
