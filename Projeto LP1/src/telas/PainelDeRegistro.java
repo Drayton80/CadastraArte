@@ -436,7 +436,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
         });
 
-        jBSalvarCadastro.setBackground(new java.awt.Color(0, 102, 102));
         jBSalvarCadastro.setText("Salvar");
         jBSalvarCadastro.setToolTipText("Confirmar dados.");
         jBSalvarCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
