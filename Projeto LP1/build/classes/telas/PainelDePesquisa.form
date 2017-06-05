@@ -226,6 +226,9 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Para pesquisar por Nome do Artista, digite o nome completo do Artista e marque a caixa Nome do Artista."/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtPesquisaArtista.setDocument(new ControlaEntradaTexto());"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloPainel">
           <Properties>

@@ -287,16 +287,25 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Nome do Artista que produziu a Obra de Arte."/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtNomeArtista.setDocument(new ControlaEntradaTexto());"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrigemProcedencia">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Digite o Local de onde a obra de arte foi adquirida."/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtOrigemProcedencia.setDocument(new ControlaEntradaTexto());"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Digite quantos anos foram necess&#xe1;rio para a conclus&#xe3;o da Obra."/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTempoPeriodoProducao.setDocument(new ControlaEntradaNumero(true));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="formatTxtAno">
           <Properties>

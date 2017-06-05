@@ -2,6 +2,7 @@ package telas;
 
 import estruturas.Persistencia;
 import estruturas.Arte;
+import estruturas.ControlaEntradaTexto;
 import java.awt.Dimension;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -158,6 +159,7 @@ public class PainelDePesquisa extends javax.swing.JInternalFrame {
 
         txtPesquisaNome.setToolTipText("Para pesquisar por Título da Obra, digite o nome completo da obra e marque a caixa Titulo da Obra.");
 
+        txtPesquisaArtista.setDocument(new ControlaEntradaTexto());
         txtPesquisaArtista.setToolTipText("Para pesquisar por Nome do Artista, digite o nome completo do Artista e marque a caixa Nome do Artista.");
 
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N

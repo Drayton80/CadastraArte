@@ -7,6 +7,8 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.image.BufferedImage;
 import estruturas.Arte;
+import estruturas.ControlaEntradaNumero;
+import estruturas.ControlaEntradaTexto;
 import estruturas.ManipulaçãoDeImagem;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
@@ -397,10 +399,13 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
 
         txtTituloObra.setToolTipText("Digite o Título da Obra.");
 
+        txtNomeArtista.setDocument(new ControlaEntradaTexto());
         txtNomeArtista.setToolTipText("Nome do Artista que produziu a Obra de Arte.");
 
+        txtOrigemProcedencia.setDocument(new ControlaEntradaTexto());
         txtOrigemProcedencia.setToolTipText("Digite o Local de onde a obra de arte foi adquirida.");
 
+        txtTempoPeriodoProducao.setDocument(new ControlaEntradaNumero(true));
         txtTempoPeriodoProducao.setToolTipText("Digite quantos anos foram necessário para a conclusão da Obra.");
 
         formatTxtAno.setFormatterFactory(setFormatoAno());
