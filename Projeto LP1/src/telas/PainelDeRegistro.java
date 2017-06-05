@@ -460,7 +460,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel1.setText("* Todos campos devem ser preenchidos ou selecionados obrigatoriamente.");
+        jLabel1.setText("* Todos os campos devem ser preenchidos ou selecionados obrigatoriamente.");
 
         txtResArtista.setFormatterFactory(setFormatoRegistro());
         txtResArtista.setToolTipText("Digite o Registro Profissional do artista.");
@@ -526,7 +526,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                             .addComponent(lblResArtista)
                                             .addComponent(lblOrigemProcedencia)
                                             .addComponent(lblTipoProcedencia))
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,10 +547,10 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                                             .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblTituloPainel))
                                         .addGap(184, 184, 184)))
-                                .addGap(52, 52, 52))
+                                .addGap(34, 34, 34))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(252, 252, 252))))))
+                                .addGap(237, 237, 237))))))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
