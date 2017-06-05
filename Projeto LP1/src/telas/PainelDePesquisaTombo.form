@@ -85,9 +85,6 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero de Tombo da Obra de Arte."/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtTombo.setDocument(new ControlaEntradaNumero(true));"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

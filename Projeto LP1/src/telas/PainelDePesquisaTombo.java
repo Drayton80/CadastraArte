@@ -1,7 +1,6 @@
 package telas;
 
 import estruturas.Arte;
-import estruturas.ControlaEntradaNumero;
 import estruturas.Persistencia;
 import java.awt.Dimension;
 import java.util.LinkedList;
@@ -80,7 +79,6 @@ public class PainelDePesquisaTombo extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Janela de Pesquisa");
 
-        txtTombo.setDocument(new ControlaEntradaNumero(true));
         txtTombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtTombo.setToolTipText("Digite o número de Tombo da Obra de Arte.");
 
