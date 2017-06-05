@@ -131,20 +131,24 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       */
     private boolean teste_dos_campos() {
         String txtTitulo = txtTituloObra.getText();
-        String txtAno = formatTxtAno.getText();
         String txtNome = txtNomeArtista.getText();
-        String txtRegistro = txtResArtista.getText();
         String txtOrigem = txtOrigemProcedencia.getText();
         String txtCategoria = (String) cbCategoria.getSelectedItem();
         String txtProcedencia = (String) cbProcedencia.getSelectedItem();
         boolean semImagem = false;
-
+        
+        try{
+            int txtRegistro = Integer.parseInt(txtResArtista.getText());
+            int txtAno = Integer.parseInt(formatTxtAno.getText());
+        }catch(NumberFormatException n){
+            return true;
+        }
         if (labelImagem1.getIcon() == null) {
             semImagem = true;
         }
 
-        if (txtTitulo.equals("") || txtAno.equals("") || txtNome.equals("")
-                || txtRegistro.equals("") || txtOrigem.equals("") || txtCategoria.equals("Selecione")
+        if (txtTitulo.equals("") || txtNome.equals("")
+                || txtOrigem.equals("") || txtCategoria.equals("Selecione")
                 || semImagem || txtProcedencia.equals("Selecione")) {
 
             return true;
