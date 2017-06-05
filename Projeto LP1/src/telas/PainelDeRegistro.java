@@ -125,9 +125,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
       *        - true  (caso tenha algum campo obrigatório sem algo)
       *           ou
       *        - false (caso todos estejam preenchidos ou selecionados)
-      *    Observação:
-      *      Os campos obrigatórios foram marcados com asteriscos ( * ) na 
-      *      interface.
+      *    
       */
     private boolean teste_dos_campos() {
         String txtTitulo = txtTituloObra.getText();
@@ -138,6 +136,9 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         boolean semImagem = false;
         
         try{
+            if(!checkbIndeterminado.isSelected()){
+                int txtPeriodo = Integer.parseInt(txtTempoPeriodoProducao.getText());
+            }
             int txtRegistro = Integer.parseInt(txtResArtista.getText());
             int txtAno = Integer.parseInt(formatTxtAno.getText());
         }catch(NumberFormatException n){
@@ -275,7 +276,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
             }
 
             if (txtPeriodo.equals("") || checkbIndeterminado.isSelected()) {
-                txtPeriodo = "Indeterminado";
+                checkbIndeterminado.isSelected();
             }
 
             Arte obra = new Arte(txtTituloObra.getText(), txtNomeArtista.getText(),
@@ -379,27 +380,27 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         lblTituloPainel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel.setText("Informações da Obra");
 
-        lblTitulo.setText("Título da Obra:*");
+        lblTitulo.setText("Título da Obra:");
 
-        lblAnoProducao.setText("Ano de Produção:*");
+        lblAnoProducao.setText("Ano de Produção:");
 
-        lblTempoProducao.setText("Período de Produção:*");
+        lblTempoProducao.setText("Período de Produção:");
 
-        lblCategoria.setText("Categoria:*");
+        lblCategoria.setText("Categoria:");
 
         lblTituloPainel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel2.setText("Informações do Artista");
 
-        lblNomeArtista.setText("Nome do Artista:*");
+        lblNomeArtista.setText("Nome do Artista:");
 
-        lblResArtista.setText("Registro do Artista:*");
+        lblResArtista.setText("Registro do Artista:");
 
         lblTituloPainel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTituloPainel3.setText("Informações da Procedência");
 
-        lblTipoProcedencia.setText("Tipo de Procedência:*");
+        lblTipoProcedencia.setText("Tipo de Procedência:");
 
-        lblOrigemProcedencia.setText("Origem da Procedência:*");
+        lblOrigemProcedencia.setText("Origem da Procedência:");
 
         txtTituloObra.setToolTipText("Digite o Título da Obra.");
 
@@ -459,7 +460,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel1.setText("* são campos que devem ser preenchidos ou selecionados obrigatoriamente.");
+        jLabel1.setText("* Todos campos devem ser preenchidos ou selecionados obrigatoriamente.");
 
         txtResArtista.setFormatterFactory(setFormatoRegistro());
         txtResArtista.setToolTipText("Digite o Registro Profissional do artista.");
@@ -475,7 +476,7 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Atribuir Imagem*");
+        jLabel2.setText("Atribuir Imagem");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel3.setText("* * O tombo da sua Arte será gerado automaticamente no momento de salvar.");
@@ -484,48 +485,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         jPanelCadastro.setLayout(jPanelCadastroLayout);
         jPanelCadastroLayout.setHorizontalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAnoProducao)
-                            .addComponent(lblCategoria)
-                            .addComponent(lblTitulo)
-                            .addComponent(lblNomeArtista)
-                            .addComponent(lblTempoProducao)
-                            .addComponent(lblResArtista)
-                            .addComponent(lblOrigemProcedencia)
-                            .addComponent(lblTipoProcedencia))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(formatTxtAno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtResArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                .addComponent(txtTempoPeriodoProducao, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(checkbIndeterminado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBSelectImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTituloPainel)
-                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(10, 10, 10)))
-                        .addGap(184, 184, 184)))
-                .addGap(52, 52, 52))
-            .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
@@ -546,6 +505,52 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
                         .addGap(219, 219, 219)
                         .addComponent(lblTituloPainel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblAnoProducao)
+                                            .addComponent(lblCategoria)
+                                            .addComponent(lblTitulo)
+                                            .addComponent(lblNomeArtista)
+                                            .addComponent(lblTempoProducao)
+                                            .addComponent(lblResArtista)
+                                            .addComponent(lblOrigemProcedencia)
+                                            .addComponent(lblTipoProcedencia))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txtTituloObra, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(formatTxtAno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtResArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtOrigemProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                                .addComponent(txtTempoPeriodoProducao, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(checkbIndeterminado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(labelImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jBSelectImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblTituloPainel))
+                                        .addGap(184, 184, 184)))
+                                .addGap(52, 52, 52))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(252, 252, 252))))))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
