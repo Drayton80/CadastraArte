@@ -295,9 +295,6 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Digite o Local de onde a obra de arte foi adquirida."/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txtOrigemProcedencia.setDocument(new ControlaEntradaTexto());"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTempoPeriodoProducao">
           <Properties>

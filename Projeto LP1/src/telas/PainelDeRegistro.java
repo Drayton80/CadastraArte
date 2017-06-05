@@ -402,7 +402,6 @@ public class PainelDeRegistro extends javax.swing.JInternalFrame {
         txtNomeArtista.setDocument(new ControlaEntradaTexto());
         txtNomeArtista.setToolTipText("Nome do Artista que produziu a Obra de Arte.");
 
-        txtOrigemProcedencia.setDocument(new ControlaEntradaTexto());
         txtOrigemProcedencia.setToolTipText("Digite o Local de onde a obra de arte foi adquirida.");
 
         txtTempoPeriodoProducao.setDocument(new ControlaEntradaNumero(true));

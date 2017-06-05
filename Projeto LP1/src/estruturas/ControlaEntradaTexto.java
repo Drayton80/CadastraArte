@@ -15,14 +15,9 @@ public class ControlaEntradaTexto extends PlainDocument
     @Override
     public void insertString(int offs, String str, AttributeSet a) throws BadLocationException
     {
-        if(Character.isLetter(str.charAt(0)))
+        if(Character.isLetter(str.charAt(0)) || str.equals(" "))
             super.insertString(offs, str, a);
     }
     
-    public void insertInt(int offs, String str, AttributeSet a) throws BadLocationException
-    {
-        if(!Character.isLetter(str.charAt(0)))
-            super.insertString(offs, str, a);
-    }
 }
 
